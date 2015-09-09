@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="vendor/jQuery.js"></script>
+<script src="vendor/ractive.js"></script>
+<script src="vendor/jquery-ui.js"></script>
+<script src="js/resources.js"></script>
+<script src="js/index.js"></script>
+<script src="js/busing.js"></script>
+<script src="js/settings.js"></script>
+<title>TabDuke</title>
+<body>
+<div id="container" align="center">
+    <div id="notification" style="width:100%; display:none; position:fixed; top: 20px;">
+        <div align="center" style="width:320px; font-size:12px; height:50px; padding:5px; background-color:rgba(0,0,0,0.8); border-radius:5px; border: 1px solid white; color: white;">
+            <div align="right"><img id="close-notification" src="images/status/close.png" width="15" height="15"></div>
+            <div style="margin-top: -12px;">
+                <div style="font-size: 18px;">New in Version 2.0:</div>
+                <div style="margin-top: -5px;">Click the <img style="transform:translateY(5px)" src="images/status/settings.png" width="20" height="20"> in the top right to customize your settings!</div>
+            </div>
+        </div>
+    </div>
+    <script id="settings-template" type="type/ractive">
+        <div id="settings-icon" style="{{displaySettingIcon}} position: fixed; cursor: pointer; top: 5px; right: 10px;">
+            <img id="settings-image" src="images/status/settings.png" on-click="toggleSettings" width="35" height="35"/>
+        </div>
+        <div id="settings-panel">
+            <div style="width:25px; height:25px;">
+                <div id="close-icon" style="{{displayCloseIcon}} position:relative; right:105px; top:10px;">
+                    <img src="images/status/close.png" style="cursor:pointer;" on-click="toggleSettings" width="25" height="25"/>
+                </div>
+            </div>
+            <div style="margin-top:10px;">
+                <div class="section-header" align="center">Settings</div>
+                <div class="divider" style="margin-top: 10px;"></div>
+                <table cellpadding="5">
+                    {{#each switches}}
+                    <tr>
+                        <td>
+                            <div style="width:30px;">
+                                <div class="switch" id="{{id}}-switch" on-click="toggleSwitch:{{id}}">
+                                    <div class="switch-ball" id="{{id}}-switch-ball"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="margin-left: 10px; font-size: 14px;">{{label}}</div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+                <div class="section-header" style="margin-top: 20px;">Manage Links</div>
+                <div class="divider"></div>
+                <div class="button" id="add-button" align="center">
+                    Add
+                </div>
+                <div id="add-link-prompt">
+                    <table>
+                        <tr>
+                            <td>
+                                <div align="right" class="field-label">Name :</div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input class="field" type="text" value='{{name}}'>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="name-error" style="visibility: hidden; margin-top: 4px;">
+                                    <img src="images/status/error.png" width="20" height="20">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div align="right" class="field-label">URL :</div>
+                            </td>
+                            <td>
+                                <input class="field" type="text" value='{{url}}'>
+                            </td>
+                            <td>
+                                <div id="url-error" style="visibility: hidden; margin-top: 4px;">
+                                    <img src="images/status/error.png" width="20" height="20">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div align="right" class="field-label">Image URL :</div>
+                            </td>
+                            <td>
+                                <input class="field" type="text" value='{{imageUrl}}'>
+                            </td>
+                            <td>
+                                <div id="image-error" style="visibility: hidden; margin-top: 4px;">
+                                    <img src="images/status/error.png" width="20" height="20">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="error-tip" style="color: red; width: 220px; margin-top: 5px; height: 20px;"></div>
+                    <div align="center" style="color: white; font-size: 24px; margin-top: 5px;">
+                        Preview
+                    </div>
+                    <div class="block" id="preview-container" style="margin-top: 20px;">
+                        <img id="preview" src="{{imageUrl}}" width="60" height="60">
+                        <div id="preview-alternate" style="color: black; font-size: 42px; margin-top: 5px;"></div>
+                    </div>
+                    <div class="label" style="height: 20px; margin-top:7px;">
+                        {{name}}
+                    </div>
+
+                    <div style="position: relative; bottom: -23px;">
+                        <div class="button" id="create-button" on-click="createLink">
+                            Create
+                        </div>
+                        <div class="button" id="cancel-button" on-click="cancelLink">
+                            Cancel
+                        </div>
+                    </div>
+                </div>
+                <div class="divider" style="margin-top: 10px;"></div>
+                <!--<div align="center" id="min-link-table">-->
+                <!--<div style="margin-top: 15px;">-->
+                <!--<table>-->
+                    <!--{{#each table:i}}-->
+                    <!--<tr>-->
+                        <!--{{#each table[i]:j}}-->
+                        <!--<td id="link-{{i}}-{{j}}" style="width:70px; max-width: 70px; height:70px; max-height:70px;">-->
+                            <!--<div align="center" style="cursor: default;">-->
+                                <!--<div class="min-link" id="min-link-{{i}}-{{j}}" title="{{tooltipUrl}}">-->
+                                    <!--<img src="{{icon}}" style="border-radius:5px; {{showIcon}}" width="40" height="40">-->
+                                    <!--<div style="font-size: 28px; margin-top: 3px; color: black; {{showText}}">{{text}}</div>-->
+                                <!--</div>-->
+                                <!--<div class="min-label" id="min-label-{{i}}-{{j}}">-->
+                                    <!--{{label}}-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                        <!--{{/each}}-->
+                    <!--</tr>-->
+                    <!--{{/each}}-->
+                <!--</table>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="sub-section-header" style="margin-top: 10px; margin-bottom: 10px;">Manage</div>-->
+                <!--<div class="divider"></div>-->
+                <div id="manage-links">
+                    <ul id="sortable-links" style="list-style-type: none; margin-top: 0px; margin-left: -15px; margin-bottom: 5px;">
+                    {{#each createdLinks:i}}
+                        <li id="{{i}}-sortable-item">
+                            <div align="left">
+                                <div class="link-handle" style="cursor: move; display:inline-block; margin-top: 5px;">
+                                    <table>
+                                        <tr>
+                                            <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white;"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white; margin-top: -2px"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white; margin-top: -2px"></div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="transform:translateY(-2px); display: inline-block;">
+                                    <div class="switch small" id="{{i}}-toggle" on-click="toggleLinkDisplay:{{.}}">
+                                        <div class="switch-ball small" id="{{i}}-toggle-ball"></div>
+                                    </div>
+                                </div>
+                                <div class="min-link-label" title="{{tooltipUrl}}">{{label}}</div>
+                                <div class="delete-link" style="margin-right: 15px; margin-top: 5px;" id="delete-{{i}}" on-click="deleteLink:{{i}},{{createdLinks[i]}}">
+                                    <img src="images/status/close.png" width="15" height="15">
+                                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div style="font-size: 10px;">You can only show a max of 7 links at once.</div>
+                <div style="font-size: 10px;">Drag to rearrange.</div>
+                <!--<div class='button' on-click="restoreDefaultLinks" style="width: 100px; margin-top: 10px;">Restore Defaults</div>-->
+            </div>
+        </div>
+    </script>
+    <div id="time">
+        <div id="clock"></div>
+        <div id="date"></div>
+    </div>
+    <div id="link-table"></div>
+    <script id="link-template" type="type/ractive">
+        <table>
+            <tr>
+                {{#each links:i}}
+                <td width="100px; max-width:100px;">
+                    <div class="link" align="center">
+                        <a href="{{url}}">
+                            <div class="block">
+                                <img src="{{icon}}" style="border-radius: 10px; {{showIcon}}" width="60" height="60">
+                                <div style="font-size: 42px; color: black; margin-top: 5px; {{showText}}">{{text}}</div>
+                            </div>
+                        </a>
+                        <div class="label" style="margin-top:{{labelOffset}}">{{label}}</div>
+                    </div>
+                </td>
+                {{/each}}
+            </tr>
+        </table>
+    </script>
+    <table cellpadding="20" id="information-lists" style="margin-bottom: 20px;">
+        <tr>
+            <td>
+            <div id="dining-hours">
+                <div class="info-header" align="center">
+                    <div>
+                        <div style="display: inline-block">
+                            <img src="images/status/restaurant.png" width="20" height="20"/>
+                        </div>
+                        <div style="display: inline-block; transform: translateY(-5px);">Campus Eateries</div>
+                    </div>
+                </div>
+                <div class="info" id="dining" align="left" style="padding: 0px; width: 224px; height: 174px; max-height: 174px;"></div>
+            </div>
+            </td>
+            <td>
+            <div id="bus-times">
+                <div class="info-header" align="center">
+                    <div>
+                        <div style="display: inline-block">
+                            <img src="images/status/bus.png" width="20" height="20"/>
+                        </div>
+                        <div style="display: inline-block; transform: translate(5px, -4px);">Bus Times</div>
+                    </div>
+                </div>
+                <div class="info" id="bus-arrivals" style="color: white; font-size: 12px;"></div>
+            </div>
+            </td>
+        </tr>
+    </table>
+
+    <script id="dining-template" type="type/ractive">
+        <table id="venues" style="width: 100%">
+            {{#each venues:i}}
+            <tr class="venue-status" id="venue-status-{{i}}">
+                <td style="padding: 2px">
+                    <div class="status">
+                        <img id="status-icon-{{i}}" src="images/status/red.png" width="12px" height="12px"/>
+                    </div>
+                    <div class="venue">{{name}}</div>
+                    <div class="menu-link" style="{{showMenu}}; float: right; font-weight: bold; font-size: 10px; margin-top: 3px;">
+                        <a style="text-decoration: none;" href="{{menu}}">MENU</a>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        <div id="schedule-link" style="font-size: 10px; color: white; margin-bottom: 10px; margin-top: 10px;" align="center">
+            <div>
+                For a complete dining schedule, click
+                <a href="https://studentaffairs.duke.edu/sites/default/files/u1379/regularhours.pdf"
+                        style="text-decoration: none; font-weight: bold; color: white;">here.</a>
+            </div>
+        </div>
+    </script>
+
+    <script id="bus-template" type="type/ractive">
+        <div align="center" style="font-size: 10px;">Refreshes every 30 sec | Powered by <a style="text-decoration: none; color: #22adf2;" href="https://duke.transloc.com/">TransLoc</a></div>
+        <div class="divider"></div>
+        <div style="{{loading}}; margin-top: 30px" align="center">
+            <img src="images/status/loading.gif" width="50" height="50"/>
+        </div>
+        <div style="{{loading}}; font-size: 10px; color: white;" align="center">
+            Reload or check your internet connection.
+        </div>
+        {{#each stops:i}}
+            <br>
+            <div align="center"><b style="font-size: 12px">{{.}}</b></div>
+            <table>
+            {{#each buses[.]}}
+            <tr>
+                <td>
+                    <div style="background-color: {{this.color}}; width: 5px; height: 100%; display:inline-block"></div>
+                </td>
+                <td>
+                    <div style="font-size: 14px;">{{this.route}}</div>
+                    <div>{{this.times}}</div>
+                </td>
+            </tr>
+            {{/each}}
+            </table>
+            <br>
+            <div class="divider"></div>
+        {{/each}}
+        <div style="margin-top: 50px; {{noBuses}}; color: white; font-size: 16px;" align="center">
+            No Buses Currently Running
+        </div>
+    </script>
+    <div id="settings" style="height: 100%"></div>
+    <div id="footer">Developed by Kevin He | 2015</div>
+    <div id="photo-source"></div>
+    <script id="source" type="type/ractive">
+        <div style="position: fixed; bottom: 10px; left: 10px; color: white; font-size: 12px; text-shadow: 0 0 10px black;">
+            Photo by: <a style="text-decoration: none; color: white; font-weight: bold;" href="{{link}}">{{source}}</a>
+        </div>
+    </script>
+</div>
+</body>
+</html>
