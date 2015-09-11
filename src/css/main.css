@@ -439,3 +439,30 @@ body::-webkit-scrollbar{
 #close-notification:hover{
     opacity: 0.8;
 }
+
+#food-truck-display{
+    width:250px;
+    padding:5px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    background-color:rgba(0,0,0,0.8);
+    border: 1px solid white;
+    border-top: none;
+}
+
+#food-truck-pulldown{
+    width:40px;
+    height:10px;
+    background-color:white;
+    box-shadow:0 0 5px black;
+    cursor:pointer;
+    border-top:none;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    opacity:0.8;
+}
+
+#food-truck-pulldown:hover{
+    opacity:1.0;
+    box-shadow:0 0 10px black;
+}

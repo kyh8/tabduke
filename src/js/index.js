@@ -9,6 +9,8 @@
  */
 
 var templates = {};
+var apiKey = 'AIzaSyDdn7SeJJe79wDWrOsOgYDVffsoNySvScI';
+var calendarId = 'vgkckpl2e04dgvbtn94u1jeuk0%40group.calendar.google.com';
 function startTime(){
     var currentTime = new Date();
 
@@ -43,12 +45,92 @@ function startTime(){
 
     if(today != currentDate){
         document.getElementById('date').innerText = today;
+        document.getElementById('food-truck-loading').style.display = '';
         ////console.log('today: ' + today);
+        var yesterday = new Date();
+        yesterday = new Date(new Date(yesterday.getTime()-24*60*60*1000).toLocaleDateString());
+        //console.log(yesterday);
+        var tomorrow = new Date(yesterday.getTime() + 3*24*60*60*1000-1000);
+        //console.log(tomorrow);
+
+        var https = 'https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events';
+        var request = $.ajax({
+            url: https,
+            dataType: 'json',
+            type: "GET",
+            data:{
+                key: apiKey,
+                timeMin: yesterday.toISOString(),
+                timeMax: tomorrow.toISOString(),
+                singleEvents:true,
+                orderBy:"startTime"
+            }
+        });
+        $.when(request).done(function(data){
+            document.getElementById('food-truck-loading').style.display = 'none';
+            //console.log(data);
+            var trucks = [];
+            data.items.forEach(function(event){
+                var start = new Date(event.start.dateTime);
+                var startString = formatTime(start, MILITARY_TIME, false);
+                var end = new Date(event.end.dateTime);
+                var endString = formatTime(end, MILITARY_TIME, false);
+                var truck = event.summary;
+                if(truck.indexOf('-Chapel') != -1){
+                    truck = truck.substring(0,truck.indexOf('-Chapel'));
+                }
+                if(start.toLocaleDateString() == currentTime.toLocaleDateString()){
+                    var truckObj = {
+                        start:startString,
+                        end:endString,
+                        truck:truck
+                    };
+                    trucks.push(truckObj);
+                }
+            });
+            if(trucks.length == 0){
+                templates.foodTrucks.set('none', '');
+            }
+            else{
+                templates.foodTrucks.set('none', 'display:none');
+            }
+            templates.foodTrucks.set('trucks', trucks);
+        });
     }
 
     setTimeout(function(){
         startTime();
     }, 500);
+}
+
+function formatTime(date, military, showSeconds){
+    //console.log('before: ' + date);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var half = date.toLocaleTimeString().split(' ')[1];
+    var string = '';
+    if(!military){
+        if(half == 'PM' && hours != 12){
+            hours -= 12;
+        }
+        if(half == 'AM' && hours == 12){
+            hours += 12;
+        }
+    }
+    string += hours + ':';
+    if(minutes < 10){
+        string += '0';
+    }
+    string += minutes;
+    if(showSeconds){
+        string += ':' + seconds;
+    }
+    if(!military){
+        string += ' ' + half;
+    }
+    //console.log(string);
+    return string;
 }
 
 function setVenueStatuses(timeInSeconds, dayOfWeek, forceUpdate){
@@ -129,11 +211,11 @@ function initPage(){
     retrieveBusData();
     renderElements();
 
-    chrome.storage.local.get('notificationClosed', function(closed){
-        if(Object.keys(closed).length == 0){
-            document.getElementById('notification').style.display = '';
-        }
-    });
+    //chrome.storage.local.get('notificationClosed', function(closed){
+    //    if(Object.keys(closed).length == 0 || !closed.notificationClosed){
+    //        document.getElementById('notification').style.display = '';
+    //    }
+    //});
 }
 
 function setupLinksTemplate(){
@@ -163,26 +245,23 @@ function renderElements(){
 }
 
 $(document).ready(function(){
-    document.getElementById('close-notification').addEventListener('click', function(){
-        $('#notification').fadeOut();
-        chrome.storage.local.set({'notificationClosed':true});
-    });
+    //chrome.storage.local.set({'pulldownClosed': false});
     initializeBackground();
     initializeDining();
-    chrome.storage.onChanged.addListener(function(changes, namespace) {
-        for (var key in changes) {
-            var storageChange = changes[key];
-            ////console.log('Storage key "%s" in namespace "%s" changed. ' +
-            //    'Old value was "%s", new value is "%s".',
-            //    key,
-            //    namespace,
-            //    storageChange.oldValue,
-            //    storageChange.newValue);
-            ////console.log('key: ' + key + ' changed. old,new below:');
-            ////console.log(storageChange.oldValue);
-            ////console.log(storageChange.newValue);
-        }
-    });
+    //chrome.storage.onChanged.addListener(function(changes, namespace) {
+    //    for (var key in changes) {
+    //        var storageChange = changes[key];
+    //        ////console.log('Storage key "%s" in namespace "%s" changed. ' +
+    //        //    'Old value was "%s", new value is "%s".',
+    //        //    key,
+    //        //    namespace,
+    //        //    storageChange.oldValue,
+    //        //    storageChange.newValue);
+    //        ////console.log('key: ' + key + ' changed. old,new below:');
+    //        ////console.log(storageChange.oldValue);
+    //        ////console.log(storageChange.newValue);
+    //    }
+    //});
     //chrome.storage.local.clear();
     chrome.storage.local.get(function(obj){
         //console.log('storage:');
@@ -237,28 +316,35 @@ $(document).ready(function(){
             ////console.log('loaded link manager');
         }
 
+        setupFoodTrucksTemplate();
+        var isClosed;
+        if(Object.keys(obj).indexOf('pulldownClosed') == 0){
+            isClosed = false;
+        }
+        else{
+            isClosed = obj.pulldownClosed;
+        }
+        if(isClosed){
+            $('#food-truck-display').hide();
+            document.getElementById('pulldown-icon').setAttribute('src', 'images/status/arrow-down.png');
+        }
+        document.getElementById('food-truck-pulldown').addEventListener('click', function(){
+            isClosed = !isClosed;
+            $('#food-truck-display').toggle('blind', {'easing': 'easeInOutQuart'}, 500, function(){
+                if(isClosed){
+                    document.getElementById('pulldown-icon').setAttribute('src', 'images/status/arrow-down.png');
+                }
+                else {
+                    document.getElementById('pulldown-icon').setAttribute('src', 'images/status/arrow-up.png');
+                }
+            });
+            chrome.storage.local.set({'pulldownClosed': isClosed});
+        });
+
         initializeSettings(switches, createdLinks);
         $('#settings-panel').hide();
         $('#add-link-prompt').hide();
     });
-    //
-    //chrome.storage.local.get('settingSwitches', function(obj){
-    //    if(Object.keys(obj).length == 0) {
-    //        switches = SWITCHES;
-    //        //console.log('initialize');
-    //        //console.log(SWITCHES);
-    //        chrome.storage.local.set({'settingSwitches':switches});
-    //    }
-    //    else {
-    //        //switches
-    //        switches = obj['settingSwitches'];
-    //        //console.log('set it to this?');
-    //        //console.log(obj);
-    //    }
-    //    initializeSettings(switches);
-    //    $('#settings-panel').hide();
-    //    $('#add-link-prompt').hide();
-    //});
 
     $(window).load(function(){
         setTimeout(function(){
@@ -291,6 +377,15 @@ function initializeBackground(){
     ractive.set('link', imageSources[images[index]].link);
 }
 
+function setupFoodTrucksTemplate(){
+    var foodTrucks = new Ractive({
+        el: '#food-trucks',
+        template: '#food-truck-template',
+        data: {none:'display:none'}
+    });
+    templates.foodTrucks = foodTrucks;
+}
+
 function initializeDining(){
     var venues = [];
     for(var i = 0; i < DINING.venues.length; i++){
@@ -316,62 +411,6 @@ function initializeDining(){
     });
     templates.dining = diningRactive;
 }
-
-//function requestWeather(){
-//    var weatherRactive = new Ractive({
-//        el: '#weather',
-//        template: '#weather-template',
-//        data:{}
-//    });
-//    weatherRactive.set('loadingWeather', '');
-//    weatherRactive.set('showWeather', 'display: none');
-//
-//    if (navigator.geolocation) {
-//        navigator.geolocation.getCurrentPosition(getPosition);
-//    }
-//
-//    var position = [];
-//    function getPosition(pos) {
-//        position = [pos.coords.latitude, pos.coords.longitude];
-//        ////console.log(position);
-//
-//        var weatherRequest = $.getJSON('http://api.openweathermap.org/data/2.5/weather?'+
-//            'lat='+position[0]+'&lon='+position[1]+'&units=imperial&APPID=d3d896aef1ccac13159bd2a68b19fe71');
-//
-//        $.when(weatherRequest).done(function(weather){
-//            //console.log(weather);
-//            var temp = Math.round(weather.main.temp);
-//            var description = weather.weather[0].description;
-//            var weatherDescription = '';
-//            if(description == 'sky is clear'){
-//                weatherDescription = 'Clear Skies';
-//            }
-//            else{
-//                var parsedWeather = description.split(' ');
-//                for(var i = 0; i < parsedWeather.length; i++){
-//                    parsedWeather[i] = parsedWeather[i].charAt(0).toUpperCase() + parsedWeather[i].slice(1);
-//                }
-//
-//                for(var i = 0; i < parsedWeather.length; i++){
-//                    weatherDescription += parsedWeather[i];
-//                    if(i != parsedWeather.length-1){
-//                        weatherDescription += ' ';
-//                    }
-//                }
-//            }
-//            weatherRactive.set('temperature', temp);
-//            weatherRactive.set('weather', weatherDescription);
-//            weatherRactive.set('icon', 'http://openweathermap.org/img/w/' + weather.weather[0].icon + '.png');
-//
-//            weatherRactive.set('loadingWeather', 'display: none');
-//            weatherRactive.set('showWeather', '');
-//        });
-//    }
-//
-//    setTimeout(function(){
-//        requestWeather();
-//    }, WEATHER_REFRESH_RATE);
-//}
 
 window.onresize = function(){
     offsetClock();

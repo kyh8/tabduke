@@ -68,8 +68,10 @@ var MILITARY_TIME = '';
  *     BUSING
  ******************/
 var desiredStops = ["4117202", "4146366", "4158202", "4098210", "4177628", "4177630",
-    "4098226", "4098230", "4158230", "4177632", "4157330", "4151494", "4098294", "4098298"];
+    "4098226", "4098230", "4158230", "4177632", "4157330", "4151494", "4098294", "4098298", "4098394", "4098218"];
 var desiredStopNames = {
+    4098394: 'Campus Walk/LaSalle South',
+    4098218: "Research Dr at Duke Clinic",
     4098210: "Science Drive Circle",
     4098226: "Flowers Drive Southbound",
     4098230: "Flowers Drive Northbound",
@@ -90,6 +92,8 @@ var stopOrder = [
     "East Campus Quad",
     "Alexander/Pace Westbound",
     "Alexander/Pace Eastbound",
+    "Campus Walk/LaSalle South",
+    "Research Dr at Duke Clinic",
     "Science Drive Circle",
     "Gilbert-Addoms Westbound",
     "Smith Warehouse Eastbound",
@@ -117,7 +121,11 @@ var busColor = {
     "CCX: Central Campus Express Weekend":"orange",
     "CCX: Central Campus Express":"orange",
     "CSW: Smith Warehouse":"pink",
-    "PR1: Bassett-Research":"#225555"
+    "PR1: Bassett-Research":"#225555",
+    "H2: Hospital Loop":"turquoise",
+    "H5: Broad-Erwin":"gray",
+    "H6: Remote Lot-Hospital":"purple",
+    "LL: LaSalle Loop":"green",
 };
 var DUKE_AGENCY_ID = 176;
 var BUS_REFRESH_RATE = 30000;
@@ -290,12 +298,13 @@ var DINING = {
         {
             "name": "Saladelia at Perkins",
             "open":{
-                "Monday":[[27000, 68400]],
-                "Tuesday":[[27000, 68400]],
-                "Wednesday":[[27000, 68400]],
-                "Thursday":[[27000, 68400]],
+                "Monday":[[27000, 86399]],
+                "Tuesday":[[27000, 86399]],
+                "Wednesday":[[27000, 86399]],
+                "Thursday":[[27000, 86399]],
                 "Friday":[[27000, 61200]],
-                "Sunday":[[43200, 86399]]
+                "Saturday":[[43200, 64800]],
+                "Sunday":[[57600, 86399]]
             },
             "currentlyOpen": false
         },

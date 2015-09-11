@@ -297,6 +297,29 @@
             No Buses Currently Running
         </div>
     </script>
+    <script id="food-truck-template" type="type/ractive">
+        <div id="food-truck-display" align="center">
+            <div style="color:white; font-size: 16px;">Today's Food Trucks</div>
+            <div id="food-truck-loading" style="margin-bottom:-3px;">
+                <img src="images/status/loading.gif" width="40" height="40">
+            </div>
+            <div style="margin-top:5px;">
+                <table>
+                {{#each trucks}}
+                    <tr style="font-size:12px; color:white;">
+                        <td><b>{{truck}}:</b><td>
+                        <td>({{start}} - {{end}})</td>
+                    </tr>
+                {{/each}}
+                </table>
+            </div>
+            <div id="no-food-trucks" align="center" style="padding: 10px; font-size: 14px; color: white; {{none}}">None</div>
+        </div>
+        <div id="food-truck-pulldown" align="center">
+            <img id="pulldown-icon" src="images/status/arrow-up.png" style="margin-top:-3px;" width="15" height="15">
+        </div>
+    </script>
+    <div id="food-trucks" style="width:100%; position:fixed; top: 0px;"></div>
     <div id="settings" style="height: 100%"></div>
     <div id="footer">Developed by Kevin He | 2015</div>
     <div id="photo-source"></div>

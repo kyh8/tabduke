@@ -150,7 +150,8 @@ function retrieveBusData(){
         //});
         //
         //$.when(stops).done(function(response){
-        //    //console.log('stops:');
+        //    console.log('stops:');
+        //    console.log(response);
         //    var stopList = [];
         //    for(var i = 0; i < response.data.length; i++){
         //        //if(desiredStops.indexOf(response.data[i].stop_id) != -1){

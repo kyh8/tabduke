@@ -112,6 +112,31 @@ function initializeSettings(switches, createdLinks){
         var halfComponent = time[1];
 
         setVenueStatuses(timeToSeconds(hours, minutes, seconds, halfComponent), dayOfWeek, true);
+        var update = {};
+        if(templates.foodTrucks.get('trucks')){
+            templates.foodTrucks.get('trucks').forEach(function(truck){
+                var start = truck.start.split(':');
+                var end = truck.end.split(':');
+                var startHours = Number(start[0]);
+                var startMinutes = start[1].substring(0,2);
+
+                var endHours = Number(end[0]);
+                var endMinutes = end[1].substring(0,2);
+                var startString = '';
+                var endString = '';
+                if(newValue){
+                    startString = (startHours+12) + ':' + startMinutes;
+                    endString = (endHours+12) + ':' + endMinutes;
+                }
+                else{
+                    startString = (startHours-12) + ':' + startMinutes + ' PM';
+                    endString = (endHours-12) + ':' + endMinutes + ' PM';
+                }
+                update['trucks.'+templates.foodTrucks.get('trucks').indexOf(truck)+'.start'] = startString;
+                update['trucks.'+templates.foodTrucks.get('trucks').indexOf(truck)+'.end'] = endString;
+            });
+            templates.foodTrucks.set(update);
+        }
     });
 
     settingsRactive.observe('createdLinks', function(newValue, oldValue){
@@ -465,8 +490,8 @@ function initializeSwitches(switches){
         document.getElementById(setting.id+'-switch-ball').style.right = switchRef.normal[on].offset;
         document.getElementById(setting.id+'-switch').style.backgroundColor = switchRef.normal[on].color;
         var effectFunction = effectFunctions[setting.effect];
-        //////console.log(setting.effect);
-        //////console.log(effectFunctions);
+        //console.log(setting.effect);
+        //console.log(effectFunctions);
         effectFunction(setting.on);
         //////console.log('what');
     });
