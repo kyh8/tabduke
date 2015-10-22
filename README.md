@@ -1,8 +1,8 @@
-## TabDuke
-A minimalistic dashboard for Duke Students.
+# TabDuke
+A beautiful dashboard for your new tab screen, made for Duke Students.
 
 =====
-Features:
+# Features:
 - BUS TIMES: uses the TransLoc API to display incoming bus arrivals at high traffic bus stops like Duke Chapel and East Campus.
 - CAMPUS EATERIES: shows which on-campus restaurants are currently open. Hover over restaurants to see how long you have until closing time.
 - FOOD TRUCKS: You can now see which food trucks are on campus for the current day!
