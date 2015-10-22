@@ -1,5 +1,4 @@
-# TabDuke
-### A minimalistic dashboard for Duke Students.
+### TabDuke: A minimalistic dashboard for Duke Students.
 =====
 Features:
 - BUS TIMES: uses the TransLoc API to display incoming bus arrivals at high traffic bus stops like Duke Chapel and East Campus.
