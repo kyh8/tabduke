@@ -131,12 +131,12 @@ function retrieveBusData(){
             ractive.set('loading', 'display: none');
             ractive.set('stops', temp);
             ractive.set('buses', buses);
-            if(temp.length == 0){
-                ractive.set('noBuses', '');
-            }
-            else{
-                ractive.set('noBuses', 'display: none');
-            }
+            //if(temp.length == 0){
+            //    ractive.set('noBuses', '');
+            //}
+            //else{
+            //    ractive.set('noBuses', 'display: none');
+            //}
             //console.log(ractive.get('stops'));
             //console.log(ractive.get('buses'));
         });

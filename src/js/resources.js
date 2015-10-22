@@ -5,9 +5,14 @@ var images = ['images/backgrounds/cameron.jpg', 'images/backgrounds/chapel.jpg',
     'images/backgrounds/east.jpg', 'images/backgrounds/kville.jpg',
     'images/backgrounds/spring_chapel.jpg', 'images/backgrounds/winter_chapel.jpg',
     'images/backgrounds/side_chapel.jpg', 'images/backgrounds/inside_chapel.jpg',
-    'images/backgrounds/duke_gardens.jpg', 'images/backgrounds/duke_gardens_terrace.jpg'
+    'images/backgrounds/duke_gardens.jpg', 'images/backgrounds/duke_gardens_terrace.jpg',
+    //'images/backgrounds/gardens_winter.jpg'
 ];
 var imageSources = {
+    //'images/backgrounds/gardens_winter.jpg':{
+    //    'source':'Duke Nicholas School',
+    //    'link':'http://blogs.nicholas.duke.edu/outdoordevil/files/2014/02/P1130230.jpg'
+    //},
     'images/backgrounds/cameron.jpg':{
         'source': 'Blue Devil Nation',
         'link':'http://bluedevilnation.net/wordpress/wp-content/uploads/2012/02/duke-signs-056.jpg'
@@ -116,6 +121,7 @@ var busColor = {
     "C1: East-West":"red",
     "C1: East-West Weekends":"red",
     "C3: East-Science":"#3388bb",
+    "C3: Class Change":"white",
     "C4: Central-West":"#55aa66",
     "C5: East-Central":"yellow",
     "CCX: Central Campus Express Weekend":"orange",
@@ -125,7 +131,7 @@ var busColor = {
     "H2: Hospital Loop":"turquoise",
     "H5: Broad-Erwin":"gray",
     "H6: Remote Lot-Hospital":"purple",
-    "LL: LaSalle Loop":"green",
+    "LL: LaSalle Loop":"green"
 };
 var DUKE_AGENCY_ID = 176;
 var BUS_REFRESH_RATE = 30000;
@@ -183,6 +189,20 @@ var DINING = {
             "name":"Cafe Edens",
             "alwaysOpen": true,
             "menu":'https://studentaffairs.duke.edu/sites/default/files/u1379/PitchforkMenuDraft.pdf'
+        },
+        {
+            "name": "Dame's Express",
+            "open":{
+                "Monday":[[36000, 79200]],
+                "Tuesday":[[36000, 79200]],
+                "Wednesday":[[36000, 79200]],
+                "Thursday":[[36000, 79200]],
+                "Friday":[[36000, 79200]],
+                "Saturday":[[36000, 79200]],
+                "Sunday":[[36000, 79200]]
+            },
+            "currentlyOpen": false,
+            "menu": "https://studentaffairs.duke.edu/sites/default/files/u1379/Dame%27sFullMenu.pdf"
         },
         {
             "name": "Divinity Cafe",

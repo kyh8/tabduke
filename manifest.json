@@ -2,10 +2,11 @@
   "manifest_version": 2,
   "name": "TabDuke",
   "description": "A minimalistic dashboard for Duke Students.",
-  "version": "2.1",
+  "version": "2.3",
   "permissions": [
     "storage"
   ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "chrome_url_overrides": {
     "newtab": "src/dashboard.html"
   }

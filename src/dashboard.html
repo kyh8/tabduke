@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="vendor/jQuery.js"></script>
 <script src="vendor/ractive.js"></script>
+<script src="vendor/ractive-events-hover.js"></script>
 <script src="vendor/jquery-ui.js"></script>
 <script src="js/resources.js"></script>
 <script src="js/index.js"></script>
@@ -12,29 +13,42 @@
 <title>TabDuke</title>
 <body>
 <div id="container" align="center">
-    <div id="notification" style="width:100%; display:none; position:fixed; top: 20px;">
-        <div align="center" style="width:320px; font-size:12px; height:50px; padding:5px; background-color:rgba(0,0,0,0.8); border-radius:5px; border: 1px solid white; color: white;">
-            <div align="right"><img id="close-notification" src="images/status/close.png" width="15" height="15"></div>
-            <div style="margin-top: -12px;">
-                <div style="font-size: 18px;">New in Version 2.0:</div>
-                <div style="margin-top: -5px;">Click the <img style="transform:translateY(5px)" src="images/status/settings.png" width="20" height="20"> in the top right to customize your settings!</div>
-            </div>
-        </div>
-    </div>
+    <!--<div id="notification" style="width:100%; display:none; position:fixed; top: 20px;">-->
+        <!--<div align="center" style="width:320px; font-size:12px; height:50px; padding:5px; background-color:rgba(0,0,0,0.8); border-radius:5px; border: 1px solid white; color: white;">-->
+            <!--<div align="right"><img id="close-notification" src="images/status/close.png" width="15" height="15"></div>-->
+            <!--<div style="margin-top: -12px;">-->
+                <!--<div style="font-size: 18px;">New in Version 2.0:</div>-->
+                <!--<div style="margin-top: -5px;">Click the <img style="transform:translateY(5px)" src="images/status/settings.png" width="20" height="20"> in the top right to customize your settings!</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <script id="settings-template" type="type/ractive">
-        <div id="settings-icon" style="{{displaySettingIcon}} position: fixed; cursor: pointer; top: 5px; right: 10px;">
-            <img id="settings-image" src="images/status/settings.png" on-click="toggleSettings" width="35" height="35"/>
+        <div id="settings-icon" style="{{displaySettingIcon}} position: fixed; cursor: pointer; top: 5px; right: 10px; width:30px; height:30px;">
+            <img id="settings-image" src="images/status/menu.png" on-click="toggleSettings" width="30" height="30"/>
         </div>
-        <div id="settings-panel">
+        <div id="settings-panel" style="{{addLinkOpen || addEventOpen ? 'overflow-y:hidden;' : ''}}">
             <div style="width:25px; height:25px;">
                 <div id="close-icon" style="{{displayCloseIcon}} position:relative; right:105px; top:10px;">
                     <img src="images/status/close.png" style="cursor:pointer;" on-click="toggleSettings" width="25" height="25"/>
                 </div>
             </div>
-            <div style="margin-top:10px;">
-                <div class="section-header" align="center">Settings</div>
-                <div class="divider" style="margin-top: 10px;"></div>
-                <table cellpadding="5">
+            <div style="margin-top:20px;">
+                <!--<div class="section-header" align="center">Settings</div>-->
+                <div>
+                    <table id="setting-tabs" style="border-spacing:0px;">
+                        <tr>
+                            {{#each tabs:i}}
+                            <td>
+                                <div class="setting-tab {{i == tabIndex ? 'selected' : ''}}" on-click="switchTab:{{i}}">{{.}}</div>
+                            </td>
+                            {{/each}}
+                        </tr>
+                    </table>
+                </div>
+                <div style="height:1px; width:100%;background-color:white;"></div>
+
+                <!--<div class="divider"></div>-->
+                <table cellpadding="5" style="{{tabIndex == 0 ? '' : 'display:none'}}; margin-top:20px;">
                     {{#each switches}}
                     <tr>
                         <td>
@@ -45,143 +59,646 @@
                             </div>
                         </td>
                         <td>
-                            <div style="margin-left: 10px; font-size: 14px;">{{label}}</div>
+                            <div style="margin-left: 10px; font-size: 16px;">{{label}}</div>
                         </td>
                     </tr>
                     {{/each}}
                 </table>
-                <div class="section-header" style="margin-top: 20px;">Manage Links</div>
-                <div class="divider"></div>
-                <div class="button" id="add-button" align="center">
-                    Add
-                </div>
-                <div id="add-link-prompt">
-                    <table>
-                        <tr>
-                            <td>
-                                <div align="right" class="field-label">Name :</div>
-                            </td>
-                            <td>
-                                <div>
-                                    <input class="field" type="text" value='{{name}}'>
-                                </div>
-                            </td>
-                            <td>
-                                <div id="name-error" style="visibility: hidden; margin-top: 4px;">
-                                    <img src="images/status/error.png" width="20" height="20">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div align="right" class="field-label">URL :</div>
-                            </td>
-                            <td>
-                                <input class="field" type="text" value='{{url}}'>
-                            </td>
-                            <td>
-                                <div id="url-error" style="visibility: hidden; margin-top: 4px;">
-                                    <img src="images/status/error.png" width="20" height="20">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div align="right" class="field-label">Image URL :</div>
-                            </td>
-                            <td>
-                                <input class="field" type="text" value='{{imageUrl}}'>
-                            </td>
-                            <td>
-                                <div id="image-error" style="visibility: hidden; margin-top: 4px;">
-                                    <img src="images/status/error.png" width="20" height="20">
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <div id="error-tip" style="color: red; width: 220px; margin-top: 5px; height: 20px;"></div>
-                    <div align="center" style="color: white; font-size: 24px; margin-top: 5px;">
-                        Preview
-                    </div>
-                    <div class="block" id="preview-container" style="margin-top: 20px;">
-                        <img id="preview" src="{{imageUrl}}" width="60" height="60">
-                        <div id="preview-alternate" style="color: black; font-size: 42px; margin-top: 5px;"></div>
-                    </div>
-                    <div class="label" style="height: 20px; margin-top:7px;">
-                        {{name}}
-                    </div>
-
-                    <div style="position: relative; bottom: -23px;">
-                        <div class="button" id="create-button" on-click="createLink">
-                            Create
-                        </div>
-                        <div class="button" id="cancel-button" on-click="cancelLink">
-                            Cancel
-                        </div>
-                    </div>
-                </div>
-                <div class="divider" style="margin-top: 10px;"></div>
-                <!--<div align="center" id="min-link-table">-->
-                <!--<div style="margin-top: 15px;">-->
-                <!--<table>-->
-                    <!--{{#each table:i}}-->
-                    <!--<tr>-->
-                        <!--{{#each table[i]:j}}-->
-                        <!--<td id="link-{{i}}-{{j}}" style="width:70px; max-width: 70px; height:70px; max-height:70px;">-->
-                            <!--<div align="center" style="cursor: default;">-->
-                                <!--<div class="min-link" id="min-link-{{i}}-{{j}}" title="{{tooltipUrl}}">-->
-                                    <!--<img src="{{icon}}" style="border-radius:5px; {{showIcon}}" width="40" height="40">-->
-                                    <!--<div style="font-size: 28px; margin-top: 3px; color: black; {{showText}}">{{text}}</div>-->
-                                <!--</div>-->
-                                <!--<div class="min-label" id="min-label-{{i}}-{{j}}">-->
-                                    <!--{{label}}-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</td>-->
-                        <!--{{/each}}-->
-                    <!--</tr>-->
-                    <!--{{/each}}-->
-                <!--</table>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="sub-section-header" style="margin-top: 10px; margin-bottom: 10px;">Manage</div>-->
+                <!--<div class="section-header" style="margin-top: 20px;">Manage Links</div>-->
                 <!--<div class="divider"></div>-->
-                <div id="manage-links">
-                    <ul id="sortable-links" style="list-style-type: none; margin-top: 0px; margin-left: -15px; margin-bottom: 5px;">
-                    {{#each createdLinks:i}}
-                        <li id="{{i}}-sortable-item">
-                            <div align="left">
-                                <div class="link-handle" style="cursor: move; display:inline-block; margin-top: 5px;">
-                                    <table>
-                                        <tr>
-                                            <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white;"></div></td>
-                                        </tr>
-                                        <tr>
-                                            <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white; margin-top: -2px"></div></td>
-                                        </tr>
-                                        <tr>
-                                            <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white; margin-top: -2px"></div></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div style="transform:translateY(-2px); display: inline-block;">
-                                    <div class="switch small" id="{{i}}-toggle" on-click="toggleLinkDisplay:{{.}}">
-                                        <div class="switch-ball small" id="{{i}}-toggle-ball"></div>
+                <div style="{{tabIndex == 1 ? '' : 'display:none'}}">
+                    <div class="button {{addLinkOpen ? 'disabled' : ''}}" style="margin-top:10px; width:70px;" id="add-button" align="center">
+                        Add
+                    </div>
+                    <div id="add-link-prompt">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div align="right" class="field-label">Name :</div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input class="field" type="text" maxlength="15" value='{{name}}'>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="name-error" style="visibility: {{name.length == 0 || name.length > 15 ? 'visible' : 'hidden'}}; margin-top: 4px;" on-hover="displayNameTip">
+                                        <img src="images/status/error.png" width="20" height="20">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div align="right" class="field-label">URL :</div>
+                                </td>
+                                <td>
+                                    <input class="field" type="text" value='{{url}}'>
+                                </td>
+                                <td>
+                                    <div id="url-error" style="visibility: {{url.length == 0 ? 'visible' : 'hidden'}}; margin-top: 4px;" on-hover="displayUrlTip">
+                                        <img src="images/status/error.png" width="20" height="20">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div align="right" class="field-label">Image URL :</div>
+                                </td>
+                                <td>
+                                    <input class="field" type="text" value='{{imageUrl}}'>
+                                </td>
+                                <td>
+                                    <div id="image-error" style="visibility: hidden; margin-top: 4px;" on-hover="displayImageTip">
+                                        <img src="images/status/error.png" width="20" height="20">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="error-tip" style="color: red; width: 220px; margin-top: 5px; height: 20px;">{{errorTip}}</div>
+                        <div align="center" style="color: white; font-size: 24px; margin-top: 5px;">
+                            Preview
+                        </div>
+                        <div class="block" id="preview-container" style="margin-top: 20px;">
+                            <img id="preview" src="{{imageUrl}}" width="60" height="60" on-error="handleImageError" on-load="handleImageLoad">
+                            <div id="preview-alternate" style="color: black; font-size: 42px; margin-top: 5px;">{{name.charAt(0)}}</div>
+                        </div>
+                        <div class="label" style="height: 20px; margin-top:7px;">
+                            {{name}}
+                        </div>
+
+                        <div style="position: relative; bottom: -27px;">
+                            <div class="button {{canCreate ? '' : 'disabled'}}" id="create-button" on-click="createLink">
+                                Create
+                            </div>
+                            <div class="button" id="cancel-button" on-click="cancelLink">
+                                Cancel
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider" style="margin-top: 10px;"></div>
+                    <div id="manage-links" style="margin-top:10px;">
+                        <ul id="sortable-links" style="list-style-type: none; margin-top: 0px; margin-left: -20px; margin-bottom: 5px;">
+                        {{#each createdLinks:i}}
+                            <li id="{{i}}-sortable-item">
+                                <div align="left">
+                                    <div class="link-handle" style="cursor: move; display:inline-block; margin-top: 5px;">
+                                        <table>
+                                            <tr>
+                                                <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white;"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white; margin-top: -2px"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div style="width: 12px; height: 2px; border-radius:1px; background-color: white; margin-top: -2px"></div></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="transform:translateY(-2px); display: inline-block;">
+                                        <div class="switch small" id="{{i}}-toggle" on-click="toggleLinkDisplay:{{.}}">
+                                            <div class="switch-ball small" id="{{i}}-toggle-ball"></div>
+                                        </div>
+                                    </div>
+                                    <div class="min-link-label" title="{{tooltipUrl}}">{{label}}</div>
+                                    <div class="delete-link" style="margin-right: 10px; margin-top: 5px; {{defaultLink ? 'visibility:hidden' : ''}}" id="delete-{{i}}" on-click="deleteLink:{{i}},{{createdLinks[i]}}">
+                                        <img src="images/status/close.png" width="15" height="15">
                                     </div>
                                 </div>
-                                <div class="min-link-label" title="{{tooltipUrl}}">{{label}}</div>
-                                <div class="delete-link" style="margin-right: 15px; margin-top: 5px;" id="delete-{{i}}" on-click="deleteLink:{{i}},{{createdLinks[i]}}">
-                                    <img src="images/status/close.png" width="15" height="15">
+                            </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div style="{{tabIndex == 2 ? '' : 'display:none'}}; margin-top:10px;">
+                    <div class="button {{addEventOpen ? 'disabled' : ''}}" id="new-event-button">New</div>
+                    <div id="new-event-prompt" style="margin-top:10px; position:relative;">
+                        <div style="position:absolute; bottom:-45px; width:100%; {{selectedEventType == 'Select a type...' ? 'display:none' : ''}}">
+                            <table style="border-spacing:10px;">
+                            <tr>
+                                <td>
+                                    <div class="button {{validEvent ? '' : 'disabled'}}" on-click="addEvent">Create</div>
+                                </td>
+                                <td>
+                                    <div class="button" on-click="cancelAddEvent">Cancel</div>
+                                </td>
+                            </tr>
+                            </table>
+                        </div>
+                        <div align="left" on-click="selectEventType:{{selectedEventType}}" class="selectedEventType {{typeSelectorActive ? 'active' : ''}}">
+                            <div style="width:5px; height:25px; background-color:{{eventColors[selectedEventType]}}; display:inline-block;"></div>
+                            <div style="display:inline-block; padding-top:5px; padding-bottom:5px; vertical-align:top; font-size: 14px; color:black; margin-left:5px;">{{selectedEventType}}</div>
+                        </div>
+                        <div id="eventTypeDropdown" style="position:absolute;left:65px;z-index:9999;">
+                            <ul align="center" style="list-style-type:none; padding-left:0px; width:120px; margin-top:0px; margin-bottom:0;">
+                                {{#each eventTypes:i}}
+                                <li align="left">
+                                    <div class="eventTypeSelect" on-click="selectEventType:{{.}}">
+                                        <div style="width:5px; height:25px; background-color:{{eventColors[this]}}; display:inline-block;"></div>
+                                        <div style="display:inline-block; padding-top:5px; padding-bottom:5px; vertical-align:top; font-size: 14px; color:black; margin-left:5px;">{{.}}</div>
+                                    </div>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div style="color:white; margin-top:10px; font-size:14px; margin-bottom:45px; {{selectedEventType == 'Class' ? '' : 'display:none'}}">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div align="right">Course Name:</div>
+                                    </td>
+                                    <td>
+                                        <input value="{{courseName}}" class="field" style="height:18px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div align="right">Location:</div>
+                                    </td>
+                                    <td>
+                                        <input value="{{location}}" class="field" style="height:18px;">
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="divider" style="margin-top:10px;"></div>
+                            <div align="center" style="margin-top:10px; font-size:14px;">Meeting Times</div>
+                            <div id="new-meeting-time-button" class="button {{addMeetingTimeOpen ? 'disabled' : ''}}" style="margin-top:10px; padding-top:4px;">Add</div>
+                            <div id="meeting-times" style="width:200px; height:170px; max-height:170px; overflow:hidden; overflow-y:scroll;" align="left">
+                                {{#each meetingTimes:i}}
+                                <div id="{{i}}-meeting-time" style="padding-top:10px;">
+                                    <div style="display:inline-block;">
+                                        <div style="font-size:14px;">{{start}} to {{end}}</div>
+                                        <div style="margin-top:5px;">
+                                        {{#each days:j}}
+                                            <div align="center" style="font-size:10px; height:20px; width:20px; border:1px inset gray; border-radius:5px; background-color:white; color:black; display:inline-block; {{j > 0 ? 'margin-left: 5px;' : 'margin-left:0px;'}}">
+                                                <div style="margin-top:3px;"><b>{{.}}</b></div>
+                                            </div>
+                                        {{/each}}
+                                        </div>
+                                    </div>
+                                    <div class="deleteMeetingTime" on-click="deleteMeetingTime:{{i}}" style="display:inline-block; vertical-align:middle; margin-top:3px; cursor:pointer; float:right;">
+                                        <img src="images/status/close.png" width="15" height="15">
+                                    </div>
+                                </div>
+                                {{/each}}
+                                {{#if meetingTimes.length == 0}}
+                                    <div align="center" style="margin-top:70px; color:rgba(256,256,256,0.5); font-size:16px;">When does this class meet?</div>
+                                {{/if}}
+                            </div>
+                            <div id="new-meeting-time-prompt" style="background-color:rgba(0,0,0,0.9); position:fixed; height:100%; width:250px; top:0px; right:0px;">
+                                <div style="margin-top:225px; padding-top:10px; background-color:dimgray">
+                                    <div id="startSelect" style="margin-top:10px;">
+                                        <div class="timeLabel">Start:</div>
+                                        <div class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{startTimeHour}},'startTimeHour'" id="startTimeHour" class="selectedTime">
+                                                <div style="margin-right:7px;">{{startTimeHour}}</div>
+                                            </div>
+                                            <ul id="startTimeHour-selector" class="timeSelect" align="center">
+                                                {{#each hours:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'startTimeHour'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>:</b></div>
+                                        <div class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{startTimeMin}},'startTimeMin'" id="startTimeMin" class="selectedTime">
+                                                <div style="margin-right:7px;">{{startTimeMin}}</div>
+                                            </div>
+                                            <ul id="startTimeMin-selector" class="timeSelect" align="center">
+                                                {{#each minutes:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'startTimeMin'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div class="timePrompt" style="margin-left:10px;">
+                                            <div align="center" on-click="selectTime:{{startTimeHalf}},'startTimeHalf'" id="startTimeHalf" class="selectedTime">
+                                                <div style="margin-right:7px;">{{startTimeHalf}}</div>
+                                            </div>
+                                            <ul id="startTimeHalf-selector" class="timeSelect" align="center">
+                                                {{#each halves:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'startTimeHalf'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="endSelect" style="margin-top:10px;">
+                                        <div class="timeLabel" style="margin-left:4px;">End:</div>
+                                        <div class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{endTimeHour}},'endTimeHour'" id="endTimeHour" class="selectedTime">
+                                                <div style="margin-right:7px;">{{endTimeHour}}</div>
+                                            </div>
+                                            <ul id="endTimeHour-selector" class="timeSelect" align="center">
+                                                {{#each hours:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'endTimeHour'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>:</b></div>
+                                        <div id="endMinSelect" class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{endTimeMin}},'endTimeMin'" id="endTimeMin" class="selectedTime">
+                                                <div style="margin-right:7px;">{{endTimeMin}}</div>
+                                            </div>
+                                            <ul id="endTimeMin-selector" class="timeSelect" align="center">
+                                                {{#each minutes:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'endTimeMin'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div id="endHalfSelect" class="timePrompt" style="margin-left:10px;">
+                                            <div align="center" on-click="selectTime:{{endTimeHalf}},'endTimeHalf'" id="endTimeHalf" class="selectedTime">
+                                                <div style="margin-right:7px;">{{endTimeHalf}}</div>
+                                            </div>
+                                            <ul id="endTimeHalf-selector" class="timeSelect" align="center">
+                                                {{#each halves:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'endTimeHalf'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top:15px;">
+                                        <div class="timeLabel" style="margin-top:0px; transform:translateX(-7px);vertical-align:top;">Days:</div>
+                                        <div style="display:inline-block;">
+                                        {{#each daysOfWeek:i}}
+                                            <div style="display:inline-block; {{i > 0 ? 'margin-left:10px;' : ''}};">
+                                                <div class="dayCheckBox" on-click="chooseDay:{{.}}" style="{{selected ? 'background-color:#05B8CC; box-shadow:inset 0 0 2px black;' : ''}}"></div>
+                                                <div style="color:white; font-size:12px;">{{day}}</div>
+                                            </div>
+                                        {{/each}}
+                                        </div>
+                                    </div>
+                                    <div style="margin-top:10px;">
+                                    <table style="border-spacing:10px;">
+                                        <tr>
+                                            <td>
+                                                <div class="button {{validMeetingTime ? '' : 'disabled'}}" align="center" on-click="addMeetingTime">Ok</div>
+                                            </td>
+                                            <td>
+                                                <div class="button" align="center" on-click="cancelMeetingTime">Cancel</div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </div>
                                 </div>
                             </div>
-                        </li>
-                    {{/each}}
-                    </ul>
+                        </div>
+                        <div style="color:white; margin-top:10px; font-size:14px; margin-bottom:45px; {{selectedEventType == 'Assignment' ? '' : 'display:none'}}">
+                            <div style="position:relative;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div align="right">For:</div>
+                                    </td>
+                                    <td>
+                                        <div style="display:inline-block; vertical-align:middle;"><input id="assignmentFor" value="{{courseFor}}" class="field" style="{{courseSelectorActive ? 'border-bottom-left-radius: 0px;' : ''}} height:18px; border-right:none;"></div>
+                                        <div id="class-expander" class="{{courseSelectorActive ? 'active' : ''}}" on-click="showClasses">
+                                            <div id="class-expander-triangle"></div>
+                                        </div>
+                                        <ul id="class-selector" class="classSelect" align="center">
+                                             {{#each events.Class:i}}
+                                             <li align="left">
+                                                <div class="classItem" on-click="showClasses:{{course}}" style="{{i == events.Class.length-1 ? 'border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;' : ''}}">{{course}}</div>
+                                             </li>
+                                             {{/each}}
+                                             {{#if events.Class.length == 0}}
+                                             <li align="left">
+                                                <div style="color:rgba(0,0,0,0.5); background-color:lightgray; font-size:12px; cursor:default;" class="classItem">No classes added.</div>
+                                             </li>
+                                             {{/if}}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div align="right">Description:</div>
+                                    </td>
+                                    <td>
+                                        <input value="{{description}}" class="field" style="height:18px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div align="right">Due Date:</div>
+                                    </td>
+                                    <td>
+                                        <div align="left" style="margin-left: 2px;">
+                                            <div class="timePrompt">
+                                                <div align="center" on-click="selectTime:{{dueDateMonth}},'dueDateMonth'" id="dueDateMonth" class="selectedTime">
+                                                    <div style="margin-right:7px;">{{dueDateMonth}}</div>
+                                                </div>
+                                                <ul id="dueDateMonth-selector" class="timeSelect" align="center">
+                                                    {{#each months:i}}
+                                                    <li align="left">
+                                                        <div class="timeItem" on-click="selectTime:{{.}},'dueDateMonth'" align="center">
+                                                            <div>{{.}}</div>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                            <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>/</b></div>
+                                            <div class="timePrompt">
+                                                <div align="center" on-click="selectTime:{{dueDateDay}},'dueDateDay'" id="dueDateDay" class="selectedTime">
+                                                    <div style="margin-right:7px;">{{dueDateDay}}</div>
+                                                </div>
+                                                <ul id="dueDateDay-selector" class="timeSelect" align="center">
+                                                    {{#each dates:i}}
+                                                    <li align="left">
+                                                        <div class="timeItem" on-click="selectTime:{{.}},'dueDateDay'" align="center">
+                                                            <div>{{.}}</div>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                            <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>/</b></div>
+                                            <div class="timePrompt">
+                                                <div align="center" on-click="selectTime:{{dueDateYear}},'dueDateYear'" id="dueDateYear" style="width:35px;" class="selectedTime small">
+                                                    <div style="margin-right:7px;">{{dueDateYear}}</div>
+                                                </div>
+                                                <ul id="dueDateYear-selector" class="timeSelect small" style="width:45px;" align="center">
+                                                    {{#each years:i}}
+                                                    <li align="left">
+                                                        <div class="timeItem small" style="width:30px;" on-click="selectTime:{{.}},'dueDateYear'" align="center">
+                                                            <div>{{.}}</div>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            </div>
+                        </div>
+                        <div style="color:white; margin-bottom:45px; font-size:14px; margin-top:10px; {{selectedEventType == 'Other' ? '' : 'display:none'}}">
+                            <div style="position:relative;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div align="right">Description:</div>
+                                    </td>
+                                    <td>
+                                        <input value="{{eventLabel}}" class="field" style="height:18px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div align="right">Location:</div>
+                                    </td>
+                                    <td>
+                                        <input value="{{eventLocation}}" class="field" style="height:18px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div align="right">Date:</div>
+                                    </td>
+                                    <td>
+                                        <div align="left">
+                                            <div class="timePrompt">
+                                                <div align="center" on-click="selectTime:{{eventDateMonth}},'eventDateMonth'" id="eventDateMonth" class="selectedTime">
+                                                    <div style="margin-right:7px;">{{eventDateMonth}}</div>
+                                                </div>
+                                                <ul id="eventDateMonth-selector" class="timeSelect" align="center">
+                                                    {{#each months:i}}
+                                                    <li align="left">
+                                                        <div class="timeItem" on-click="selectTime:{{.}},'eventDateMonth'" align="center">
+                                                            <div>{{.}}</div>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                            <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>/</b></div>
+                                            <div class="timePrompt">
+                                                <div align="center" on-click="selectTime:{{eventDateDay}},'eventDateDay'" id="eventDateDay" class="selectedTime">
+                                                    <div style="margin-right:7px;">{{eventDateDay}}</div>
+                                                </div>
+                                                <ul id="eventDateDay-selector" class="timeSelect" align="center">
+                                                    {{#each dates:i}}
+                                                    <li align="left">
+                                                        <div class="timeItem" on-click="selectTime:{{.}},'eventDateDay'" align="center">
+                                                            <div>{{.}}</div>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                            <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>/</b></div>
+                                            <div class="timePrompt">
+                                                <div align="center" on-click="selectTime:{{eventDateYear}},'eventDateYear'" id="eventDateYear" style="width:35px;" class="selectedTime small">
+                                                    <div style="margin-right:7px;">{{eventDateYear}}</div>
+                                                </div>
+                                                <ul id="eventDateYear-selector" class="timeSelect small" style="width:45px;" align="center">
+                                                    {{#each years:i}}
+                                                    <li align="left">
+                                                        <div class="timeItem small" style="width:30px;" on-click="selectTime:{{.}},'eventDateYear'" align="center">
+                                                            <div>{{.}}</div>
+                                                        </div>
+                                                    </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div align="right">Start:</div>
+                                    </td>
+                                    <td>
+                                        <div class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{eventStartTimeHour}},'eventStartTimeHour'" id="eventStartTimeHour" class="selectedTime">
+                                                <div style="margin-right:7px;">{{eventStartTimeHour}}</div>
+                                            </div>
+                                            <ul id="eventStartTimeHour-selector" class="timeSelect" align="center">
+                                                {{#each hours:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'eventStartTimeHour'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>:</b></div>
+                                        <div class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{eventStartTimeMin}},'eventStartTimeMin'" id="eventStartTimeMin" class="selectedTime">
+                                                <div style="margin-right:7px;">{{eventStartTimeMin}}</div>
+                                            </div>
+                                            <ul id="eventStartTimeMin-selector" class="timeSelect" align="center">
+                                                {{#each minutes:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'eventStartTimeMin'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div style="display:inline-block; width:10px;"></div>
+                                        <div class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{eventStartTimeHalf}},'eventStartTimeHalf'" style="width:35px;" id="eventStartTimeHalf" class="selectedTime">
+                                                <div style="margin-right:7px;">{{eventStartTimeHalf}}</div>
+                                            </div>
+                                            <ul id="eventStartTimeHalf-selector" class="timeSelect" style="width:45px;" align="center">
+                                                {{#each halves:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'eventStartTimeHalf'" style="30px;" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div align="right">End:</div>
+                                    </td>
+                                    <td>
+                                        <div class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{eventEndTimeHour}},'eventEndTimeHour'" id="eventEndTimeHour" class="selectedTime">
+                                                <div style="margin-right:7px;">{{eventEndTimeHour}}</div>
+                                            </div>
+                                            <ul id="eventEndTimeHour-selector" class="timeSelect" align="center">
+                                                {{#each hours:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'eventEndTimeHour'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div style="display:inline-block; font-size:14px; width:10px; max-width:10px; color:white; vertical-align:top; margin-top:5px;"><b>:</b></div>
+                                        <div id="endMinSelect" class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{eventEndTimeMin}},'eventEndTimeMin'" id="eventEndTimeMin" class="selectedTime">
+                                                <div style="margin-right:7px;">{{eventEndTimeMin}}</div>
+                                            </div>
+                                            <ul id="eventEndTimeMin-selector" class="timeSelect" align="center">
+                                                {{#each minutes:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'eventEndTimeMin'" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                        <div style="width:10px; display:inline-block;"></div>
+                                        <div id="endHalfSelect" class="timePrompt">
+                                            <div align="center" on-click="selectTime:{{eventEndTimeHalf}},'eventEndTimeHalf'" style="width:35px;" id="eventEndTimeHalf" class="selectedTime">
+                                                <div style="margin-right:7px;">{{eventEndTimeHalf}}</div>
+                                            </div>
+                                            <ul id="eventEndTimeHalf-selector" class="timeSelect" style="width:45px;" align="center">
+                                                {{#each halves:i}}
+                                                <li align="left">
+                                                    <div class="timeItem" on-click="selectTime:{{.}},'eventEndTimeHalf'" style="width:30px;" align="center">
+                                                        <div>{{.}}</div>
+                                                    </div>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider" style="margin-top:10px;"></div>
+                    {{#if events.Class.length == 0 && events.Assignment.length == 0 && events.Other.length == 0}}
+                    <div style="font-size: 24px; margin-top:250px; color:rgba(256,256,256,0.5);">No Events</div>
+                    {{/if}}
+                    <div align="left" id="eventsCreated" style="width:180px; margin-top:10px;">
+                        {{#if events.Class.length > 0}}
+                            <div class="divider" style="position:relative; margin-top:10px; margin-bottom:5px"></div>
+                            <div>
+                                <div style="position:absolute; transform:translateY(-3px); left:35px; background-color: {{eventColors['Class']}}; width:5px; height:30px; display:inline-block;"></div>
+                                <div style="position:absolute; transform:translateY(-3px); left:42px; background-color: white; width:2px; height:30px; display:inline-block;"></div>
+                                <div style="display:inline-block; margin-left:20px; font-size:20px;">Classes</div>
+                            </div>
+                            <div class="divider" style="margin-top:5px; margin-bottom:10px;"></div>
+                        {{/if}}
+                        {{#each events.Class:i}}
+                            <div id="Class-{{i}}" style="padding-top:5px;">
+                            <div class="class-event created-event {{past ? 'past' : ''}}">
+                                <div style="font-size:16px">{{course}}</div>
+                                <div style="font-size:10px">{{location}}</div>
+                            </div>
+                            <div class="close-event">
+                                <img src="images/status/close.png" on-click="deleteEvent:'Class',{{i}}" width="15" height="15">
+                            </div>
+                            </div>
+                        {{/each}}
+                        {{#if events.Assignment.length > 0}}
+                            <div class="divider" style="margin-top:10px; margin-bottom:5px"></div>
+                            <div>
+                                <div style="position:absolute; transform:translateY(-3px); left:35px; background-color: {{eventColors['Assignment']}}; width:5px; height:30px; display:inline-block;"></div>
+                                <div style="position:absolute; transform:translateY(-3px); left:42px; background-color: white; width:2px; height:30px; display:inline-block;"></div>
+                                <div style="display:inline-block;margin-left:20px; font-size:20px;">Assignments</div>
+                            </div>
+                            <div class="divider" style="margin-top:5px; margin-bottom:10px;"></div>
+                        {{/if}}
+                        {{#each events.Assignment:i}}
+                            <div id="Assignment-{{i}}" style="padding-top:5px;">
+                            <div class="assignment-event created-event {{past ? 'past' : ''}}" style="display:inline-block;">
+                                <div style="font-size:16px">{{description}}</div>
+                                <div style="font-size:10px">({{course}})</div>
+                            </div>
+                            <div class="close-event">
+                                <img src="images/status/close.png" on-click="deleteEvent:'Assignment',{{i}}" width="15" height="15">
+                            </div>
+                            </div>
+                        {{/each}}
+                        {{#if events.Other.length > 0}}
+                            <div class="divider" style="margin-top:10px; margin-bottom:5px"></div>
+                            <div>
+                                <div style="position:absolute; transform:translateY(-3px); left:35px; background-color: {{eventColors['Other']}}; width:5px; height:30px; display:inline-block;"></div>
+                                <div style="position:absolute; transform:translateY(-3px); left:42px; background-color: white; width:2px; height:30px; display:inline-block;"></div>
+                                <div style="display:inline-block;margin-left:20px; font-size:20px;">Other Events</div>
+                            </div>
+                            <div class="divider" style="margin-top:5px; margin-bottom:10px;"></div>
+                        {{/if}}
+                        {{#each events.Other:i}}
+                            <div id="Other-{{i}}" style="padding-top:5px;">
+                            <div class="other-event created-event {{past ? 'past' : ''}}">
+                                <div style="font-size:16px">{{label}}</div>
+                            </div>
+                            <div class="close-event">
+                                <img src="images/status/close.png" on-click="deleteEvent:'Other',{{i}}" width="15" height="15">
+                            </div>
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
-                <div class="divider"></div>
-                <div style="font-size: 10px;">You can only show a max of 7 links at once.</div>
-                <div style="font-size: 10px;">Drag to rearrange.</div>
-                <!--<div class='button' on-click="restoreDefaultLinks" style="width: 100px; margin-top: 10px;">Restore Defaults</div>-->
             </div>
         </div>
     </script>
@@ -198,8 +715,8 @@
                     <div class="link" align="center">
                         <a href="{{url}}">
                             <div class="block">
-                                <img src="{{icon}}" style="border-radius: 10px; {{showIcon}}" width="60" height="60">
-                                <div style="font-size: 42px; color: black; margin-top: 5px; {{showText}}">{{text}}</div>
+                                <img src="{{icon}}" style="border-radius: 10px; {{icon ? '' : 'display:none'}}" width="60" height="60">
+                                <div style="font-size: 42px; color: black; margin-top: 5px; {{text ? '' : 'display:none'}}">{{text}}</div>
                             </div>
                         </a>
                         <div class="label" style="margin-top:{{labelOffset}}">{{label}}</div>
@@ -249,7 +766,7 @@
                         <img id="status-icon-{{i}}" src="images/status/red.png" width="12px" height="12px"/>
                     </div>
                     <div class="venue">{{name}}</div>
-                    <div class="menu-link" style="{{showMenu}}; float: right; font-weight: bold; font-size: 10px; margin-top: 3px;">
+                    <div class="menu-link" style="{{menu ? '' : 'display:none'}}; float: right; font-weight: bold; font-size: 10px; margin-top: 3px;">
                         <a style="text-decoration: none;" href="{{menu}}">MENU</a>
                     </div>
                 </td>
@@ -293,17 +810,31 @@
             <br>
             <div class="divider"></div>
         {{/each}}
-        <div style="margin-top: 50px; {{noBuses}}; color: white; font-size: 16px;" align="center">
+        {{#if stops.length==0}}
+        <div style="margin-top: 50px; color:rgba(256,256,256,0.5); font-size: 16px;" align="center">
             No Buses Currently Running
         </div>
+        {{/if}}
     </script>
-    <script id="food-truck-template" type="type/ractive">
-        <div id="food-truck-display" align="center">
-            <div style="color:white; font-size: 16px;">Today's Food Trucks</div>
-            <div id="food-truck-loading" style="margin-bottom:-3px;">
+    <script id="info-box-template" type="type/ractive">
+    <div>
+        <table id="info-box-table" cellpadding="0" style="border-spacing:0px;">
+        <tr>
+        <td>
+            <div class="panel-shifter {{index == lowestIndex ? 'disabled' : ''}}" align="center" id="panel-to-left" on-click="shiftLeft">
+                <img id="panel-shifter-icon-left" style="margin-top:32px; {{index == lowestIndex ? 'display:none' : ''}}" src="images/status/white-arrow-left.png" width="20" height="20">
+            </div>
+        </td>
+        <td>
+        <div id="info-box" align="center">
+            {{#if index==0}}
+            <div align="center" class="info-box-header">Today's Food Trucks</div>
+            {{#if !finishedLoading}}
+            <div id="food-trucks-loading" style="margin-bottom:-3px;margin-top:10px;">
                 <img src="images/status/loading.gif" width="40" height="40">
             </div>
-            <div style="margin-top:5px;">
+            {{/if}}
+            <div align="center" style="margin-top:10px;">
                 <table>
                 {{#each trucks}}
                     <tr style="font-size:12px; color:white;">
@@ -313,13 +844,64 @@
                 {{/each}}
                 </table>
             </div>
-            <div id="no-food-trucks" align="center" style="padding: 10px; font-size: 14px; color: white; {{none}}">None</div>
+            {{#if trucks.length==0}}<div id="no-food-trucks" align="center" style="padding: 10px; font-size: 14px; color: white; {{none}}">None</div>{{/if}}
+            {{/if}}
+
+            {{#if index==1}}
+                <!--<div class="info-box-header">To-Do</div>-->
+                <div style="position:relative;">
+                    <div style="display:inline-block; transform:translateX(-12px)">
+                        <form on-submit="newTodo">
+                            <input id="new-todo" value="{{todoInput}}" maxlength="35" type="text" placeholder="What do you need to do?" style="background-color:transparent; font-size:14px; border:none; width:170px; border-bottom: 1px solid white; outline:none; color:white;">
+                        </form>
+                    </div>
+                    <div style="position:absolute; top:6px; right:24px; cursor:pointer;">
+                        <img src="images/status/add.png" on-click="newTodo" id="add-todo" width="12" height="12" style="{{todoInput.length == 0 ? 'opacity: 0.3; cursor:default' : ''}}">
+                    </div>
+                    <!--<div style="font-size:8px;color:white">Press enter to create a new item</div>-->
+                    <div id="to-do-list" align="left" style="margin-top:5px;">
+                        {{#if todos.length == 0}}
+                        <div align="center" style="font-size:14px; color:rgba(256,256,256,0.5); margin-top:15px;">No Items</div>
+                        {{/if}}
+                        <ul style="list-style-type:none;padding-left:2px; margin:0px;">
+                        {{#each todos:i}}
+                        <li id="todo-{{i}}">
+                            <div style="width:200px;">
+                                <div class="checkbox {{finished ? 'finished' : ''}}" style="margin-top:1px;" on-click="finished:{{.}}"></div>
+                                <div class="todo {{finished ? 'finished' : ''}}" style="display:inline-block; vertical-align:top; word-wrap:break-word; max-width:130px; overflow:hidden; font-size:14px; color:white; transform:translateY(-1px); margin-left:3px;">{{todo}}</div>
+                                <div class="delete-todo" on-click="deleteTodo:{{i}},{{.}}" style="display:inline-block; float:right; margin-right:10px; vertical-align:top;">
+                                    <img src="images/status/close.png" style="cursor:pointer;" width="13" height="13">
+                                </div>
+                                <div title="Mark as Important" class="importance {{important ? 'important' : ''}}" on-click="important:{{.}}"></div>
+                            </div>
+                        </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if index==2}}
+                {{#if events.length == 0}}
+                    <div style="color:white; font-size:14px; margin-top:20px;">No Assignments Due</div>
+                    <div style="color:white; font-size:10px;">Add new assignments in <img style="transform:translateY(4px)" src="images/status/settings.png" width="15" height="15"></div>
+                {{/if}}
+            {{/if}}
         </div>
-        <div id="food-truck-pulldown" align="center">
+        </td>
+        <td>
+            <div class="panel-shifter {{index == highestIndex ? 'disabled' : ''}}" align="center" id="panel-to-right" on-click="shiftRight">
+                <img id="panel-shifter-icon-right" style="margin-top:32px; {{index == highestIndex ? 'display:none' : ''}}" src="images/status/white-arrow-right.png" width="20" height="20">
+            </div>
+        </td>
+        </tr>
+        </table>
+        <div id="info-box-pulldown" style="position:relative" align="center">
             <img id="pulldown-icon" src="images/status/arrow-up.png" style="margin-top:-3px;" width="15" height="15">
         </div>
+    </div>
     </script>
-    <div id="food-trucks" style="width:100%; position:fixed; top: 0px;"></div>
+    <div id="info-box-display" style="width:100%; position:fixed; top: 0px; display:none;"></div>
     <div id="settings" style="height: 100%"></div>
     <div id="footer">Developed by Kevin He | 2015</div>
     <div id="photo-source"></div>
