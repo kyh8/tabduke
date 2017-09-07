@@ -1,0 +1,28 @@
+{
+  "name": "tabduke",
+  "version": "1.0.0",
+  "description": "A new tab dashboard for Duke students",
+  "main": "main.js",
+  "scripts": {
+    "watch": "watchify -t [ babelify ] src/main.js -o src/bundle.js -v",
+    "build": "browserify -t [ babelify ] src/main.js  | uglifyjs -mc warnings=false > src/bundle.js"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Kevin He",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babelify": "^7.3.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015"
+    ]
+  }
+}
