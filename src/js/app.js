@@ -36,7 +36,9 @@ export class App extends React.Component {
       <div className='app-container'>
         <TimeDisplay/>
         <BookmarkTray/>
-        <RestaurantList/>
+        <div className='info-container'>
+          <RestaurantList/>
+        </div>
       </div>
     );
   }

@@ -3,13 +3,13 @@
         {
             "name": "Au Bon Pain",
             "open": {
-                "Monday":[[25200, 79200]],
-                "Tuesday":[[25200, 79200]],
-                "Wednesday":[[25200, 79200]],
-                "Thursday":[[25200, 79200]],
-                "Friday":[[25200, 79200]],
-                "Saturday":[[25200, 79200]],
-                "Sunday":[[25200, 79200]]
+                "Monday":[[7, 22]],
+                "Tuesday":[[7, 22]],
+                "Wednesday":[[7, 22]],
+                "Thursday":[[7, 22]],
+                "Friday":[[7, 22]],
+                "Saturday":[[7, 22]],
+                "Sunday":[[7, 22]]
             },
             "currentlyOpen": false,
             "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/Online%20Menu%20-%20Fall%20FY13%20copy.pdf"
@@ -17,24 +17,24 @@
         {
             "name": "Bella Union",
             "open":{
-                "Monday":[[28800, 86399]],
-                "Tuesday":[[28800, 86399]],
-                "Wednesday":[[28800, 86399]],
-                "Thursday":[[28800, 86399]],
-                "Friday":[[28800, 86399]],
-                "Saturday":[[36000, 86399]],
-                "Sunday":[[39600, 86399]]
+                "Monday":[[8, 24]],
+                "Tuesday":[[8, 24]],
+                "Wednesday":[[8, 24]],
+                "Thursday":[[8, 24]],
+                "Friday":[[8, 24]],
+                "Saturday":[[10, 24]],
+                "Sunday":[[11, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Blue Express",
             "open":{
-                "Monday":[[28800, 54000]],
-                "Tuesday":[[28800, 54000]],
-                "Wednesday":[[28800, 54000]],
-                "Thursday":[[28800, 54000]],
-                "Friday":[[28800, 54000]]
+                "Monday":[[8, 15]],
+                "Tuesday":[[8, 15]],
+                "Wednesday":[[8, 15]],
+                "Thursday":[[8, 15]],
+                "Friday":[[8, 15]]
             },
             "currentlyOpen": false,
             "menu":"http://www.lsrcblueexpress.com/#!menu/c1xfq"
@@ -42,11 +42,11 @@
         {
             "name": "Cafe De Novo",
             "open": {
-                "Monday":[[27000, 55800]],
-                "Tuesday":[[27000, 55800]],
-                "Wednesday":[[27000, 55800]],
-                "Thursday":[[27000, 55800]],
-                "Friday":[[27000, 55800]]
+                "Monday":[[7.5, 15.5]],
+                "Tuesday":[[7.5, 15.5]],
+                "Wednesday":[[7.5, 15.5]],
+                "Thursday":[[7.5, 15.5]],
+                "Friday":[[7.5, 15.5]]
             },
             "currentlyOpen": false
         },
@@ -58,24 +58,24 @@
         {
             "name": "Chef's Kitchen",
             "open": {
-              "Monday":[[39600, 50400]],
-              "Tuesday":[[39600, 50400]],
-              "Wednesday":[[39600, 50400]],
-              "Thursday":[[39600, 50400]],
-              "Friday":[[39600, 50400]]
+              "Monday":[[11, 14]],
+              "Tuesday":[[11, 14]],
+              "Wednesday":[[11, 14]],
+              "Thursday":[[11, 14]],
+              "Friday":[[11, 14]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Dame's Express",
             "open":{
-                "Monday":[[36000, 79200]],
-                "Tuesday":[[36000, 79200]],
-                "Wednesday":[[36000, 79200]],
-                "Thursday":[[36000, 79200]],
-                "Friday":[[36000, 79200]],
-                "Saturday":[[43200, 79200]],
-                "Sunday":[[43200, 79200]]
+                "Monday":[[10, 22]],
+                "Tuesday":[[10, 22]],
+                "Wednesday":[[10, 22]],
+                "Thursday":[[10, 22]],
+                "Friday":[[10, 22]],
+                "Saturday":[[12, 22]],
+                "Sunday":[[12, 22]]
             },
             "currentlyOpen": false,
             "menu": "https://studentaffairs.duke.edu/sites/default/files/u1379/Dame%27sFullMenu.pdf"
@@ -83,12 +83,12 @@
         {
             "name": "Divinity Cafe",
             "open":{
-                "Monday":[[28800, 57600]],
-                "Tuesday":[[28800, 57600]],
-                "Wednesday":[[28800, 57600]],
-                "Thursday":[[28800, 57600]],
-                "Friday":[[28800, 54000]],
-                "Sunday":[[37800, 52200]]
+                "Monday":[[8, 16]],
+                "Tuesday":[[8, 16]],
+                "Wednesday":[[8, 16]],
+                "Thursday":[[8, 16]],
+                "Friday":[[8, 15]],
+                "Sunday":[[10.5, 14.5]]
             },
             "currentlyOpen": false,
             "menu": "https://studentaffairs.duke.edu/dining/venues-and-menus/divinity-refectory"
@@ -96,88 +96,88 @@
         {
             "name": "Freeman Center",
             "open": {
-                "Monday":[[61200, 72000]],
-                "Tuesday":[[61200, 72000]],
-                "Wednesday":[[61200, 72000]],
-                "Thursday":[[61200, 72000]],
-                "Friday":[[68400, 73800]]
+                "Monday":[[17, 20]],
+                "Tuesday":[[17, 20]],
+                "Wednesday":[[17, 20]],
+                "Thursday":[[17, 20]],
+                "Friday":[[19, 20.5]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Ginger + Soy",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Gyotaku",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Il Forno",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "JB's Roast & Chops",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Joe Van Gogh",
             "open": {
-                "Monday":[[27000, 72000]],
-                "Tuesday":[[27000, 72000]],
-                "Wednesday":[[27000, 72000]],
-                "Thursday":[[27000, 72000]],
-                "Friday":[[27000, 72000]],
-                "Saturday":[[32400, 61200]]
+                "Monday":[[7.5, 20]],
+                "Tuesday":[[7.5, 20]],
+                "Wednesday":[[7.5, 20]],
+                "Thursday":[[7.5, 20]],
+                "Friday":[[7.5, 20]],
+                "Saturday":[[9, 17]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Loop Pizza Grill",
             "open":{
-                "Monday":[[37800, 86399]],
-                "Tuesday":[[37800, 86399]],
-                "Wednesday":[[37800, 86399]],
-                "Thursday":[[37800, 86399]],
-                "Friday":[[37800, 86399]],
-                "Saturday":[[0,3600],[37800, 86399]],
-                "Sunday":[[0,3600],[37800, 86399]]
+                "Monday":[[10.5, 24]],
+                "Tuesday":[[10.5, 24]],
+                "Wednesday":[[10.5, 24]],
+                "Thursday":[[10.5, 24]],
+                "Friday":[[10.5, 24]],
+                "Saturday":[[0,1],[10.5, 24]],
+                "Sunday":[[0,1],[10.5, 24]]
             },
             "currentlyOpen": false,
             "menu": "http://www.looppizzagrill.com/media/5438/durham.pdf"
@@ -185,13 +185,13 @@
         {
             "name": "Marketplace",
             "open":{
-                "Monday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Tuesday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Wednesday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Thursday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Friday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Saturday":[[36000, 50400],[61200, 75600]],
-                "Sunday":[[36000, 50400],[61200, 75600]]
+                "Monday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Tuesday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Wednesday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Thursday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Friday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Saturday":[[10, 14],[17, 21]],
+                "Sunday":[[10, 14],[17, 21]]
             },
             "currentlyOpen": false
         },
@@ -203,25 +203,25 @@
         {
             "name": "Nasher Museum Cafe",
             "open": {
-                "Tuesday": [[39600, 59400]],
-                "Wednesday": [[39600, 59400]],
-                "Thursday": [[39600, 72900]],
-                "Friday": [[39600, 59400]],
-                "Saturday": [[36000, 57600]],
-                "Sunday": [[43200, 57600]]
+                "Tuesday": [[11, 16.5]],
+                "Wednesday": [[11, 16.5]],
+                "Thursday": [[11, 20.25]],
+                "Friday": [[11, 16.5]],
+                "Saturday": [[10, 16]],
+                "Sunday": [[12, 16]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Panda Express",
             "open":{
-                "Monday":[[39600, 79200]],
-                "Tuesday":[[39600, 79200]],
-                "Wednesday":[[39600, 79200]],
-                "Thursday":[[39600, 79200]],
-                "Friday":[[39600, 79200]],
-                "Saturday":[[39600, 79200]],
-                "Sunday":[[39600, 79200]]
+                "Monday":[[11, 22]],
+                "Tuesday":[[11, 22]],
+                "Wednesday":[[11, 22]],
+                "Thursday":[[11, 22]],
+                "Friday":[[11, 22]],
+                "Saturday":[[11, 22]],
+                "Sunday":[[11, 22]]
             },
             "currentlyOpen": false,
             "menu":"http://www.pandaexpress.com/menu/#!/orange-chicken"
@@ -229,128 +229,128 @@
         {
             "name": "Quenchers",
             "open": {
-                "Monday":[[36000, 75600]],
-                "Tuesday":[[36000, 75600]],
-                "Wednesday":[[36000, 75600]],
-                "Thursday":[[36000, 75600]],
-                "Friday":[[36000, 75600]],
-                "Saturday":[[36000, 75600]],
-                "Sunday":[[36000, 75600]]
+                "Monday":[[10, 21]],
+                "Tuesday":[[10, 21]],
+                "Wednesday":[[10, 21]],
+                "Thursday":[[10, 21]],
+                "Friday":[[10, 21]],
+                "Saturday":[[10, 21]],
+                "Sunday":[[10, 21]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Red Mango",
             "open": {
-                "Monday":[[39600, 75600]],
-                "Tuesday":[[39600, 75600]],
-                "Wednesday":[[39600, 75600]],
-                "Thursday":[[39600, 75600]],
-                "Friday":[[39600, 75600]],
-                "Saturday":[[39600, 75600]],
-                "Sunday":[[39600, 75600]]
+                "Monday":[[11, 21]],
+                "Tuesday":[[11, 21]],
+                "Wednesday":[[11, 21]],
+                "Thursday":[[11, 21]],
+                "Friday":[[11, 21]],
+                "Saturday":[[11, 21]],
+                "Sunday":[[11, 21]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Saladelia at Perkins",
             "open":{
-                "Monday":[[27000, 86399]],
-                "Tuesday":[[27000, 86399]],
-                "Wednesday":[[27000, 86399]],
-                "Thursday":[[27000, 86399]],
-                "Friday":[[27000, 61200]],
-                "Saturday":[[43200, 64800]],
-                "Sunday":[[43200, 86399]]
+                "Monday":[[7.5, 24]],
+                "Tuesday":[[7.5, 24]],
+                "Wednesday":[[7.5, 24]],
+                "Thursday":[[7.5, 24]],
+                "Friday":[[7.5, 17]],
+                "Saturday":[[12, 18]],
+                "Sunday":[[12, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Sprout",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Tandoor",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "The Devil's Krafthouse",
             "open": {
-                "Monday":[[39600, 86399]],
-                "Tuesday":[[39600, 86399]],
-                "Wednesday":[[39600, 86399]],
-                "Thursday":[[39600, 86399]],
-                "Friday":[[39600, 86399]],
-                "Saturday":[[39600, 86399]],
-                "Sunday":[[39600, 86399]]
+                "Monday":[[11, 24]],
+                "Tuesday":[[11, 24]],
+                "Wednesday":[[11, 24]],
+                "Thursday":[[11, 24]],
+                "Friday":[[11, 24]],
+                "Saturday":[[11, 24]],
+                "Sunday":[[11, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "The Farmstead",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "The Skillet",
             "open": {
-                "Monday":[[27000, 72000]],
-                "Tuesday":[[27000, 72000]],
-                "Wednesday":[[27000, 72000]],
-                "Thursday":[[27000, 72000]],
-                "Friday":[[27000, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[7.5, 20]],
+                "Tuesday":[[7.5, 20]],
+                "Wednesday":[[7.5, 20]],
+                "Thursday":[[7.5, 20]],
+                "Friday":[[7.5, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Trinity Cafe",
             "open":{
-                "Monday":[[28800, 86399]],
-                "Tuesday":[[28800, 86399]],
-                "Wednesday":[[28800, 86399]],
-                "Thursday":[[28800, 86399]],
-                "Friday":[[28800, 79200]],
-                "Saturday":[[43200, 79200]],
-                "Sunday":[[43200, 86399]]
+                "Monday":[[8, 24]],
+                "Tuesday":[[8, 24]],
+                "Wednesday":[[8, 24]],
+                "Thursday":[[8, 24]],
+                "Friday":[[8, 22]],
+                "Saturday":[[12, 22]],
+                "Sunday":[[12, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Twinnie's",
             "open":{
-                "Monday":[[28800, 64800]],
-                "Tuesday":[[28800, 64800]],
-                "Wednesday":[[28800, 64800]],
-                "Thursday":[[28800, 64800]],
-                "Friday":[[28800, 64800]]
+                "Monday":[[8, 18]],
+                "Tuesday":[[8, 18]],
+                "Wednesday":[[8, 18]],
+                "Thursday":[[8, 18]],
+                "Friday":[[8, 18]]
             },
             "currentlyOpen": false,
             "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/Twinnie%27s%20lunch-bfast%20menu.jpg"
@@ -358,13 +358,13 @@
         {
             "name": "West Union Cafe",
             "open": {
-                "Monday":[[27000, 79200]],
-                "Tuesday":[[27000, 79200]],
-                "Wednesday":[[27000, 79200]],
-                "Thursday":[[27000, 79200]],
-                "Friday":[[27000, 79200]],
-                "Saturday":[[36000, 75600]],
-                "Sunday":[[39600, 75600]]
+                "Monday":[[7.5, 22]],
+                "Tuesday":[[7.5, 22]],
+                "Wednesday":[[7.5, 22]],
+                "Thursday":[[7.5, 22]],
+                "Friday":[[7.5, 22]],
+                "Saturday":[[10, 21]],
+                "Sunday":[[11, 21]]
             },
             "currentlyOpen": false
         }

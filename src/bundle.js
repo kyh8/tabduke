@@ -84,7 +84,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":8,"_process":185}],2:[function(require,module,exports){
+},{"./emptyFunction":8,"_process":188}],2:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -361,7 +361,7 @@ function createArrayFromMixed(obj) {
 
 module.exports = createArrayFromMixed;
 }).call(this,require('_process'))
-},{"./invariant":16,"_process":185}],7:[function(require,module,exports){
+},{"./invariant":16,"_process":188}],7:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -447,7 +447,7 @@ function createNodesFromMarkup(markup, handleScript) {
 
 module.exports = createNodesFromMarkup;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":2,"./createArrayFromMixed":6,"./getMarkupWrap":12,"./invariant":16,"_process":185}],8:[function(require,module,exports){
+},{"./ExecutionEnvironment":2,"./createArrayFromMixed":6,"./getMarkupWrap":12,"./invariant":16,"_process":188}],8:[function(require,module,exports){
 "use strict";
 
 /**
@@ -508,7 +508,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":185}],10:[function(require,module,exports){
+},{"_process":188}],10:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -667,7 +667,7 @@ function getMarkupWrap(nodeName) {
 
 module.exports = getMarkupWrap;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":2,"./invariant":16,"_process":185}],13:[function(require,module,exports){
+},{"./ExecutionEnvironment":2,"./invariant":16,"_process":188}],13:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -836,7 +836,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":185}],17:[function(require,module,exports){
+},{"_process":188}],17:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1108,7 +1108,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":8,"_process":185}],24:[function(require,module,exports){
+},{"./emptyFunction":8,"_process":188}],24:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -2047,7 +2047,7 @@ var CSSPropertyOperations = {
 
 module.exports = CSSPropertyOperations;
 }).call(this,require('_process'))
-},{"./CSSProperty":29,"./ReactInstrumentation":87,"./dangerousStyleValue":126,"_process":185,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/hyphenateStyleName":15,"fbjs/lib/memoizeStringOnly":19,"fbjs/lib/warning":23}],31:[function(require,module,exports){
+},{"./CSSProperty":29,"./ReactInstrumentation":87,"./dangerousStyleValue":126,"_process":188,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/hyphenateStyleName":15,"fbjs/lib/memoizeStringOnly":19,"fbjs/lib/warning":23}],31:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -2168,7 +2168,7 @@ var CallbackQueue = function () {
 
 module.exports = PooledClass.addPoolingTo(CallbackQueue);
 }).call(this,require('_process'))
-},{"./PooledClass":49,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],32:[function(require,module,exports){
+},{"./PooledClass":49,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],32:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2716,7 +2716,7 @@ var DOMChildrenOperations = {
 
 module.exports = DOMChildrenOperations;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":34,"./Danger":38,"./ReactDOMComponentTree":58,"./ReactInstrumentation":87,"./createMicrosoftUnsafeLocalFunction":125,"./setInnerHTML":147,"./setTextContent":148,"_process":185}],34:[function(require,module,exports){
+},{"./DOMLazyTree":34,"./Danger":38,"./ReactDOMComponentTree":58,"./ReactInstrumentation":87,"./createMicrosoftUnsafeLocalFunction":125,"./setInnerHTML":147,"./setTextContent":148,"_process":188}],34:[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -3066,7 +3066,7 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],37:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],37:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -3305,7 +3305,7 @@ var DOMPropertyOperations = {
 
 module.exports = DOMPropertyOperations;
 }).call(this,require('_process'))
-},{"./DOMProperty":36,"./ReactDOMComponentTree":58,"./ReactInstrumentation":87,"./quoteAttributeValueForBrowser":144,"_process":185,"fbjs/lib/warning":23}],38:[function(require,module,exports){
+},{"./DOMProperty":36,"./ReactDOMComponentTree":58,"./ReactInstrumentation":87,"./quoteAttributeValueForBrowser":144,"_process":188,"fbjs/lib/warning":23}],38:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -3355,7 +3355,7 @@ var Danger = {
 
 module.exports = Danger;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":34,"./reactProdInvariant":145,"_process":185,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/createNodesFromMarkup":7,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16}],39:[function(require,module,exports){
+},{"./DOMLazyTree":34,"./reactProdInvariant":145,"_process":188,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/createNodesFromMarkup":7,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16}],39:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -3761,7 +3761,7 @@ var EventPluginHub = {
 
 module.exports = EventPluginHub;
 }).call(this,require('_process'))
-},{"./EventPluginRegistry":42,"./EventPluginUtils":43,"./ReactErrorUtils":78,"./accumulateInto":122,"./forEachAccumulated":130,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],42:[function(require,module,exports){
+},{"./EventPluginRegistry":42,"./EventPluginUtils":43,"./ReactErrorUtils":78,"./accumulateInto":122,"./forEachAccumulated":130,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],42:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -4018,7 +4018,7 @@ var EventPluginRegistry = {
 
 module.exports = EventPluginRegistry;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],43:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],43:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -4246,7 +4246,7 @@ var EventPluginUtils = {
 
 module.exports = EventPluginUtils;
 }).call(this,require('_process'))
-},{"./ReactErrorUtils":78,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],44:[function(require,module,exports){
+},{"./ReactErrorUtils":78,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],44:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -4382,7 +4382,7 @@ var EventPropagators = {
 
 module.exports = EventPropagators;
 }).call(this,require('_process'))
-},{"./EventPluginHub":41,"./EventPluginUtils":43,"./accumulateInto":122,"./forEachAccumulated":130,"_process":185,"fbjs/lib/warning":23}],45:[function(require,module,exports){
+},{"./EventPluginHub":41,"./EventPluginUtils":43,"./accumulateInto":122,"./forEachAccumulated":130,"_process":188,"fbjs/lib/warning":23}],45:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4885,7 +4885,7 @@ var LinkedValueUtils = {
 
 module.exports = LinkedValueUtils;
 }).call(this,require('_process'))
-},{"./ReactPropTypesSecret":95,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/React":154}],49:[function(require,module,exports){
+},{"./ReactPropTypesSecret":95,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/React":154}],49:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -4999,7 +4999,7 @@ var PooledClass = {
 
 module.exports = PooledClass;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],50:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],50:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5483,7 +5483,7 @@ var ReactChildReconciler = {
 
 module.exports = ReactChildReconciler;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":47,"./ReactReconciler":97,"./instantiateReactComponent":141,"./shouldUpdateReactComponent":149,"./traverseAllChildren":150,"_process":185,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],52:[function(require,module,exports){
+},{"./KeyEscapeUtils":47,"./ReactReconciler":97,"./instantiateReactComponent":141,"./shouldUpdateReactComponent":149,"./traverseAllChildren":150,"_process":188,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],52:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5561,7 +5561,7 @@ var ReactComponentEnvironment = {
 
 module.exports = ReactComponentEnvironment;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],54:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],54:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -6465,7 +6465,7 @@ var ReactCompositeComponent = {
 
 module.exports = ReactCompositeComponent;
 }).call(this,require('_process'))
-},{"./ReactComponentEnvironment":53,"./ReactErrorUtils":78,"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactNodeTypes":92,"./ReactReconciler":97,"./checkReactTypeSpec":124,"./reactProdInvariant":145,"./shouldUpdateReactComponent":149,"_process":185,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/shallowEqual":22,"fbjs/lib/warning":23,"object-assign":24,"react/lib/React":154,"react/lib/ReactCurrentOwner":159}],55:[function(require,module,exports){
+},{"./ReactComponentEnvironment":53,"./ReactErrorUtils":78,"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactNodeTypes":92,"./ReactReconciler":97,"./checkReactTypeSpec":124,"./reactProdInvariant":145,"./shouldUpdateReactComponent":149,"_process":188,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/shallowEqual":22,"fbjs/lib/warning":23,"object-assign":24,"react/lib/React":154,"react/lib/ReactCurrentOwner":159}],55:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -6578,7 +6578,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactDOM;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":58,"./ReactDOMInvalidARIAHook":64,"./ReactDOMNullInputValuePropHook":65,"./ReactDOMUnknownPropertyHook":72,"./ReactDefaultInjection":75,"./ReactInstrumentation":87,"./ReactMount":90,"./ReactReconciler":97,"./ReactUpdates":102,"./ReactVersion":103,"./findDOMNode":128,"./getHostComponentFromComposite":135,"./renderSubtreeIntoContainer":146,"_process":185,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/warning":23}],56:[function(require,module,exports){
+},{"./ReactDOMComponentTree":58,"./ReactDOMInvalidARIAHook":64,"./ReactDOMNullInputValuePropHook":65,"./ReactDOMUnknownPropertyHook":72,"./ReactDefaultInjection":75,"./ReactInstrumentation":87,"./ReactMount":90,"./ReactReconciler":97,"./ReactUpdates":102,"./ReactVersion":103,"./findDOMNode":128,"./getHostComponentFromComposite":135,"./renderSubtreeIntoContainer":146,"_process":188,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/warning":23}],56:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -7581,7 +7581,7 @@ _assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mi
 
 module.exports = ReactDOMComponent;
 }).call(this,require('_process'))
-},{"./AutoFocusUtils":27,"./CSSPropertyOperations":30,"./DOMLazyTree":34,"./DOMNamespaces":35,"./DOMProperty":36,"./DOMPropertyOperations":37,"./EventPluginHub":41,"./EventPluginRegistry":42,"./ReactBrowserEventEmitter":50,"./ReactDOMComponentFlags":57,"./ReactDOMComponentTree":58,"./ReactDOMInput":63,"./ReactDOMOption":66,"./ReactDOMSelect":67,"./ReactDOMTextarea":70,"./ReactInstrumentation":87,"./ReactMultiChild":91,"./ReactServerRenderingTransaction":99,"./escapeTextContentForBrowser":127,"./isEventSupported":142,"./reactProdInvariant":145,"./validateDOMNesting":151,"_process":185,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16,"fbjs/lib/shallowEqual":22,"fbjs/lib/warning":23,"object-assign":24}],57:[function(require,module,exports){
+},{"./AutoFocusUtils":27,"./CSSPropertyOperations":30,"./DOMLazyTree":34,"./DOMNamespaces":35,"./DOMProperty":36,"./DOMPropertyOperations":37,"./EventPluginHub":41,"./EventPluginRegistry":42,"./ReactBrowserEventEmitter":50,"./ReactDOMComponentFlags":57,"./ReactDOMComponentTree":58,"./ReactDOMInput":63,"./ReactDOMOption":66,"./ReactDOMSelect":67,"./ReactDOMTextarea":70,"./ReactInstrumentation":87,"./ReactMultiChild":91,"./ReactServerRenderingTransaction":99,"./escapeTextContentForBrowser":127,"./isEventSupported":142,"./reactProdInvariant":145,"./validateDOMNesting":151,"_process":188,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16,"fbjs/lib/shallowEqual":22,"fbjs/lib/warning":23,"object-assign":24}],57:[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -7796,7 +7796,7 @@ var ReactDOMComponentTree = {
 
 module.exports = ReactDOMComponentTree;
 }).call(this,require('_process'))
-},{"./DOMProperty":36,"./ReactDOMComponentFlags":57,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],59:[function(require,module,exports){
+},{"./DOMProperty":36,"./ReactDOMComponentFlags":57,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],59:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -7831,7 +7831,7 @@ function ReactDOMContainerInfo(topLevelWrapper, node) {
 
 module.exports = ReactDOMContainerInfo;
 }).call(this,require('_process'))
-},{"./validateDOMNesting":151,"_process":185}],60:[function(require,module,exports){
+},{"./validateDOMNesting":151,"_process":188}],60:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -8224,7 +8224,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMInput;
 }).call(this,require('_process'))
-},{"./DOMPropertyOperations":37,"./LinkedValueUtils":48,"./ReactDOMComponentTree":58,"./ReactUpdates":102,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],64:[function(require,module,exports){
+},{"./DOMPropertyOperations":37,"./LinkedValueUtils":48,"./ReactDOMComponentTree":58,"./ReactUpdates":102,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],64:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -8319,7 +8319,7 @@ var ReactDOMInvalidARIAHook = {
 
 module.exports = ReactDOMInvalidARIAHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":36,"_process":185,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],65:[function(require,module,exports){
+},{"./DOMProperty":36,"_process":188,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],65:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -8364,7 +8364,7 @@ var ReactDOMNullInputValuePropHook = {
 
 module.exports = ReactDOMNullInputValuePropHook;
 }).call(this,require('_process'))
-},{"_process":185,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],66:[function(require,module,exports){
+},{"_process":188,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],66:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -8489,7 +8489,7 @@ var ReactDOMOption = {
 
 module.exports = ReactDOMOption;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":58,"./ReactDOMSelect":67,"_process":185,"fbjs/lib/warning":23,"object-assign":24,"react/lib/React":154}],67:[function(require,module,exports){
+},{"./ReactDOMComponentTree":58,"./ReactDOMSelect":67,"_process":188,"fbjs/lib/warning":23,"object-assign":24,"react/lib/React":154}],67:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -8691,7 +8691,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMSelect;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":48,"./ReactDOMComponentTree":58,"./ReactUpdates":102,"_process":185,"fbjs/lib/warning":23,"object-assign":24}],68:[function(require,module,exports){
+},{"./LinkedValueUtils":48,"./ReactDOMComponentTree":58,"./ReactUpdates":102,"_process":188,"fbjs/lib/warning":23,"object-assign":24}],68:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -9069,7 +9069,7 @@ _assign(ReactDOMTextComponent.prototype, {
 
 module.exports = ReactDOMTextComponent;
 }).call(this,require('_process'))
-},{"./DOMChildrenOperations":33,"./DOMLazyTree":34,"./ReactDOMComponentTree":58,"./escapeTextContentForBrowser":127,"./reactProdInvariant":145,"./validateDOMNesting":151,"_process":185,"fbjs/lib/invariant":16,"object-assign":24}],70:[function(require,module,exports){
+},{"./DOMChildrenOperations":33,"./DOMLazyTree":34,"./ReactDOMComponentTree":58,"./escapeTextContentForBrowser":127,"./reactProdInvariant":145,"./validateDOMNesting":151,"_process":188,"fbjs/lib/invariant":16,"object-assign":24}],70:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -9231,7 +9231,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMTextarea;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":48,"./ReactDOMComponentTree":58,"./ReactUpdates":102,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],71:[function(require,module,exports){
+},{"./LinkedValueUtils":48,"./ReactDOMComponentTree":58,"./ReactUpdates":102,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],71:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -9369,7 +9369,7 @@ module.exports = {
   traverseEnterLeave: traverseEnterLeave
 };
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],72:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],72:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -9483,7 +9483,7 @@ var ReactDOMUnknownPropertyHook = {
 
 module.exports = ReactDOMUnknownPropertyHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":36,"./EventPluginRegistry":42,"_process":185,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],73:[function(require,module,exports){
+},{"./DOMProperty":36,"./EventPluginRegistry":42,"_process":188,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],73:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -9846,7 +9846,7 @@ if (/[?&]react_perf\b/.test(url)) {
 
 module.exports = ReactDebugTool;
 }).call(this,require('_process'))
-},{"./ReactHostOperationHistoryHook":83,"./ReactInvalidSetStateWarningHook":88,"_process":185,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/performanceNow":21,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],74:[function(require,module,exports){
+},{"./ReactHostOperationHistoryHook":83,"./ReactInvalidSetStateWarningHook":88,"_process":188,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/performanceNow":21,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],74:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -10129,7 +10129,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactErrorUtils;
 }).call(this,require('_process'))
-},{"_process":185}],79:[function(require,module,exports){
+},{"_process":188}],79:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -10409,7 +10409,7 @@ var ReactHostComponent = {
 
 module.exports = ReactHostComponent;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],83:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],83:[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -10675,7 +10675,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = { debugTool: debugTool };
 }).call(this,require('_process'))
-},{"./ReactDebugTool":73,"_process":185}],88:[function(require,module,exports){
+},{"./ReactDebugTool":73,"_process":188}],88:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -10714,7 +10714,7 @@ var ReactInvalidSetStateWarningHook = {
 
 module.exports = ReactInvalidSetStateWarningHook;
 }).call(this,require('_process'))
-},{"_process":185,"fbjs/lib/warning":23}],89:[function(require,module,exports){
+},{"_process":188,"fbjs/lib/warning":23}],89:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -11304,7 +11304,7 @@ var ReactMount = {
 
 module.exports = ReactMount;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":34,"./DOMProperty":36,"./ReactBrowserEventEmitter":50,"./ReactDOMComponentTree":58,"./ReactDOMContainerInfo":59,"./ReactDOMFeatureFlags":61,"./ReactFeatureFlags":81,"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactMarkupChecksum":89,"./ReactReconciler":97,"./ReactUpdateQueue":101,"./ReactUpdates":102,"./instantiateReactComponent":141,"./reactProdInvariant":145,"./setInnerHTML":147,"./shouldUpdateReactComponent":149,"_process":185,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/React":154,"react/lib/ReactCurrentOwner":159}],91:[function(require,module,exports){
+},{"./DOMLazyTree":34,"./DOMProperty":36,"./ReactBrowserEventEmitter":50,"./ReactDOMComponentTree":58,"./ReactDOMContainerInfo":59,"./ReactDOMFeatureFlags":61,"./ReactFeatureFlags":81,"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactMarkupChecksum":89,"./ReactReconciler":97,"./ReactUpdateQueue":101,"./ReactUpdates":102,"./instantiateReactComponent":141,"./reactProdInvariant":145,"./setInnerHTML":147,"./shouldUpdateReactComponent":149,"_process":188,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/React":154,"react/lib/ReactCurrentOwner":159}],91:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -11756,7 +11756,7 @@ var ReactMultiChild = {
 
 module.exports = ReactMultiChild;
 }).call(this,require('_process'))
-},{"./ReactChildReconciler":51,"./ReactComponentEnvironment":53,"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactReconciler":97,"./flattenChildren":129,"./reactProdInvariant":145,"_process":185,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16,"react/lib/ReactCurrentOwner":159}],92:[function(require,module,exports){
+},{"./ReactChildReconciler":51,"./ReactComponentEnvironment":53,"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactReconciler":97,"./flattenChildren":129,"./reactProdInvariant":145,"_process":188,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16,"react/lib/ReactCurrentOwner":159}],92:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -11798,7 +11798,7 @@ var ReactNodeTypes = {
 
 module.exports = ReactNodeTypes;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"react/lib/React":154}],93:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"react/lib/React":154}],93:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -11894,7 +11894,7 @@ var ReactOwner = {
 
 module.exports = ReactOwner;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],94:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],94:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -11921,7 +11921,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactPropTypeLocationNames;
 }).call(this,require('_process'))
-},{"_process":185}],95:[function(require,module,exports){
+},{"_process":188}],95:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -12118,7 +12118,7 @@ PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
 }).call(this,require('_process'))
-},{"./CallbackQueue":31,"./PooledClass":49,"./ReactBrowserEventEmitter":50,"./ReactInputSelection":85,"./ReactInstrumentation":87,"./ReactUpdateQueue":101,"./Transaction":120,"_process":185,"object-assign":24}],97:[function(require,module,exports){
+},{"./CallbackQueue":31,"./PooledClass":49,"./ReactBrowserEventEmitter":50,"./ReactInputSelection":85,"./ReactInstrumentation":87,"./ReactUpdateQueue":101,"./Transaction":120,"_process":188,"object-assign":24}],97:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -12288,7 +12288,7 @@ var ReactReconciler = {
 
 module.exports = ReactReconciler;
 }).call(this,require('_process'))
-},{"./ReactInstrumentation":87,"./ReactRef":98,"_process":185,"fbjs/lib/warning":23}],98:[function(require,module,exports){
+},{"./ReactInstrumentation":87,"./ReactRef":98,"_process":188,"fbjs/lib/warning":23}],98:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -12469,7 +12469,7 @@ PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
 }).call(this,require('_process'))
-},{"./PooledClass":49,"./ReactInstrumentation":87,"./ReactServerUpdateQueue":100,"./Transaction":120,"_process":185,"object-assign":24}],100:[function(require,module,exports){
+},{"./PooledClass":49,"./ReactInstrumentation":87,"./ReactServerUpdateQueue":100,"./Transaction":120,"_process":188,"object-assign":24}],100:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -12610,7 +12610,7 @@ var ReactServerUpdateQueue = function () {
 
 module.exports = ReactServerUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactUpdateQueue":101,"_process":185,"fbjs/lib/warning":23}],101:[function(require,module,exports){
+},{"./ReactUpdateQueue":101,"_process":188,"fbjs/lib/warning":23}],101:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -12838,7 +12838,7 @@ var ReactUpdateQueue = {
 
 module.exports = ReactUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactUpdates":102,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactCurrentOwner":159}],102:[function(require,module,exports){
+},{"./ReactInstanceMap":86,"./ReactInstrumentation":87,"./ReactUpdates":102,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactCurrentOwner":159}],102:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -13091,7 +13091,7 @@ var ReactUpdates = {
 
 module.exports = ReactUpdates;
 }).call(this,require('_process'))
-},{"./CallbackQueue":31,"./PooledClass":49,"./ReactFeatureFlags":81,"./ReactReconciler":97,"./Transaction":120,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"object-assign":24}],103:[function(require,module,exports){
+},{"./CallbackQueue":31,"./PooledClass":49,"./ReactFeatureFlags":81,"./ReactReconciler":97,"./Transaction":120,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"object-assign":24}],103:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -13828,7 +13828,7 @@ var SimpleEventPlugin = {
 
 module.exports = SimpleEventPlugin;
 }).call(this,require('_process'))
-},{"./EventPropagators":44,"./ReactDOMComponentTree":58,"./SyntheticAnimationEvent":107,"./SyntheticClipboardEvent":108,"./SyntheticDragEvent":110,"./SyntheticEvent":111,"./SyntheticFocusEvent":112,"./SyntheticKeyboardEvent":114,"./SyntheticMouseEvent":115,"./SyntheticTouchEvent":116,"./SyntheticTransitionEvent":117,"./SyntheticUIEvent":118,"./SyntheticWheelEvent":119,"./getEventCharCode":131,"./reactProdInvariant":145,"_process":185,"fbjs/lib/EventListener":1,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16}],107:[function(require,module,exports){
+},{"./EventPropagators":44,"./ReactDOMComponentTree":58,"./SyntheticAnimationEvent":107,"./SyntheticClipboardEvent":108,"./SyntheticDragEvent":110,"./SyntheticEvent":111,"./SyntheticFocusEvent":112,"./SyntheticKeyboardEvent":114,"./SyntheticMouseEvent":115,"./SyntheticTouchEvent":116,"./SyntheticTransitionEvent":117,"./SyntheticUIEvent":118,"./SyntheticWheelEvent":119,"./getEventCharCode":131,"./reactProdInvariant":145,"_process":188,"fbjs/lib/EventListener":1,"fbjs/lib/emptyFunction":8,"fbjs/lib/invariant":16}],107:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -14247,7 +14247,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
   }
 }
 }).call(this,require('_process'))
-},{"./PooledClass":49,"_process":185,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":23,"object-assign":24}],112:[function(require,module,exports){
+},{"./PooledClass":49,"_process":188,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":23,"object-assign":24}],112:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -14900,7 +14900,7 @@ var TransactionImpl = {
 
 module.exports = TransactionImpl;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],121:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],121:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -14987,7 +14987,7 @@ function accumulateInto(current, next) {
 
 module.exports = accumulateInto;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16}],123:[function(require,module,exports){
+},{"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16}],123:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -15120,7 +15120,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactPropTypeLocationNames":94,"./ReactPropTypesSecret":95,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],125:[function(require,module,exports){
+},{"./ReactPropTypeLocationNames":94,"./ReactPropTypesSecret":95,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],125:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -15233,7 +15233,7 @@ function dangerousStyleValue(name, value, component) {
 
 module.exports = dangerousStyleValue;
 }).call(this,require('_process'))
-},{"./CSSProperty":29,"_process":185,"fbjs/lib/warning":23}],127:[function(require,module,exports){
+},{"./CSSProperty":29,"_process":188,"fbjs/lib/warning":23}],127:[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -15418,7 +15418,7 @@ function findDOMNode(componentOrElement) {
 
 module.exports = findDOMNode;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":58,"./ReactInstanceMap":86,"./getHostComponentFromComposite":135,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactCurrentOwner":159}],129:[function(require,module,exports){
+},{"./ReactDOMComponentTree":58,"./ReactInstanceMap":86,"./getHostComponentFromComposite":135,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactCurrentOwner":159}],129:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -15496,7 +15496,7 @@ function flattenChildren(children, selfDebugID) {
 
 module.exports = flattenChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":47,"./traverseAllChildren":150,"_process":185,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],130:[function(require,module,exports){
+},{"./KeyEscapeUtils":47,"./traverseAllChildren":150,"_process":188,"fbjs/lib/warning":23,"react/lib/ReactComponentTreeHook":158}],130:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -16187,7 +16187,7 @@ function instantiateReactComponent(node, shouldHaveDebugID) {
 
 module.exports = instantiateReactComponent;
 }).call(this,require('_process'))
-},{"./ReactCompositeComponent":54,"./ReactEmptyComponent":77,"./ReactHostComponent":82,"./getNextDebugID":137,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],142:[function(require,module,exports){
+},{"./ReactCompositeComponent":54,"./ReactEmptyComponent":77,"./ReactHostComponent":82,"./getNextDebugID":137,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],142:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -16749,7 +16749,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":47,"./ReactElementSymbol":76,"./getIteratorFn":136,"./reactProdInvariant":145,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactCurrentOwner":159}],151:[function(require,module,exports){
+},{"./KeyEscapeUtils":47,"./ReactElementSymbol":76,"./getIteratorFn":136,"./reactProdInvariant":145,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"react/lib/ReactCurrentOwner":159}],151:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -17133,11 +17133,11 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = validateDOMNesting;
 }).call(this,require('_process'))
-},{"_process":185,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":23,"object-assign":24}],152:[function(require,module,exports){
+},{"_process":188,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":23,"object-assign":24}],152:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
 },{"dup":47}],153:[function(require,module,exports){
 arguments[4][49][0].apply(exports,arguments)
-},{"./reactProdInvariant":174,"_process":185,"dup":49,"fbjs/lib/invariant":16}],154:[function(require,module,exports){
+},{"./reactProdInvariant":174,"_process":188,"dup":49,"fbjs/lib/invariant":16}],154:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -17228,7 +17228,7 @@ var React = {
 
 module.exports = React;
 }).call(this,require('_process'))
-},{"./ReactChildren":155,"./ReactClass":156,"./ReactComponent":157,"./ReactDOMFactories":160,"./ReactElement":161,"./ReactElementValidator":163,"./ReactPropTypes":166,"./ReactPureComponent":168,"./ReactVersion":169,"./onlyChild":173,"_process":185,"fbjs/lib/warning":23,"object-assign":24}],155:[function(require,module,exports){
+},{"./ReactChildren":155,"./ReactClass":156,"./ReactComponent":157,"./ReactDOMFactories":160,"./ReactElement":161,"./ReactElementValidator":163,"./ReactPropTypes":166,"./ReactPureComponent":168,"./ReactVersion":169,"./onlyChild":173,"_process":188,"fbjs/lib/warning":23,"object-assign":24}],155:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -18138,7 +18138,7 @@ var ReactClass = {
 
 module.exports = ReactClass;
 }).call(this,require('_process'))
-},{"./ReactComponent":157,"./ReactElement":161,"./ReactNoopUpdateQueue":164,"./ReactPropTypeLocationNames":165,"./reactProdInvariant":174,"_process":185,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],157:[function(require,module,exports){
+},{"./ReactComponent":157,"./ReactElement":161,"./ReactNoopUpdateQueue":164,"./ReactPropTypeLocationNames":165,"./reactProdInvariant":174,"_process":188,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/warning":23,"object-assign":24}],157:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -18258,7 +18258,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactComponent;
 }).call(this,require('_process'))
-},{"./ReactNoopUpdateQueue":164,"./canDefineProperty":170,"./reactProdInvariant":174,"_process":185,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],158:[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":164,"./canDefineProperty":170,"./reactProdInvariant":174,"_process":188,"fbjs/lib/emptyObject":9,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],158:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -18594,7 +18594,7 @@ var ReactComponentTreeHook = {
 
 module.exports = ReactComponentTreeHook;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":159,"./reactProdInvariant":174,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],159:[function(require,module,exports){
+},{"./ReactCurrentOwner":159,"./reactProdInvariant":174,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],159:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -18797,7 +18797,7 @@ var ReactDOMFactories = {
 
 module.exports = ReactDOMFactories;
 }).call(this,require('_process'))
-},{"./ReactElement":161,"./ReactElementValidator":163,"_process":185}],161:[function(require,module,exports){
+},{"./ReactElement":161,"./ReactElementValidator":163,"_process":188}],161:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -19140,7 +19140,7 @@ ReactElement.isValidElement = function (object) {
 
 module.exports = ReactElement;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":159,"./ReactElementSymbol":162,"./canDefineProperty":170,"_process":185,"fbjs/lib/warning":23,"object-assign":24}],162:[function(require,module,exports){
+},{"./ReactCurrentOwner":159,"./ReactElementSymbol":162,"./canDefineProperty":170,"_process":188,"fbjs/lib/warning":23,"object-assign":24}],162:[function(require,module,exports){
 arguments[4][76][0].apply(exports,arguments)
 },{"dup":76}],163:[function(require,module,exports){
 (function (process){
@@ -19378,7 +19378,7 @@ var ReactElementValidator = {
 
 module.exports = ReactElementValidator;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":158,"./ReactCurrentOwner":159,"./ReactElement":161,"./canDefineProperty":170,"./checkReactTypeSpec":171,"./getIteratorFn":172,"_process":185,"fbjs/lib/warning":23}],164:[function(require,module,exports){
+},{"./ReactComponentTreeHook":158,"./ReactCurrentOwner":159,"./ReactElement":161,"./canDefineProperty":170,"./checkReactTypeSpec":171,"./getIteratorFn":172,"_process":188,"fbjs/lib/warning":23}],164:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -19476,9 +19476,9 @@ var ReactNoopUpdateQueue = {
 
 module.exports = ReactNoopUpdateQueue;
 }).call(this,require('_process'))
-},{"_process":185,"fbjs/lib/warning":23}],165:[function(require,module,exports){
+},{"_process":188,"fbjs/lib/warning":23}],165:[function(require,module,exports){
 arguments[4][94][0].apply(exports,arguments)
-},{"_process":185,"dup":94}],166:[function(require,module,exports){
+},{"_process":188,"dup":94}],166:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -19914,7 +19914,7 @@ function getClassName(propValue) {
 
 module.exports = ReactPropTypes;
 }).call(this,require('_process'))
-},{"./ReactElement":161,"./ReactPropTypeLocationNames":165,"./ReactPropTypesSecret":167,"./getIteratorFn":172,"_process":185,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":23}],167:[function(require,module,exports){
+},{"./ReactElement":161,"./ReactPropTypeLocationNames":165,"./ReactPropTypesSecret":167,"./getIteratorFn":172,"_process":188,"fbjs/lib/emptyFunction":8,"fbjs/lib/warning":23}],167:[function(require,module,exports){
 arguments[4][95][0].apply(exports,arguments)
 },{"dup":95}],168:[function(require,module,exports){
 /**
@@ -19988,7 +19988,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 }).call(this,require('_process'))
-},{"_process":185}],171:[function(require,module,exports){
+},{"_process":188}],171:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -20077,7 +20077,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":158,"./ReactPropTypeLocationNames":165,"./ReactPropTypesSecret":167,"./reactProdInvariant":174,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],172:[function(require,module,exports){
+},{"./ReactComponentTreeHook":158,"./ReactPropTypeLocationNames":165,"./ReactPropTypesSecret":167,"./reactProdInvariant":174,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],172:[function(require,module,exports){
 arguments[4][136][0].apply(exports,arguments)
 },{"dup":136}],173:[function(require,module,exports){
 (function (process){
@@ -20119,7 +20119,7 @@ function onlyChild(children) {
 
 module.exports = onlyChild;
 }).call(this,require('_process'))
-},{"./ReactElement":161,"./reactProdInvariant":174,"_process":185,"fbjs/lib/invariant":16}],174:[function(require,module,exports){
+},{"./ReactElement":161,"./reactProdInvariant":174,"_process":188,"fbjs/lib/invariant":16}],174:[function(require,module,exports){
 arguments[4][145][0].apply(exports,arguments)
 },{"dup":145}],175:[function(require,module,exports){
 (function (process){
@@ -20299,7 +20299,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":152,"./ReactCurrentOwner":159,"./ReactElementSymbol":162,"./getIteratorFn":172,"./reactProdInvariant":174,"_process":185,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],176:[function(require,module,exports){
+},{"./KeyEscapeUtils":152,"./ReactCurrentOwner":159,"./ReactElementSymbol":162,"./getIteratorFn":172,"./reactProdInvariant":174,"_process":188,"fbjs/lib/invariant":16,"fbjs/lib/warning":23}],176:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');
@@ -20310,13 +20310,13 @@ module.exports={
         {
             "name": "Au Bon Pain",
             "open": {
-                "Monday":[[25200, 79200]],
-                "Tuesday":[[25200, 79200]],
-                "Wednesday":[[25200, 79200]],
-                "Thursday":[[25200, 79200]],
-                "Friday":[[25200, 79200]],
-                "Saturday":[[25200, 79200]],
-                "Sunday":[[25200, 79200]]
+                "Monday":[[7, 22]],
+                "Tuesday":[[7, 22]],
+                "Wednesday":[[7, 22]],
+                "Thursday":[[7, 22]],
+                "Friday":[[7, 22]],
+                "Saturday":[[7, 22]],
+                "Sunday":[[7, 22]]
             },
             "currentlyOpen": false,
             "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/Online%20Menu%20-%20Fall%20FY13%20copy.pdf"
@@ -20324,24 +20324,24 @@ module.exports={
         {
             "name": "Bella Union",
             "open":{
-                "Monday":[[28800, 86399]],
-                "Tuesday":[[28800, 86399]],
-                "Wednesday":[[28800, 86399]],
-                "Thursday":[[28800, 86399]],
-                "Friday":[[28800, 86399]],
-                "Saturday":[[36000, 86399]],
-                "Sunday":[[39600, 86399]]
+                "Monday":[[8, 24]],
+                "Tuesday":[[8, 24]],
+                "Wednesday":[[8, 24]],
+                "Thursday":[[8, 24]],
+                "Friday":[[8, 24]],
+                "Saturday":[[10, 24]],
+                "Sunday":[[11, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Blue Express",
             "open":{
-                "Monday":[[28800, 54000]],
-                "Tuesday":[[28800, 54000]],
-                "Wednesday":[[28800, 54000]],
-                "Thursday":[[28800, 54000]],
-                "Friday":[[28800, 54000]]
+                "Monday":[[8, 15]],
+                "Tuesday":[[8, 15]],
+                "Wednesday":[[8, 15]],
+                "Thursday":[[8, 15]],
+                "Friday":[[8, 15]]
             },
             "currentlyOpen": false,
             "menu":"http://www.lsrcblueexpress.com/#!menu/c1xfq"
@@ -20349,11 +20349,11 @@ module.exports={
         {
             "name": "Cafe De Novo",
             "open": {
-                "Monday":[[27000, 55800]],
-                "Tuesday":[[27000, 55800]],
-                "Wednesday":[[27000, 55800]],
-                "Thursday":[[27000, 55800]],
-                "Friday":[[27000, 55800]]
+                "Monday":[[7.5, 15.5]],
+                "Tuesday":[[7.5, 15.5]],
+                "Wednesday":[[7.5, 15.5]],
+                "Thursday":[[7.5, 15.5]],
+                "Friday":[[7.5, 15.5]]
             },
             "currentlyOpen": false
         },
@@ -20365,24 +20365,24 @@ module.exports={
         {
             "name": "Chef's Kitchen",
             "open": {
-              "Monday":[[39600, 50400]],
-              "Tuesday":[[39600, 50400]],
-              "Wednesday":[[39600, 50400]],
-              "Thursday":[[39600, 50400]],
-              "Friday":[[39600, 50400]]
+              "Monday":[[11, 14]],
+              "Tuesday":[[11, 14]],
+              "Wednesday":[[11, 14]],
+              "Thursday":[[11, 14]],
+              "Friday":[[11, 14]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Dame's Express",
             "open":{
-                "Monday":[[36000, 79200]],
-                "Tuesday":[[36000, 79200]],
-                "Wednesday":[[36000, 79200]],
-                "Thursday":[[36000, 79200]],
-                "Friday":[[36000, 79200]],
-                "Saturday":[[43200, 79200]],
-                "Sunday":[[43200, 79200]]
+                "Monday":[[10, 22]],
+                "Tuesday":[[10, 22]],
+                "Wednesday":[[10, 22]],
+                "Thursday":[[10, 22]],
+                "Friday":[[10, 22]],
+                "Saturday":[[12, 22]],
+                "Sunday":[[12, 22]]
             },
             "currentlyOpen": false,
             "menu": "https://studentaffairs.duke.edu/sites/default/files/u1379/Dame%27sFullMenu.pdf"
@@ -20390,12 +20390,12 @@ module.exports={
         {
             "name": "Divinity Cafe",
             "open":{
-                "Monday":[[28800, 57600]],
-                "Tuesday":[[28800, 57600]],
-                "Wednesday":[[28800, 57600]],
-                "Thursday":[[28800, 57600]],
-                "Friday":[[28800, 54000]],
-                "Sunday":[[37800, 52200]]
+                "Monday":[[8, 16]],
+                "Tuesday":[[8, 16]],
+                "Wednesday":[[8, 16]],
+                "Thursday":[[8, 16]],
+                "Friday":[[8, 15]],
+                "Sunday":[[10.5, 14.5]]
             },
             "currentlyOpen": false,
             "menu": "https://studentaffairs.duke.edu/dining/venues-and-menus/divinity-refectory"
@@ -20403,88 +20403,88 @@ module.exports={
         {
             "name": "Freeman Center",
             "open": {
-                "Monday":[[61200, 72000]],
-                "Tuesday":[[61200, 72000]],
-                "Wednesday":[[61200, 72000]],
-                "Thursday":[[61200, 72000]],
-                "Friday":[[68400, 73800]]
+                "Monday":[[17, 20]],
+                "Tuesday":[[17, 20]],
+                "Wednesday":[[17, 20]],
+                "Thursday":[[17, 20]],
+                "Friday":[[19, 20.5]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Ginger + Soy",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Gyotaku",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Il Forno",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "JB's Roast & Chops",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Joe Van Gogh",
             "open": {
-                "Monday":[[27000, 72000]],
-                "Tuesday":[[27000, 72000]],
-                "Wednesday":[[27000, 72000]],
-                "Thursday":[[27000, 72000]],
-                "Friday":[[27000, 72000]],
-                "Saturday":[[32400, 61200]]
+                "Monday":[[7.5, 20]],
+                "Tuesday":[[7.5, 20]],
+                "Wednesday":[[7.5, 20]],
+                "Thursday":[[7.5, 20]],
+                "Friday":[[7.5, 20]],
+                "Saturday":[[9, 17]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Loop Pizza Grill",
             "open":{
-                "Monday":[[37800, 86399]],
-                "Tuesday":[[37800, 86399]],
-                "Wednesday":[[37800, 86399]],
-                "Thursday":[[37800, 86399]],
-                "Friday":[[37800, 86399]],
-                "Saturday":[[0,3600],[37800, 86399]],
-                "Sunday":[[0,3600],[37800, 86399]]
+                "Monday":[[10.5, 24]],
+                "Tuesday":[[10.5, 24]],
+                "Wednesday":[[10.5, 24]],
+                "Thursday":[[10.5, 24]],
+                "Friday":[[10.5, 24]],
+                "Saturday":[[0,1],[10.5, 24]],
+                "Sunday":[[0,1],[10.5, 24]]
             },
             "currentlyOpen": false,
             "menu": "http://www.looppizzagrill.com/media/5438/durham.pdf"
@@ -20492,13 +20492,13 @@ module.exports={
         {
             "name": "Marketplace",
             "open":{
-                "Monday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Tuesday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Wednesday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Thursday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Friday":[[27000, 39600],[43200, 52200],[61200, 75600]],
-                "Saturday":[[36000, 50400],[61200, 75600]],
-                "Sunday":[[36000, 50400],[61200, 75600]]
+                "Monday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Tuesday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Wednesday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Thursday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Friday":[[7.5, 11],[12, 14.5],[17, 21]],
+                "Saturday":[[10, 14],[17, 21]],
+                "Sunday":[[10, 14],[17, 21]]
             },
             "currentlyOpen": false
         },
@@ -20510,25 +20510,25 @@ module.exports={
         {
             "name": "Nasher Museum Cafe",
             "open": {
-                "Tuesday": [[39600, 59400]],
-                "Wednesday": [[39600, 59400]],
-                "Thursday": [[39600, 72900]],
-                "Friday": [[39600, 59400]],
-                "Saturday": [[36000, 57600]],
-                "Sunday": [[43200, 57600]]
+                "Tuesday": [[11, 16.5]],
+                "Wednesday": [[11, 16.5]],
+                "Thursday": [[11, 20.25]],
+                "Friday": [[11, 16.5]],
+                "Saturday": [[10, 16]],
+                "Sunday": [[12, 16]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Panda Express",
             "open":{
-                "Monday":[[39600, 79200]],
-                "Tuesday":[[39600, 79200]],
-                "Wednesday":[[39600, 79200]],
-                "Thursday":[[39600, 79200]],
-                "Friday":[[39600, 79200]],
-                "Saturday":[[39600, 79200]],
-                "Sunday":[[39600, 79200]]
+                "Monday":[[11, 22]],
+                "Tuesday":[[11, 22]],
+                "Wednesday":[[11, 22]],
+                "Thursday":[[11, 22]],
+                "Friday":[[11, 22]],
+                "Saturday":[[11, 22]],
+                "Sunday":[[11, 22]]
             },
             "currentlyOpen": false,
             "menu":"http://www.pandaexpress.com/menu/#!/orange-chicken"
@@ -20536,128 +20536,128 @@ module.exports={
         {
             "name": "Quenchers",
             "open": {
-                "Monday":[[36000, 75600]],
-                "Tuesday":[[36000, 75600]],
-                "Wednesday":[[36000, 75600]],
-                "Thursday":[[36000, 75600]],
-                "Friday":[[36000, 75600]],
-                "Saturday":[[36000, 75600]],
-                "Sunday":[[36000, 75600]]
+                "Monday":[[10, 21]],
+                "Tuesday":[[10, 21]],
+                "Wednesday":[[10, 21]],
+                "Thursday":[[10, 21]],
+                "Friday":[[10, 21]],
+                "Saturday":[[10, 21]],
+                "Sunday":[[10, 21]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Red Mango",
             "open": {
-                "Monday":[[39600, 75600]],
-                "Tuesday":[[39600, 75600]],
-                "Wednesday":[[39600, 75600]],
-                "Thursday":[[39600, 75600]],
-                "Friday":[[39600, 75600]],
-                "Saturday":[[39600, 75600]],
-                "Sunday":[[39600, 75600]]
+                "Monday":[[11, 21]],
+                "Tuesday":[[11, 21]],
+                "Wednesday":[[11, 21]],
+                "Thursday":[[11, 21]],
+                "Friday":[[11, 21]],
+                "Saturday":[[11, 21]],
+                "Sunday":[[11, 21]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Saladelia at Perkins",
             "open":{
-                "Monday":[[27000, 86399]],
-                "Tuesday":[[27000, 86399]],
-                "Wednesday":[[27000, 86399]],
-                "Thursday":[[27000, 86399]],
-                "Friday":[[27000, 61200]],
-                "Saturday":[[43200, 64800]],
-                "Sunday":[[43200, 86399]]
+                "Monday":[[7.5, 24]],
+                "Tuesday":[[7.5, 24]],
+                "Wednesday":[[7.5, 24]],
+                "Thursday":[[7.5, 24]],
+                "Friday":[[7.5, 17]],
+                "Saturday":[[12, 18]],
+                "Sunday":[[12, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Sprout",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Tandoor",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "The Devil's Krafthouse",
             "open": {
-                "Monday":[[39600, 86399]],
-                "Tuesday":[[39600, 86399]],
-                "Wednesday":[[39600, 86399]],
-                "Thursday":[[39600, 86399]],
-                "Friday":[[39600, 86399]],
-                "Saturday":[[39600, 86399]],
-                "Sunday":[[39600, 86399]]
+                "Monday":[[11, 24]],
+                "Tuesday":[[11, 24]],
+                "Wednesday":[[11, 24]],
+                "Thursday":[[11, 24]],
+                "Friday":[[11, 24]],
+                "Saturday":[[11, 24]],
+                "Sunday":[[11, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "The Farmstead",
             "open": {
-                "Monday":[[39600, 72000]],
-                "Tuesday":[[39600, 72000]],
-                "Wednesday":[[39600, 72000]],
-                "Thursday":[[39600, 72000]],
-                "Friday":[[39600, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[11, 20]],
+                "Tuesday":[[11, 20]],
+                "Wednesday":[[11, 20]],
+                "Thursday":[[11, 20]],
+                "Friday":[[11, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "The Skillet",
             "open": {
-                "Monday":[[27000, 72000]],
-                "Tuesday":[[27000, 72000]],
-                "Wednesday":[[27000, 72000]],
-                "Thursday":[[27000, 72000]],
-                "Friday":[[27000, 72000]],
-                "Saturday":[[39600, 72000]],
-                "Sunday":[[39600, 72000]]
+                "Monday":[[7.5, 20]],
+                "Tuesday":[[7.5, 20]],
+                "Wednesday":[[7.5, 20]],
+                "Thursday":[[7.5, 20]],
+                "Friday":[[7.5, 20]],
+                "Saturday":[[11, 20]],
+                "Sunday":[[11, 20]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Trinity Cafe",
             "open":{
-                "Monday":[[28800, 86399]],
-                "Tuesday":[[28800, 86399]],
-                "Wednesday":[[28800, 86399]],
-                "Thursday":[[28800, 86399]],
-                "Friday":[[28800, 79200]],
-                "Saturday":[[43200, 79200]],
-                "Sunday":[[43200, 86399]]
+                "Monday":[[8, 24]],
+                "Tuesday":[[8, 24]],
+                "Wednesday":[[8, 24]],
+                "Thursday":[[8, 24]],
+                "Friday":[[8, 22]],
+                "Saturday":[[12, 22]],
+                "Sunday":[[12, 24]]
             },
             "currentlyOpen": false
         },
         {
             "name": "Twinnie's",
             "open":{
-                "Monday":[[28800, 64800]],
-                "Tuesday":[[28800, 64800]],
-                "Wednesday":[[28800, 64800]],
-                "Thursday":[[28800, 64800]],
-                "Friday":[[28800, 64800]]
+                "Monday":[[8, 18]],
+                "Tuesday":[[8, 18]],
+                "Wednesday":[[8, 18]],
+                "Thursday":[[8, 18]],
+                "Friday":[[8, 18]]
             },
             "currentlyOpen": false,
             "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/Twinnie%27s%20lunch-bfast%20menu.jpg"
@@ -20665,13 +20665,13 @@ module.exports={
         {
             "name": "West Union Cafe",
             "open": {
-                "Monday":[[27000, 79200]],
-                "Tuesday":[[27000, 79200]],
-                "Wednesday":[[27000, 79200]],
-                "Thursday":[[27000, 79200]],
-                "Friday":[[27000, 79200]],
-                "Saturday":[[36000, 75600]],
-                "Sunday":[[39600, 75600]]
+                "Monday":[[7.5, 22]],
+                "Tuesday":[[7.5, 22]],
+                "Wednesday":[[7.5, 22]],
+                "Thursday":[[7.5, 22]],
+                "Friday":[[7.5, 22]],
+                "Saturday":[[10, 21]],
+                "Sunday":[[11, 21]]
             },
             "currentlyOpen": false
         }
@@ -20739,7 +20739,7 @@ var Bookmark = exports.Bookmark = function (_React$Component) {
           'a',
           { href: this.props.href },
           React.createElement('img', {
-            className: this.props.hoveredIndex === this.props.index || this.props.hoveredIndex == -1 ? 'bookmark-image' : 'bookmark-image blurred',
+            className: 'bookmark-image',
             src: this.props.image
           })
         ),
@@ -20848,6 +20848,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = require('react');
+var RestaurantStatus = require('./RestaurantStatus');
+var TimeUtils = require('./TimeUtils');
 
 var Restaurant = exports.Restaurant = function (_React$Component) {
   _inherits(Restaurant, _React$Component);
@@ -20857,6 +20859,9 @@ var Restaurant = exports.Restaurant = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Restaurant.__proto__ || Object.getPrototypeOf(Restaurant)).call(this, props));
 
+    console.log(_this.props.name, 'is', _this.props.status);
+    console.log(_this.props.startTime, '-', _this.props.endTime);
+
     _this.state = {};
     return _this;
   }
@@ -20864,7 +20869,42 @@ var Restaurant = exports.Restaurant = function (_React$Component) {
   _createClass(Restaurant, [{
     key: 'render',
     value: function render() {
-      return React.createElement('div', { className: 'restaurant' });
+      var statusLabel = void 0;
+      if (this.props.status === RestaurantStatus.OPEN) {
+        statusLabel = 'OPEN NOW';
+      } else if (this.props.status === RestaurantStatus.CLOSING) {
+        statusLabel = 'CLOSING SOON';
+      } else if (this.props.status === RestaurantStatus.CLOSED) {
+        statusLabel = 'CLOSED';
+      } else if (this.props.status === RestaurantStatus.ALWAYS_OPEN) {
+        statusLabel = 'ALWAYS OPEN';
+      }
+
+      if (this.props.status === RestaurantStatus.OPEN || this.props.status === RestaurantStatus.CLOSING) {
+        var startTime = TimeUtils.getTimeString(new Date(this.props.startTime), false);
+        var endTime = TimeUtils.getTimeString(new Date(this.props.endTime), false);
+        statusLabel += ': ' + startTime + ' - ' + endTime;
+      }
+
+      return React.createElement(
+        'div',
+        { className: 'restaurant' },
+        React.createElement('div', { className: 'restaurant-status ' + this.props.status }),
+        React.createElement(
+          'div',
+          { className: 'restaurant-label' },
+          React.createElement(
+            'div',
+            { className: 'restaurant-name' },
+            this.props.name
+          ),
+          React.createElement(
+            'div',
+            { className: 'restaurant-status-label' },
+            statusLabel
+          )
+        )
+      );
     }
   }]);
 
@@ -20873,7 +20913,7 @@ var Restaurant = exports.Restaurant = function (_React$Component) {
 
 module.exports = Restaurant;
 
-},{"react":176}],181:[function(require,module,exports){
+},{"./RestaurantStatus":182,"./TimeUtils":185,"react":176}],181:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20891,6 +20931,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = require('react');
 var Dining = require('../data/dining.json');
 var Restaurant = require('./Restaurant');
+var RestaurantStatus = require('./RestaurantStatus');
+var TimeConstants = require('./TimeConstants');
+
+var ESTOffset = -4.0;
+var ALMOST_CLOSED = 2;
 
 var RestaurantList = exports.RestaurantList = function (_React$Component) {
   _inherits(RestaurantList, _React$Component);
@@ -20900,16 +20945,106 @@ var RestaurantList = exports.RestaurantList = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (RestaurantList.__proto__ || Object.getPrototypeOf(RestaurantList)).call(this, props));
 
-    console.log(Dining);
-
-    _this.state = {};
+    var initialTime = _this._getCurrentDukeTime();
+    _this._refreshTime();
+    _this.state = {
+      currentTime: initialTime
+    };
     return _this;
   }
 
   _createClass(RestaurantList, [{
+    key: '_refreshTime',
+    value: function _refreshTime() {
+      var _this2 = this;
+
+      setInterval(function () {
+        var newTime = _this2._getCurrentDukeTime();
+        _this2.setState({
+          currentTime: newTime
+        });
+      }, TimeConstants.MS_PER_SEC);
+    }
+  }, {
+    key: '_getTimeInMS',
+    value: function _getTimeInMS(time) {
+      var today = new Date();
+      today.setHours(0);
+      today.setMinutes(0);
+      today.setSeconds(0);
+      today.setMilliseconds(0);
+      return today.getTime() + time * TimeConstants.MS_PER_SEC * TimeConstants.SECS_PER_MIN * TimeConstants.MINS_PER_HR;
+    }
+  }, {
+    key: '_getCurrentDukeTime',
+    value: function _getCurrentDukeTime() {
+      var now = new Date();
+      var UTCTime = now.getTime() + now.getTimezoneOffset() * TimeConstants.SECS_PER_MIN * TimeConstants.MS_PER_SEC;
+      var dukeTime = new Date(UTCTime + ESTOffset * TimeConstants.MS_PER_SEC * TimeConstants.SECS_PER_MIN * TimeConstants.MINS_PER_HR).getTime();
+      return dukeTime;
+    }
+  }, {
+    key: '_renderRestaurantList',
+    value: function _renderRestaurantList() {
+      var _this3 = this;
+
+      var venues = Dining.venues;
+      var today = new Date().getDay();
+      var dayName = TimeConstants.DAYS[today];
+      var restaurantList = [];
+      venues.forEach(function (venue, i) {
+        var status = RestaurantStatus.CLOSED;
+        var start = void 0;
+        var end = void 0;
+        if (venue.open) {
+          var openTimes = venue.open[dayName];
+          if (openTimes) {
+            openTimes.forEach(function (opening) {
+              var startTime = _this3._getTimeInMS(opening[0]);
+              var endTime = _this3._getTimeInMS(opening[1]);
+              var currentTime = _this3.state.currentTime;
+              if (currentTime >= startTime && currentTime < endTime) {
+                if (endTime - currentTime < ALMOST_CLOSED * TimeConstants.MS_PER_SEC * TimeConstants.SECS_PER_MIN * TimeConstants.MINS_PER_HR) {
+                  status = RestaurantStatus.CLOSING;
+                } else {
+                  status = RestaurantStatus.OPEN;
+                }
+                start = startTime;
+                end = endTime;
+              }
+            });
+          }
+        } else if (venue.alwaysOpen === true) {
+          status = RestaurantStatus.ALWAYS_OPEN;
+        }
+
+        var restaurant = React.createElement(Restaurant, {
+          key: 'restaurant-' + i,
+          name: venue.name,
+          status: status,
+          startTime: start,
+          endTime: end });
+        restaurantList.push(restaurant);
+      });
+      return restaurantList;
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return React.createElement('div', { className: 'restaurants-container' });
+      return React.createElement(
+        'div',
+        { className: 'restaurants-container' },
+        React.createElement(
+          'div',
+          { className: 'restaurant-list-header' },
+          'Campus Restaurants'
+        ),
+        React.createElement(
+          'div',
+          { className: 'restaurant-list' },
+          this._renderRestaurantList()
+        )
+      );
     }
   }]);
 
@@ -20918,7 +21053,32 @@ var RestaurantList = exports.RestaurantList = function (_React$Component) {
 
 module.exports = RestaurantList;
 
-},{"../data/dining.json":177,"./Restaurant":180,"react":176}],182:[function(require,module,exports){
+},{"../data/dining.json":177,"./Restaurant":180,"./RestaurantStatus":182,"./TimeConstants":183,"react":176}],182:[function(require,module,exports){
+'use strict';
+
+var RestaurantStatus = {
+  ALWAYS_OPEN: 'always_open',
+  OPEN: 'open',
+  CLOSED: 'closed',
+  CLOSING: 'closing'
+};
+Object.freeze(RestaurantStatus);
+module.exports = RestaurantStatus;
+
+},{}],183:[function(require,module,exports){
+'use strict';
+
+var TimeConstants = {
+  MS_PER_SEC: 1000,
+  SECS_PER_MIN: 60,
+  MINS_PER_HR: 60,
+  DAYS: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  MONTHS: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+};
+Object.freeze(TimeConstants);
+module.exports = TimeConstants;
+
+},{}],184:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -20934,10 +21094,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = require('react');
-
-var MS_PER_SEC = 1000;
-var DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var TimeConstants = require('./TimeConstants');
+var TimeUtils = require('./TimeUtils');
 
 var TimeDisplay = exports.TimeDisplay = function (_React$Component) {
   _inherits(TimeDisplay, _React$Component);
@@ -20949,11 +21107,11 @@ var TimeDisplay = exports.TimeDisplay = function (_React$Component) {
 
     setInterval(function () {
       _this._setTime();
-    }, MS_PER_SEC);
+    }, TimeConstants.MS_PER_SEC);
 
     var initialDate = _this._getDate();
 
-    var initialTime = _this._getTime();
+    var initialTime = TimeUtils.getTimeString(new Date(), true);
     _this.state = {
       time: initialTime,
       date: initialDate
@@ -20964,7 +21122,7 @@ var TimeDisplay = exports.TimeDisplay = function (_React$Component) {
   _createClass(TimeDisplay, [{
     key: '_setTime',
     value: function _setTime() {
-      var time = this._getTime();
+      var time = TimeUtils.getTimeString(new Date(), true);
       var date = this._getDate();
       this.setState({
         time: time,
@@ -20978,18 +21136,8 @@ var TimeDisplay = exports.TimeDisplay = function (_React$Component) {
       var dayOfWeek = date.getDay();
       var month = date.getMonth();
       var dayOfMonth = date.getDate();
-      var displayDate = DAYS[dayOfWeek] + ', ' + MONTHS[month] + ' ' + dayOfMonth;
+      var displayDate = TimeConstants.DAYS[dayOfWeek] + ', ' + TimeConstants.MONTHS[month] + ' ' + dayOfMonth;
       return displayDate;
-    }
-  }, {
-    key: '_getTime',
-    value: function _getTime() {
-      var time = new Date();
-      var hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
-      var minutes = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
-      var seconds = time.getSeconds() < 10 ? '0' + time.getSeconds() : time.getSeconds();
-      var displayTime = hours + ':' + minutes + ':' + seconds;
-      return displayTime;
     }
   }, {
     key: 'render',
@@ -21016,7 +21164,44 @@ var TimeDisplay = exports.TimeDisplay = function (_React$Component) {
 
 module.exports = TimeDisplay;
 
-},{"react":176}],183:[function(require,module,exports){
+},{"./TimeConstants":183,"./TimeUtils":185,"react":176}],185:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var React = require('react');
+
+var TimeUtils = exports.TimeUtils = function () {
+  function TimeUtils() {
+    _classCallCheck(this, TimeUtils);
+  }
+
+  _createClass(TimeUtils, null, [{
+    key: 'getTimeString',
+    value: function getTimeString(time, showSeconds) {
+      var hours = time.getHours() < 10 ? '0' + time.getHours() : time.getHours();
+      var minutes = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
+      var seconds = time.getSeconds() < 10 ? '0' + time.getSeconds() : time.getSeconds();
+      var displayTime = hours + ':' + minutes;
+      if (showSeconds) {
+        displayTime += ':' + seconds;
+      }
+      return displayTime;
+    }
+  }]);
+
+  return TimeUtils;
+}();
+
+module.exports = TimeUtils;
+
+},{"react":176}],186:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -21067,7 +21252,11 @@ var App = exports.App = function (_React$Component) {
         { className: 'app-container' },
         React.createElement(TimeDisplay, null),
         React.createElement(BookmarkTray, null),
-        React.createElement(RestaurantList, null)
+        React.createElement(
+          'div',
+          { className: 'info-container' },
+          React.createElement(RestaurantList, null)
+        )
       );
     }
   }]);
@@ -21077,7 +21266,7 @@ var App = exports.App = function (_React$Component) {
 
 module.exports = App;
 
-},{"./BookmarkTray":179,"./RestaurantList":181,"./TimeDisplay":182,"react":176}],184:[function(require,module,exports){
+},{"./BookmarkTray":179,"./RestaurantList":181,"./TimeDisplay":184,"react":176}],187:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -21086,7 +21275,7 @@ var App = React.createFactory(require('./js/app'));
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('main'));
 
-},{"./js/app":183,"react":176,"react-dom":25}],185:[function(require,module,exports){
+},{"./js/app":186,"react":176,"react-dom":25}],188:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -21207,4 +21396,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[184]);
+},{}]},{},[187]);

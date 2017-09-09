@@ -32,12 +32,7 @@ export class Bookmark extends React.Component {
         onMouseLeave={this._mouseLeave.bind(this)}>
         <a href={this.props.href}>
           <img
-            className={
-              this.props.hoveredIndex === this.props.index
-              || this.props.hoveredIndex == -1
-              ? 'bookmark-image'
-              : 'bookmark-image blurred'
-            }
+            className='bookmark-image'
             src={this.props.image}
           />
         </a>
