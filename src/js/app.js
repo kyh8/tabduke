@@ -2,6 +2,7 @@ const React = require('react');
 const TimeDisplay = require('./TimeDisplay');
 const BookmarkTray = require('./BookmarkTray');
 const RestaurantList = require('./RestaurantList');
+const BusList = require('./BusList');
 
 const BACKGROUNDS = [
   'cameron.jpg',
@@ -38,6 +39,7 @@ export class App extends React.Component {
         <BookmarkTray/>
         <div className='info-container'>
           <RestaurantList/>
+          <BusList/>
         </div>
       </div>
     );

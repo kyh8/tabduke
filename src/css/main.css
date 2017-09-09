@@ -112,13 +112,18 @@ body {
 }
 
 /* Restaurants */
-.restaurants-container {
+.list-container {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   width: 250px;
+  margin-left: 30px;
 }
 
-.restaurant-list-header {
+.list-container:first-child {
+  margin-left: 0;
+}
+
+.list-header {
   padding: 10px;
   background-color: #001A57;
   color: white;
@@ -160,6 +165,7 @@ body {
 
 .restaurant-status-label {
   font-size: 10px;
+  color: #696969;
 }
 
 .restaurant-status {
@@ -182,6 +188,7 @@ body {
 .info-container {
   margin-top: 40px;
   font-family: 'Roboto', sans-serif;
+  display: flex;
 }
 
 .unselectable {

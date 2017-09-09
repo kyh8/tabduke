@@ -5,12 +5,6 @@ const TimeUtils = require('./TimeUtils');
 export class Restaurant extends React.Component {
   constructor(props) {
     super(props);
-
-    console.log(this.props.name, 'is', this.props.status);
-    console.log(this.props.startTime, '-', this.props.endTime);
-
-    this.state = {
-    }
   }
 
   render() {

@@ -5,7 +5,7 @@ const RestaurantStatus = require('./RestaurantStatus');
 const TimeConstants = require('./TimeConstants');
 
 const ESTOffset = -4.0;
-const ALMOST_CLOSED = 2;
+const ALMOST_CLOSED = 1;
 
 export class RestaurantList extends React.Component {
   constructor(props) {
@@ -106,9 +106,9 @@ export class RestaurantList extends React.Component {
 
   render() {
     return (
-      <div className='restaurants-container'>
-        <div className='restaurant-list-header'>
-          {'Campus Restaurants'}
+      <div className='list-container'>
+        <div className='list-header'>
+          {'Restaurants'}
         </div>
         <div className='restaurant-list'>
           {this._renderRestaurantList()}
