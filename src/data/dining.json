@@ -11,8 +11,7 @@
                 "Saturday":[[7, 22]],
                 "Sunday":[[7, 22]]
             },
-            "currentlyOpen": false,
-            "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/Online%20Menu%20-%20Fall%20FY13%20copy.pdf"
+            "menu":"https://studentaffairs.duke.edu/dining/au-bon-pain"
         },
         {
             "name": "Bella Union",
@@ -25,19 +24,7 @@
                 "Saturday":[[10, 24]],
                 "Sunday":[[11, 24]]
             },
-            "currentlyOpen": false
-        },
-        {
-            "name": "Blue Express",
-            "open":{
-                "Monday":[[8, 15]],
-                "Tuesday":[[8, 15]],
-                "Wednesday":[[8, 15]],
-                "Thursday":[[8, 15]],
-                "Friday":[[8, 15]]
-            },
-            "currentlyOpen": false,
-            "menu":"http://www.lsrcblueexpress.com/#!menu/c1xfq"
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/bella-union"
         },
         {
             "name": "Cafe De Novo",
@@ -48,12 +35,12 @@
                 "Thursday":[[7.5, 15.5]],
                 "Friday":[[7.5, 15.5]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-menus-hours/cafe-de-novo"
         },
         {
             "name":"Cafe Edens",
             "alwaysOpen": true,
-            "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/PitchforkMenuDraft.pdf"
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/pitchfork-provisions"
         },
         {
             "name": "Chef's Kitchen",
@@ -64,7 +51,7 @@
               "Thursday":[[11, 14]],
               "Friday":[[11, 14]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/chefs-kitchen"
         },
         {
             "name": "Dame's Express",
@@ -77,8 +64,7 @@
                 "Saturday":[[12, 22]],
                 "Sunday":[[12, 22]]
             },
-            "currentlyOpen": false,
-            "menu": "https://studentaffairs.duke.edu/sites/default/files/u1379/Dame%27sFullMenu.pdf"
+            "menu": "https://studentaffairs.duke.edu/dining/venues-menus-hours/dames-express"
         },
         {
             "name": "Divinity Cafe",
@@ -90,8 +76,7 @@
                 "Friday":[[8, 15]],
                 "Sunday":[[10.5, 14.5]]
             },
-            "currentlyOpen": false,
-            "menu": "https://studentaffairs.duke.edu/dining/venues-and-menus/divinity-refectory"
+            "menu": "https://studentaffairs.duke.edu/dining/venues-and-menus/divinity-cafe"
         },
         {
             "name": "Freeman Center",
@@ -102,7 +87,7 @@
                 "Thursday":[[17, 20]],
                 "Friday":[[19, 20.5]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/freeman-center-jewish-life",
         },
         {
             "name": "Ginger + Soy",
@@ -115,7 +100,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/ginger-soy",
         },
         {
             "name": "Gyotaku",
@@ -128,7 +113,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/gyotaku",
         },
         {
             "name": "Il Forno",
@@ -141,7 +126,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/il-forno",
         },
         {
             "name": "JB's Roast & Chops",
@@ -154,7 +139,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://brodheadcenter.duke.edu/dine/jbs-roasts-chops",
         },
         {
             "name": "Joe Van Gogh",
@@ -166,7 +151,7 @@
                 "Friday":[[7.5, 20]],
                 "Saturday":[[9, 17]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/joe-van-gogh",
         },
         {
             "name": "Loop Pizza Grill",
@@ -179,8 +164,7 @@
                 "Saturday":[[0,1],[10.5, 24]],
                 "Sunday":[[0,1],[10.5, 24]]
             },
-            "currentlyOpen": false,
-            "menu": "http://www.looppizzagrill.com/media/5438/durham.pdf"
+            "menu": "https://studentaffairs.duke.edu/dining/venues-and-menus/loop-pizza-grill"
         },
         {
             "name": "Marketplace",
@@ -193,12 +177,12 @@
                 "Saturday":[[10, 14],[17, 21]],
                 "Sunday":[[10, 14],[17, 21]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/marketplace",
         },
         {
             "name":"McDonalds",
             "alwaysOpen": true,
-            "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/McDonalds%20Menu%202013.pdf"
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/mcdonalds"
         },
         {
             "name": "Nasher Museum Cafe",
@@ -210,7 +194,7 @@
                 "Saturday": [[10, 16]],
                 "Sunday": [[12, 16]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/nasher-museum-cafe",
         },
         {
             "name": "Panda Express",
@@ -223,8 +207,7 @@
                 "Saturday":[[11, 22]],
                 "Sunday":[[11, 22]]
             },
-            "currentlyOpen": false,
-            "menu":"http://www.pandaexpress.com/menu/#!/orange-chicken"
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/panda-express"
         },
         {
             "name": "Quenchers",
@@ -237,7 +220,7 @@
                 "Saturday":[[10, 21]],
                 "Sunday":[[10, 21]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/quenchers",
         },
         {
             "name": "Red Mango",
@@ -250,7 +233,7 @@
                 "Saturday":[[11, 21]],
                 "Sunday":[[11, 21]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-menus-hours/red-mango",
         },
         {
             "name": "Saladelia at Perkins",
@@ -263,7 +246,7 @@
                 "Saturday":[[12, 18]],
                 "Sunday":[[12, 24]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/perk",
         },
         {
             "name": "Sprout",
@@ -276,7 +259,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/sprout",
         },
         {
             "name": "Tandoor",
@@ -289,7 +272,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://brodheadcenter.duke.edu/dine/tandoor",
         },
         {
             "name": "The Devil's Krafthouse",
@@ -302,7 +285,7 @@
                 "Saturday":[[11, 24]],
                 "Sunday":[[11, 24]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/devils-krafthouse",
         },
         {
             "name": "The Farmstead",
@@ -315,7 +298,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/the-farmstead",
         },
         {
             "name": "The Skillet",
@@ -328,7 +311,7 @@
                 "Saturday":[[11, 20]],
                 "Sunday":[[11, 20]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/the-skillet",
         },
         {
             "name": "Trinity Cafe",
@@ -341,7 +324,7 @@
                 "Saturday":[[12, 22]],
                 "Sunday":[[12, 24]]
             },
-            "currentlyOpen": false
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/trinity-cafe",
         },
         {
             "name": "Twinnie's",
@@ -352,21 +335,7 @@
                 "Thursday":[[8, 18]],
                 "Friday":[[8, 18]]
             },
-            "currentlyOpen": false,
-            "menu":"https://studentaffairs.duke.edu/sites/default/files/u1379/Twinnie%27s%20lunch-bfast%20menu.jpg"
+            "menu":"https://studentaffairs.duke.edu/dining/venues-and-menus/twinnies"
         },
-        {
-            "name": "West Union Cafe",
-            "open": {
-                "Monday":[[7.5, 22]],
-                "Tuesday":[[7.5, 22]],
-                "Wednesday":[[7.5, 22]],
-                "Thursday":[[7.5, 22]],
-                "Friday":[[7.5, 22]],
-                "Saturday":[[10, 21]],
-                "Sunday":[[11, 21]]
-            },
-            "currentlyOpen": false
-        }
     ]
 };

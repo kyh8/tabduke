@@ -97,7 +97,8 @@ export class RestaurantList extends React.Component {
           name={venue.name}
           status={status}
           startTime={start}
-          endTime={end}/>
+          endTime={end}
+          menu={venue.menu}/>
       );
       restaurantList.push(restaurant);
     });
@@ -108,7 +109,8 @@ export class RestaurantList extends React.Component {
     return (
       <div className='list-container'>
         <div className='list-header'>
-          {'Restaurants'}
+          <i className="fa fa-cutlery" aria-hidden="true"></i>
+          <div>{'Restaurants'}</div>
         </div>
         <div className='restaurant-list'>
           {this._renderRestaurantList()}
