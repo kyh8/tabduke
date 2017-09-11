@@ -117,6 +117,7 @@ body {
   border-radius: 5px;
   width: 250px;
   margin-left: 30px;
+  box-shadow: 0 0 4px black;
 }
 
 .list-container:first-child {
@@ -166,7 +167,6 @@ body {
 
 .restaurant-label {
   margin-left: 10px;
-  width: 218px;
 }
 
 .restaurant-name {
@@ -174,17 +174,19 @@ body {
 }
 
 .restaurant-status-label {
-  font-size: 10px;
-  color: #696969;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2px;
 }
 
 .restaurant-status {
-  width: 12px;
-  height: 12px;
-  border-radius: 12px;
-  background-color: green;
-  margin-left: 10px;
+  padding: 5px 10px;;
+  background-color: #00b300;
+  border-radius: 10px;
   box-shadow: 0 0 2px black;
+  font-size: 10px;
+  color: white;
 }
 
 .restaurant-status.closed {
@@ -192,46 +194,27 @@ body {
 }
 
 .restaurant-status.closing {
-  background-color: yellow;
+  background-color: #fddd46;
+  color: black;
+}
+
+.restaurant-status-closing-time {
+  margin-left: 5px;
+  font-size: 11px;
+  color: black;
 }
 
 .restaurant-info {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   margin-left: 10px;
-  color: #0057e7;
+  color: black;
   position: relative;
 }
 
-.restaurant-info:hover {
-  color: #001a57;
-}
-
-.restaurant-info-tooltip {
-  position: absolute;
-  background-color: black;
-  color: white;
-  width: 80px;
-  height: 20px;
-  font-size: 12px;
-  top: 0;
-  left: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  border-radius: 2px;
-}
-
-.tooltip-pointer {
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 5px solid black;
-  position: absolute;
-  top: 5px;
-  left: -5px;
+.restaurant-info i:hover {
+  color: #0057e7;
+  text-shadow: 0 0 5px white;
 }
 
 /* Buses */
@@ -273,7 +256,6 @@ body {
 
 .bus-stop-section-header {
   font-size: 18px;
-  font-weight: bold;
   color: white;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -291,7 +273,7 @@ body {
 
 .bus {
   padding: 5px;
-  border-left: 4px solid;
+  border-left: 8px solid;
   margin-top: 2px;
 }
 
@@ -304,8 +286,8 @@ body {
 }
 
 .bus-arrival-times {
-  font-size: 11px;
-  color: gray;
+  font-size: 12px;
+  color: #5a5a5a;
 }
 
 .bus-list-note {

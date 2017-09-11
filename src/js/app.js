@@ -3,27 +3,31 @@ const TimeDisplay = require('./TimeDisplay');
 const BookmarkTray = require('./BookmarkTray');
 const RestaurantList = require('./RestaurantList');
 const BusList = require('./BusList');
+const SettingsPanel = require('./SettingsPanel');
 
 const BACKGROUNDS = [
-  'cameron.jpg',
-  'chapel.jpg',
-  'duke_gardens_terrace.jpg',
-  'duke_gardens.jpg',
-  'east.jpg',
-  'inside_chapel.jpg',
-  'kville.jpg',
-  'side_chapel.jpg',
-  'spring_chapel.jpg',
-  'winter_chapel.jpg',
+  'cameron.png',
+  'chapel.png',
+  'duke_gardens_terrace.png',
+  'duke_gardens.png',
+  'east.png',
+  'inside_chapel.png',
+  'kville.png',
+  'side_chapel.png',
+  'spring_chapel.png',
+  'winter_chapel.png',
 ];
 
 export class App extends React.Component {
   constructor(props) {
     super(props);
-    this._setBackground();
 
     this.state = {
     }
+  }
+
+  componentWillMount() {
+    this._setBackground();
   }
 
   _setBackground() {
@@ -35,6 +39,7 @@ export class App extends React.Component {
   render() {
     return (
       <div className='app-container'>
+        <SettingsPanel/>
         <TimeDisplay/>
         <BookmarkTray/>
         <div className='info-container'>

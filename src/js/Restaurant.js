@@ -5,74 +5,47 @@ const TimeUtils = require('./TimeUtils');
 export class Restaurant extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      tooltipShown: false,
-    }
   }
-
-  _tooltipEnter() {
-    this.setState({
-      tooltipShown: true,
-    });
-  }
-
-  _tooltipLeave() {
-    this.setState({
-      tooltipShown: false,
-    });
-  }
-
   render() {
     let statusLabel;
     if (this.props.status === RestaurantStatus.OPEN) {
-      statusLabel = 'OPEN NOW';
+      statusLabel = 'Open Now';
     } else if (this.props.status === RestaurantStatus.CLOSING) {
-      statusLabel = 'CLOSING SOON';
+      statusLabel = 'Closing Soon';
     } else if (this.props.status === RestaurantStatus.CLOSED) {
-      statusLabel = 'CLOSED';
+      statusLabel = 'Closed';
     } else if (this.props.status === RestaurantStatus.ALWAYS_OPEN) {
-      statusLabel = 'ALWAYS OPEN'
+      statusLabel = 'Always Open'
     }
 
+    let closingTime = '';
     if (
       this.props.status === RestaurantStatus.OPEN
       || this.props.status === RestaurantStatus.CLOSING
     ) {
       let startTime = TimeUtils.getTimeString(new Date(this.props.startTime), false);
       let endTime = TimeUtils.getTimeString(new Date(this.props.endTime), false);
-      statusLabel += ': ' + startTime + ' - ' + endTime;
-    }
-
-    let tooltip;
-    if (this.state.tooltipShown) {
-      tooltip = (
-        <div className='restaurant-info-tooltip'>
-          <div className='tooltip-pointer'></div>
-          Venue Info
-        </div>
-      );
+      closingTime = startTime + ' - ' + endTime;
     }
 
     return (
-      <div className='restaurant'>
+      <div className={'restaurant'}>
         <a href={this.props.menu}>
           <div className='restaurant-info'>
-            {tooltip}
-            <i
-              className="fa fa-info-circle"
-              aria-hidden="true"
-              onMouseEnter={this._tooltipEnter.bind(this)}
-              onMouseLeave={this._tooltipLeave.bind(this)}/>
+            <i className="fa fa-info-circle" aria-hidden="true"/>
           </div>
         </a>
-        <div className={'restaurant-status ' + this.props.status}/>
         <div className='restaurant-label'>
           <div className='restaurant-name'>
             {this.props.name}
           </div>
           <div className='restaurant-status-label'>
-            {statusLabel}
+            <div className={'restaurant-status ' + this.props.status}>
+              {statusLabel}
+            </div>
+            <div className='restaurant-status-closing-time'>
+              {closingTime}
+            </div>
           </div>
         </div>
       </div>

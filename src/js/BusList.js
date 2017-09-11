@@ -56,7 +56,7 @@ const STOP_ORDER = [
   "Campus Dr at Swift Ave (Eastbound)",
   "Campus Dr at Swift Ave (Westbound)",
 ];
-const BUS_REFRESH = 30;
+const BUS_REFRESH = TimeConstants.SECS_PER_MIN;
 
 export class BusList extends React.Component {
   constructor(props) {
@@ -298,7 +298,7 @@ export class BusList extends React.Component {
   render() {
     const note = (
       <div className='bus-list-note'>
-        {'Refreshes every 30 seconds. Powered by '}
+        {'Refreshes every minute. Powered by '}
         <a href={'https://duke.transloc.com/'}>
           {'transloc.'}
         </a>
