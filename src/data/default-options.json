@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "showSeconds",
+      "label": "Show clock seconds",
+      "value": "true",
+    },
+    {
+      "name": "militaryTime",
+      "label": "Display clock in military time",
+      "value": "true",
+    },
+    {
+      "name": "boldClock",
+      "label": "Show bolder clock display",
+      "value": "false",
+    },
+  ],
+}

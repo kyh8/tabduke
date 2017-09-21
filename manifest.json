@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "TabDuke",
   "description": "A minimalistic dashboard for Duke Students.",
-  "version": "2.7.2",
+  "version": "3.0.0",
   "permissions": [
     "storage"
   ],

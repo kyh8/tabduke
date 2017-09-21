@@ -6,12 +6,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
   -webkit-user-select: none;
   font-family:
     'HelveticaNeue-UltraLight',
@@ -19,7 +14,6 @@ body {
     'Helvetica Neue',
     'Open-Light',
     sans-serif;
-
 }
 
 #main {
@@ -36,6 +30,48 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+}
+
+.loading-extension {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  background-color: lightgray;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loading-info {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.loading-extension.fade {
+  opacity: 0;
+}
+
+.fade {
+  transition: all 0.7s ease;
+  transition-delay: 0.3s;
+}
+
+.tabduke-logo {
+  width: 60px;
+  height: 60px;
+  color: white;
+  background-color: #001a57;
+  border-radius: 50px;
+  box-shadow: 0 0 4px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
 }
 
 /* Time */
@@ -85,24 +121,21 @@ body {
   position: relative;
 }
 
-.bookmark-image:hover {
+.bookmark-image.hovered {
   box-shadow: 0 0 10px white;
-}
-
-.bookmark-image.blurred {
-  filter: blur(3px);
 }
 
 .bookmark-label {
   font-size: 16px;
   color: white;
-  text-shadow: 0 0 10px black;
-  width: 70px;
+  text-shadow: 0 0 3px black;
+  width: 100px;
   position: absolute;
   bottom: 0px;
   opacity: 0;
   text-align: center;
   z-index: 1;
+  font-family: 'Roboto', sans-serif;
 }
 
 .bookmark-label.shown {
@@ -152,7 +185,7 @@ body {
 }
 
 .restaurant {
-  padding: 5px 0;
+  padding: 4px 0;
   cursor: default;
   width: 100%;
   display: flex;
@@ -163,6 +196,10 @@ body {
 
 .restaurant:first-child {
   margin-top: 0;
+}
+
+.restaurant:last-child {
+  padding-bottom: 6px;
 }
 
 .restaurant-label {
@@ -181,9 +218,9 @@ body {
 }
 
 .restaurant-status {
-  padding: 5px 10px;;
+  padding: 3px 5px;
   background-color: #00b300;
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: 0 0 2px black;
   font-size: 10px;
   color: white;
@@ -201,7 +238,11 @@ body {
 .restaurant-status-closing-time {
   margin-left: 5px;
   font-size: 11px;
-  color: black;
+  color: white;
+  box-shadow: 0 0 2px black;
+  padding: 3px 5px;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 3px;
 }
 
 .restaurant-info {
@@ -272,17 +313,24 @@ body {
 }
 
 .bus {
-  padding: 5px;
-  border-left: 8px solid;
-  margin-top: 2px;
-}
-
-.bus:first-child {
-  margin-top: 0;
+  margin-left: 0;
+  display: flex;
 }
 
 .bus-route {
-  font-size: 14px;
+  font-size: 16px;
+}
+
+.bus-route-color {
+  box-shadow: 1px 0 1px 0px rgba(0,0,0,0.6);
+  width: 5px;
+}
+
+.bus-route-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  width: 100%;
 }
 
 .bus-arrival-times {
@@ -296,7 +344,8 @@ body {
   text-align: center;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border-top: 1px solid gray;
 }
 
 .bus-list-note a {
@@ -322,6 +371,252 @@ body {
   margin-top: 40px;
   font-family: 'Roboto', sans-serif;
   display: flex;
+}
+
+/* Settings */
+.settings {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.settings-panel-open {
+  font-size: 32px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  cursor: pointer;
+  text-shadow: 0 0 2px black;
+  z-index: 11;
+}
+
+.settings-panel-open:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 4px black;
+}
+
+.settings-panel-close {
+  color: white;
+  font-size: 28px;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.settings-panel-close:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.settings-panel-content {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.settings-panel {
+  width: 320px;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  position: absolute;
+  right: -320px;
+  top: 0;
+  height: 100%;
+  z-index: 10;
+}
+
+.settings-panel-header {
+  font-size: 32px;
+}
+
+.settings-section {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.settings-section:first-child {
+  margin-top: 0;
+}
+
+.settings-section-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  color: black;
+  padding: 5px;
+}
+
+.settings-section-title {
+  font-size: 24px;
+  margin-left: 8px;
+}
+
+.settings-section-icon {
+  font-size: 16px;
+}
+
+.settings-panel-sections {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.panel-show {
+  right: 0;
+}
+
+.panel-hide {
+  right: -320px;
+}
+
+.panel-animate {
+  transition: all 0.3s ease-in-out;
+  transform: translateZ(0);
+}
+
+.settings-section-items {
+  margin-top: 10px;
+}
+
+.bookmark-settings-items-container,
+.dashboard-settings-items-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bookmark-settings-item-create-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bookmark-settings-item-create {
+  padding: 3px 5px;
+  background-color: green;
+  font-size: 14px;
+  border: 1px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookmark-settings-item-create i {
+  font-size: 12px;
+}
+
+.bookmark-settings-item-create div {
+  margin-left: 5px;
+}
+
+.bookmark-settings-item-create:hover {
+  box-shadow: 0 0 10px white;
+}
+
+.bookmark-settings-item {
+  display: flex;
+  align-items: center;
+}
+
+.bookmark-settings-item {
+  margin-top: 10px;
+}
+
+.bookmark-settings-item:first-child {
+  margin-top: 0;
+}
+
+.bookmark-settings-item-reorder {
+  font-size: 16px;
+  color: white;
+  cursor: move;
+}
+
+.bookmark-settings-item-preview-image {
+  width: 16px;
+  height: 16px;
+  margin-left: 20px;
+}
+
+.bookmark-settings-item-preview-image img {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 2px white;
+}
+
+.bookmark-settings-item-label {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.dashboard-settings-items {
+
+}
+
+.dashboard-settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.dashboard-settings-item:first-child {
+  margin-top: 0;
+}
+
+.dashboard-settings-item-switch-container {
+  width: 30px;
+  height: 15px;
+  border-radius: 15px;
+  position: relative;
+  border: 1px solid gray;
+  transition: all 0.2s ease-in-out;
+}
+
+.dashboard-settings-item-switch-container.disabled {
+  background-color: white;
+}
+
+.dashboard-settings-item-switch-container.enabled {
+  background-color: rgb(0,122,255);
+}
+
+.dashboard-settings-item-switch {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 1px black;
+  transition: all 0.2s ease-in-out;
+}
+
+.dashboard-settings-item-switch-container.enabled .dashboard-settings-item-switch {
+  left: 15px;
+}
+
+.dashboard-settings-item-label {
+  font-size: 16px;
+  margin-left: 10px;
 }
 
 .unselectable {

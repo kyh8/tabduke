@@ -4,18 +4,23 @@ const BookmarkTray = require('./BookmarkTray');
 const RestaurantList = require('./RestaurantList');
 const BusList = require('./BusList');
 const SettingsPanel = require('./SettingsPanel');
+const LoadingScreen = require('./LoadingScreen');
+
+const DefaultBookmarks = require('../data/default-bookmarks.json');
+const DefaultOptions = require('../data/default-options.json');
 
 const BACKGROUNDS = [
-  'cameron.png',
-  'chapel.png',
-  'duke_gardens_terrace.png',
-  'duke_gardens.png',
-  'east.png',
-  'inside_chapel.png',
-  'kville.png',
-  'side_chapel.png',
-  'spring_chapel.png',
-  'winter_chapel.png',
+  'cameron.jpg',
+  'chapel.jpg',
+  'west-union.jpg',
+  'duke_gardens_terrace.jpg',
+  'duke_gardens.jpg',
+  'east.jpg',
+  'inside_chapel.jpg',
+  'kville.jpg',
+  'side_chapel.jpg',
+  'spring_chapel.jpg',
+  'winter_chapel.jpg',
 ];
 
 export class App extends React.Component {
@@ -23,25 +28,66 @@ export class App extends React.Component {
     super(props);
 
     this.state = {
+      loading: true,
+      settings: {
+        bookmarks:[],
+        options:[],
+      },
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this._setBackground();
+    this._initializeSettings();
   }
 
   _setBackground() {
     const index = Math.floor(Math.random() * BACKGROUNDS.length);
     let path = 'src/assets/backgrounds/' + BACKGROUNDS[index];
-    document.body.style.backgroundImage = 'url(' + path + ')';
+    var img = new Image();
+    img.onload = () => {
+      document.body.style.backgroundImage = 'url(' + path + ')';
+      document.getElementById('loading-screen').classList.add('fade');
+      setTimeout(() => {
+        this.setState({
+          loading: false,
+        });
+      }, 1000);
+    };
+    img.src = path;
+  }
+
+  _initializeSettings() {
+    console.log(DefaultBookmarks.items);
+    this.setState({
+      settings: {
+        bookmarks: DefaultBookmarks.items,
+        options: DefaultOptions.items,
+      },
+    });
+  }
+
+  updateSettings(settingType, key, newValue) {
+    console.log('update', settingType + '-' + key, 'to', newValue);
   }
 
   render() {
     return (
       <div className='app-container'>
-        <SettingsPanel/>
-        <TimeDisplay/>
-        <BookmarkTray/>
+        {
+          this.state.loading
+          ? <LoadingScreen/>
+          : null
+        }
+        <SettingsPanel
+          dashboardSettings={this.state.settings}
+          updateSettings={this.updateSettings.bind(this)}/>
+        <TimeDisplay
+          dashboardSettings={this.state.settings}
+          updateSettings={this.updateSettings.bind(this)}/>
+        <BookmarkTray
+          dashboardSettings={this.state.settings}
+          updateSettings={this.updateSettings.bind(this)}/>
         <div className='info-container'>
           <RestaurantList/>
           <BusList/>

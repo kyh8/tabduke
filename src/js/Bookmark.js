@@ -6,7 +6,6 @@ export class Bookmark extends React.Component {
 
     this.state = {
       hovered: false,
-      index: -1,
     }
   }
 
@@ -26,13 +25,16 @@ export class Bookmark extends React.Component {
 
   render() {
     return (
-      <div
-        className='bookmark'
-        onMouseEnter={this._mouseEnter.bind(this)}
-        onMouseLeave={this._mouseLeave.bind(this)}>
+      <div className='bookmark'>
         <a href={this.props.href}>
           <img
-            className='bookmark-image'
+            className={
+              this.state.hovered
+              ? 'bookmark-image hovered'
+              : 'bookmark-image'
+            }
+            onMouseOver={this._mouseEnter.bind(this)}
+            onMouseLeave={this._mouseLeave.bind(this)}
             src={this.props.image}
           />
         </a>

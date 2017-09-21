@@ -19,6 +19,7 @@ export class Restaurant extends React.Component {
     }
 
     let closingTime = '';
+    let closingTimeDisplay = null;
     if (
       this.props.status === RestaurantStatus.OPEN
       || this.props.status === RestaurantStatus.CLOSING
@@ -26,6 +27,11 @@ export class Restaurant extends React.Component {
       let startTime = TimeUtils.getTimeString(new Date(this.props.startTime), false);
       let endTime = TimeUtils.getTimeString(new Date(this.props.endTime), false);
       closingTime = startTime + ' - ' + endTime;
+      closingTimeDisplay = (
+        <div className='restaurant-status-closing-time'>
+          {closingTime}
+        </div>
+      );
     }
 
     return (
@@ -43,9 +49,7 @@ export class Restaurant extends React.Component {
             <div className={'restaurant-status ' + this.props.status}>
               {statusLabel}
             </div>
-            <div className='restaurant-status-closing-time'>
-              {closingTime}
-            </div>
+            {closingTimeDisplay}
           </div>
         </div>
       </div>
