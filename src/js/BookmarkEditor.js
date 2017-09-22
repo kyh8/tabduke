@@ -72,7 +72,9 @@ export class BookmarkEditor extends React.Component {
   }
 
   _createBookmark() {
-    console.log('create a bookmark');
+    if (!this.state.validBookmark) {
+      return;
+    }
     let image = this.state.validImage ? this.state.image : '';
     let href = '';
     if (!this.state.link.startsWith('https://') && !this.state.link.startsWith('http://')) {

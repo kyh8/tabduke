@@ -37344,7 +37344,9 @@ var BookmarkEditor = exports.BookmarkEditor = function (_React$Component) {
   }, {
     key: '_createBookmark',
     value: function _createBookmark() {
-      console.log('create a bookmark');
+      if (!this.state.validBookmark) {
+        return;
+      }
       var image = this.state.validImage ? this.state.image : '';
       var href = '';
       if (!this.state.link.startsWith('https://') && !this.state.link.startsWith('http://')) {
@@ -38703,9 +38705,7 @@ var RestaurantList = exports.RestaurantList = function (_React$Component) {
 
       var yesterday = new Date();
       yesterday = new Date(new Date(yesterday.getTime() - TimeConstants.HRS_PER_DAY * TimeConstants.MINS_PER_HR * TimeConstants.SECS_PER_MIN * TimeConstants.MS_PER_SEC).toLocaleDateString());
-      console.log(yesterday);
       var tomorrow = new Date(yesterday.getTime() + 3 * TimeConstants.HRS_PER_DAY * TimeConstants.MINS_PER_HR * TimeConstants.SECS_PER_MIN * TimeConstants.MS_PER_SEC - TimeConstants.MS_PER_SEC);
-      console.log(tomorrow);
 
       var apiKey = Keys.foodtruckcalendar;
       var calendarId = Keys.foodtruckcalendarID;
@@ -39377,7 +39377,51 @@ var NoticeBoard = require('./NoticeBoard');
 var DefaultBookmarks = require('../data/default-bookmarks.json');
 var DefaultOptions = require('../data/default-options.json');
 
-var BACKGROUNDS = ['cameron.jpg', 'chapel.jpg', 'west-union.jpg', 'duke_gardens_terrace.jpg', 'duke_gardens.jpg', 'east.jpg', 'inside_chapel.jpg', 'kville.jpg', 'side_chapel.jpg', 'spring_chapel.jpg', 'winter_chapel.jpg'];
+var BACKGROUNDS = [{
+  image: 'cameron.jpg',
+  source: 'Blue Devil Nation',
+  link: 'http://bluedevilnation.net/wordpress/wp-content/uploads/2012/02/duke-signs-056.jpg'
+}, {
+  image: 'chapel.jpg',
+  source: 'Aljazeera',
+  link: 'http://america.aljazeera.com/content/dam/ajam/images/articles_2015/01/Duke_University_Chapel__A_1152015.jpg'
+}, {
+  image: 'west-union.jpg',
+  source: 'Arch2O',
+  link: 'http://www.arch2o.com/wp-content/uploads/2016/12/ARCH2O-Duke-University-West-Campus-Grimshaw-Architects-03.jpg'
+}, {
+  image: 'duke_gardens_terrace.jpg',
+  source: 'Wikimedia',
+  link: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/2008-07-15_Duke_Gardens_main_terrace.jpg/1280px-2008-07-15_Duke_Gardens_main_terrace.jpg'
+}, {
+  image: 'duke_gardens.jpg',
+  source: 'Duke University Medical Center',
+  link: 'https://archives.mc.duke.edu/sites/default/files/garden-bridge-ems.jpg'
+}, {
+  image: 'east.jpg',
+  source: 'Huffington Post',
+  link: 'http://i.huffpost.com/gen/1091792/images/o-DUKE-UNIVERSITY-GENDER-CONFIRMATION-facebook.jpg'
+}, {
+  image: 'inside_chapel.jpg',
+  source: 'Prevoir Photography, Wordpress',
+  link: 'https://prevoirphotography.files.wordpress.com/2012/01/duke-chapel-93.jpg'
+}, {
+  image: 'kville.jpg',
+  source: 'Tyler Haar, Wordpress',
+  link: 'https://tylerhaar.files.wordpress.com/2012/07/photo-jul-16-1-13-48-pm.jpg'
+}, {
+  image: 'side_chapel.jpg',
+  source: 'Wojdylo Social Media',
+  link: 'http://wojdylosocialmedia.com/wp-content/uploads/2013/12/dukechapelsky1.jpg'
+}, {
+  image: 'spring_chapel.jpg',
+  source: 'Yumian Deng, Creative Commons',
+  link: 'http://blog.textbooks.com/wp-content/uploads/2014/10/duke-university-flickr-theomania-most-beautiful-college-campuses.jpg'
+}, {
+  image: 'winter_chapel.jpg',
+  source: 'Slate.com',
+  link: 'http://www.slate.com/content/dam/slate/blogs/the_slatest/2015/01/15/duke_university_cancels_planned_chapel_weekly_muslim_call_to_prayer/dukechapel.jpeg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg'
+}];
 
 var FADE_DURATION = 400;
 
@@ -39395,7 +39439,8 @@ var App = exports.App = function (_React$Component) {
       settings: {
         bookmarks: [],
         options: {}
-      }
+      },
+      backgroundIndex: -1
     };
     return _this;
   }
@@ -39411,7 +39456,11 @@ var App = exports.App = function (_React$Component) {
       var _this2 = this;
 
       var index = Math.floor(Math.random() * BACKGROUNDS.length);
-      var path = 'src/assets/backgrounds/' + BACKGROUNDS[index];
+      var path = 'src/assets/backgrounds/' + BACKGROUNDS[index].image;
+      this.setState({
+        backgroundIndex: index
+      });
+
       var img = new Image();
       img.onload = function () {
         document.body.style.backgroundImage = 'url(' + path + ')';
@@ -39483,6 +39532,7 @@ var App = exports.App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var background = BACKGROUNDS[this.state.backgroundIndex];
       return React.createElement(
         'div',
         { className: 'app' },
@@ -39504,6 +39554,36 @@ var App = exports.App = function (_React$Component) {
             { className: 'info-container' },
             React.createElement(RestaurantList, { dashboardSettings: this.state.settings }),
             React.createElement(BusList, null)
+          )
+        ),
+        background ? React.createElement(
+          'div',
+          { className: 'background-source' },
+          'Photo by ',
+          React.createElement(
+            'a',
+            { href: background.link },
+            React.createElement(
+              'strong',
+              null,
+              background.source
+            )
+          )
+        ) : null,
+        React.createElement(
+          'div',
+          { className: 'credits' },
+          'Thought of by ',
+          React.createElement(
+            'strong',
+            null,
+            'Louis Li'
+          ),
+          ' | Developed by ',
+          React.createElement(
+            'strong',
+            null,
+            'Kevin He'
           )
         )
       );

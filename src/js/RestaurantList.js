@@ -123,7 +123,6 @@ export class RestaurantList extends React.Component {
         * TimeConstants.MS_PER_SEC
       ).toLocaleDateString()
     );
-    console.log(yesterday);
     let tomorrow = new Date(
       yesterday.getTime()
       + 3
@@ -132,7 +131,6 @@ export class RestaurantList extends React.Component {
       * TimeConstants.SECS_PER_MIN
       * TimeConstants.MS_PER_SEC
       - TimeConstants.MS_PER_SEC);
-    console.log(tomorrow);
 
     let apiKey = Keys.foodtruckcalendar;
     let calendarId = Keys.foodtruckcalendarID;

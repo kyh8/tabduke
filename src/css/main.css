@@ -24,6 +24,35 @@ body {
 .app {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.background-source,
+.credits {
+  text-shadow: 0 0 3px black;
+}
+
+.background-source {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: white;
+  font-size: 12px;
+}
+
+.background-source a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+.credits {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: white;
+  font-size: 12px;
 }
 
 .app-content {
@@ -170,7 +199,7 @@ body {
 .list-container {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
-  width: 250px;
+  width: 300px;
   margin-left: 30px;
   box-shadow: 0 0 4px black;
 }
@@ -247,6 +276,7 @@ body {
 
 .restaurant-label {
   margin-left: 10px;
+  padding: 3px 0;
 }
 
 .restaurant-name {
