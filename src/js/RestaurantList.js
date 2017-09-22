@@ -199,14 +199,19 @@ export class RestaurantList extends React.Component {
           Food
         </div>
         <div className='food-list'>
-          <div className='food-truck-list'>
-            <div className='food-list-header'>
-              <i className="fa fa-truck" aria-hidden="true"></i>
-              &nbsp;
-              Food Trucks
-            </div>
-            {this._renderFoodTrucks()}
-          </div>
+          {
+            this.state.foodTrucks.length > 0
+            ? (
+              <div className='food-truck-list'>
+                <div className='food-list-header'>
+                  <i className="fa fa-truck" aria-hidden="true"></i>
+                  &nbsp;
+                  Food Trucks
+                </div>
+                {this._renderFoodTrucks()}
+              </div>
+            ) : null
+          }
           <div className='restaurant-list'>
             <div className='food-list-header'>
               <i className="fa fa-cutlery" aria-hidden="true"></i>

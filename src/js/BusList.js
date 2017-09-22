@@ -300,7 +300,8 @@ export class BusList extends React.Component {
       <div className='bus-list-note'>
         {'Refreshes every minute. Powered by '}
         <a href={'https://duke.transloc.com/'}>
-          {'transloc.'}
+          &nbsp;
+          {'TransLoc.'}
         </a>
       </div>
     );
@@ -311,7 +312,6 @@ export class BusList extends React.Component {
         </div>
         <div className='bus-list'>
           {this._renderBusList()}
-          {!this.state.isLoading && this.state.stops.length > 0 ? note : null}
           {
             !this.state.isLoading && this.state.stops.length == 0
             ? (
@@ -325,6 +325,7 @@ export class BusList extends React.Component {
             : null
           }
         </div>
+        {note}
       </div>
     );
   }

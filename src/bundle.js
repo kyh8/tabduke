@@ -38190,7 +38190,8 @@ var BusList = exports.BusList = function (_React$Component) {
         React.createElement(
           'a',
           { href: 'https://duke.transloc.com/' },
-          'transloc.'
+          '\xA0',
+          'TransLoc.'
         )
       );
       return React.createElement(
@@ -38205,7 +38206,6 @@ var BusList = exports.BusList = function (_React$Component) {
           'div',
           { className: 'bus-list' },
           this._renderBusList(),
-          !this.state.isLoading && this.state.stops.length > 0 ? note : null,
           !this.state.isLoading && this.state.stops.length == 0 ? React.createElement(
             'div',
             { className: 'bus-list-empty' },
@@ -38216,7 +38216,8 @@ var BusList = exports.BusList = function (_React$Component) {
               'Call 919-684-2020 for Duke Vans'
             )
           ) : null
-        )
+        ),
+        note
       );
     }
   }]);
@@ -38779,7 +38780,7 @@ var RestaurantList = exports.RestaurantList = function (_React$Component) {
         React.createElement(
           'div',
           { className: 'food-list' },
-          React.createElement(
+          this.state.foodTrucks.length > 0 ? React.createElement(
             'div',
             { className: 'food-truck-list' },
             React.createElement(
@@ -38789,7 +38790,7 @@ var RestaurantList = exports.RestaurantList = function (_React$Component) {
               '\xA0 Food Trucks'
             ),
             this._renderFoodTrucks()
-          ),
+          ) : null,
           React.createElement(
             'div',
             { className: 'restaurant-list' },
