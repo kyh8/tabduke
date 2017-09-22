@@ -1,4 +1,5 @@
 const React = require('react');
+const SettingsSectionConstants = require('./SettingsSectionConstants');
 
 export class DashboardSettingsItem extends React.Component {
   constructor(props) {
@@ -10,8 +11,15 @@ export class DashboardSettingsItem extends React.Component {
   }
 
   _toggleSwitch() {
+    const newState = !this.state.isOn;
     this.setState({
-      isOn: !this.state.isOn,
+      isOn: newState,
+    }, () => {
+      this.props.updateSettings(
+        SettingsSectionConstants.OPTIONS,
+        this.props.settingIndex,
+        newState
+      );
     });
   }
 
@@ -21,11 +29,11 @@ export class DashboardSettingsItem extends React.Component {
         <div
           className={
             this.state.isOn
-            ? 'dashboard-settings-item-switch-container enabled'
-            : 'dashboard-settings-item-switch-container disabled'
+            ? 'settings-item-switch-container enabled'
+            : 'settings-item-switch-container disabled'
           }
           onClick={this._toggleSwitch.bind(this)}>
-          <div className='dashboard-settings-item-switch'/>
+          <div className='settings-item-switch'/>
         </div>
         <div className='dashboard-settings-item-label'>
           {this.props.option.label}

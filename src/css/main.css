@@ -21,7 +21,12 @@ body {
   height: 100%;
 }
 
-.app-container {
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+.app-content {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -38,7 +43,7 @@ body {
   top: 0;
   left: 0;
   z-index: 12;
-  background-color: lightgray;
+  background-color: #f1f1f1;
   width: 100%;
   height: 100%;
   display: flex;
@@ -57,8 +62,7 @@ body {
 }
 
 .fade {
-  transition: all 0.7s ease;
-  transition-delay: 0.3s;
+  transition: all 0.4s ease;
 }
 
 .tabduke-logo {
@@ -88,6 +92,10 @@ body {
   font-weight: 500;
 }
 
+.time-display.bold {
+  font-family: 'Roboto', sans-serif;
+}
+
 .date-display {
   font-size: 36px;
   font-family: 'Roboto', sans-serif;
@@ -108,6 +116,7 @@ body {
   position: relative;
   padding: 20px;
   padding-bottom: 0;
+  width: 80px;
 }
 
 .bookmark-image {
@@ -116,7 +125,6 @@ body {
   border-radius: 10px;
   border: 1px solid white;
   cursor: pointer;
-  background-color: white;
   z-index: 2;
   position: relative;
 }
@@ -125,22 +133,36 @@ body {
   box-shadow: 0 0 10px white;
 }
 
+.bookmark a {
+  text-decoration: none;
+}
+
+.bookmark-icon {
+  font-size: 48px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .bookmark-label {
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   text-shadow: 0 0 3px black;
-  width: 100px;
+  width: 120px;
   position: absolute;
   bottom: 0px;
   opacity: 0;
   text-align: center;
   z-index: 1;
   font-family: 'Roboto', sans-serif;
+  overflow-wrap: break-word;
 }
 
 .bookmark-label.shown {
   opacity: 1;
-  bottom: -20px;
+  bottom: -24px;
   transition: all 0.3s ease;
 }
 
@@ -164,7 +186,7 @@ body {
   text-align: center;
   opacity: 0.8;
   height: 30px;
-  font-size: 24px;
+  font-size: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,14 +196,35 @@ body {
   border-bottom: 1px solid white;
 }
 
-.list-header div {
-  margin-left: 10px;
+.food-list,
+.bus-list {
+  height: 160px;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
-.restaurant-list,
-.bus-list {
-  height: 150px;
-  overflow: auto;
+.food-truck {
+  padding: 10px;
+  cursor: default;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.food-truck-label {
+  font-size: 18px;
+}
+
+.food-truck-times {
+  margin-top: 5px;
+  font-size: 11px;
+  color: white;
+  box-shadow: 0 0 2px black;
+  padding: 3px 5px;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 3px;
 }
 
 .restaurant {
@@ -258,6 +301,15 @@ body {
   text-shadow: 0 0 5px white;
 }
 
+.food-list-header {
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+}
+
 /* Buses */
 
 .bus-list-loading {
@@ -267,7 +319,7 @@ body {
   flex-direction: column;
   font-size: 10px;
   width: 100%;
-  height: 140px;
+  height: 150px;
 }
 
 .bus-list-loading i {
@@ -331,6 +383,7 @@ body {
   flex-direction: column;
   padding: 5px;
   width: 100%;
+  padding-left: 10px;
 }
 
 .bus-arrival-times {
@@ -354,7 +407,7 @@ body {
 
 .bus-list-empty {
   width: 100%;
-  height: 140px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,7 +463,7 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.settings-panel-content {
+.settings-panel-container {
   margin-top: 40px;
   display: flex;
   align-items: center;
@@ -461,10 +514,10 @@ body {
 }
 
 .settings-section-icon {
-  font-size: 16px;
+  font-size: 20px;
 }
 
-.settings-panel-sections {
+.settings-panel-content {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -496,11 +549,16 @@ body {
   margin-top: 20px;
 }
 
+.bookmark-settings-items {
+  margin: 0;
+  padding: 0;
+}
+
 .bookmark-settings-item-create-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .bookmark-settings-item-create {
@@ -528,17 +586,28 @@ body {
   box-shadow: 0 0 10px white;
 }
 
-.bookmark-settings-item {
-  display: flex;
-  align-items: center;
+.bookmark-settings-items-empty {
+  font-size: 18px;
+  color: gray;
 }
 
 .bookmark-settings-item {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  position: relative;
   margin-top: 10px;
+  left: 0;
 }
 
 .bookmark-settings-item:first-child {
   margin-top: 0;
+}
+
+.bookmark-settings-item.deleted {
+  opacity: 0;
+  left: 250px;
+  transition: all 0.3s ease-in;
 }
 
 .bookmark-settings-item-reorder {
@@ -550,7 +619,11 @@ body {
 .bookmark-settings-item-preview-image {
   width: 16px;
   height: 16px;
-  margin-left: 20px;
+  margin-left: 10px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bookmark-settings-item-preview-image img {
@@ -560,13 +633,32 @@ body {
   box-shadow: 0 0 2px white;
 }
 
+.bookmark-settings-item-preview-image div {
+  font-size: 12px;
+  color: white;
+}
+
 .bookmark-settings-item-label {
   font-size: 16px;
   margin-left: 10px;
+  cursor: default;
 }
 
-.dashboard-settings-items {
+.bookmark-settings-item-placeholder {
+  z-index: 11;
+  color: white;
+}
 
+.bookmark-settings-item-delete {
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+
+.bookmark-settings-item-delete:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .dashboard-settings-item {
@@ -574,31 +666,39 @@ body {
   align-items: center;
   justify-content: flex-start;
   margin-top: 10px;
-  cursor: pointer;
 }
 
 .dashboard-settings-item:first-child {
   margin-top: 0;
 }
 
-.dashboard-settings-item-switch-container {
+.bookmark-settings-item .settings-item-switch-container {
+  margin-left: 10px;
+}
+
+.settings-item-switch-container {
   width: 30px;
   height: 15px;
   border-radius: 15px;
   position: relative;
   border: 1px solid gray;
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-.dashboard-settings-item-switch-container.disabled {
+.settings-item-switch-container.off {
+  background-color: gray;
+}
+
+.settings-item-switch-container.disabled {
   background-color: white;
 }
 
-.dashboard-settings-item-switch-container.enabled {
+.settings-item-switch-container.enabled {
   background-color: rgb(0,122,255);
 }
 
-.dashboard-settings-item-switch {
+.settings-item-switch {
   width: 15px;
   height: 15px;
   border-radius: 15px;
@@ -610,13 +710,212 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.dashboard-settings-item-switch-container.enabled .dashboard-settings-item-switch {
+.settings-item-switch-container.enabled .settings-item-switch {
   left: 15px;
 }
 
 .dashboard-settings-item-label {
   font-size: 16px;
   margin-left: 10px;
+}
+
+.bookmark-editor-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bookmark-editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.bookmark-editor-field-container:first-child {
+  margin-top: 0;
+}
+
+.bookmark-editor-field-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.bookmark-editor-field {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  font-size: 24px;
+  line-height: 28px;
+  padding-left: 0;
+  padding-bottom: 2px;
+  background-color: transparent;
+  color: white;
+}
+
+.bookmark-editor-field::placeholder {
+  color: gray;
+  font-size: 18px;
+}
+
+.bookmark-editor-field-focus {
+  position: relative;
+  top: -2px;
+  height: 3px;
+  width: 0;
+  transition: all 0.3s ease-in;
+  background-color: rgb(0, 122, 255);
+}
+
+.bookmark-editor-field-focus.focused {
+  width: 100%;
+}
+
+.bookmark-editor-field-label {
+  font-size: 12px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.new-bookmark-preview {
+  margin-top: 40px;
+}
+
+.new-bookmark-preview .bookmark {
+  padding: 0;
+}
+
+.new-bookmark-preview-icon {
+  font-size: 48px;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  border: 1px solid white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-bookmark-preview .bookmark-label {
+  bottom: -24px;
+  opacity: 1;
+}
+
+.bookmark-editor-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 60px;
+  width: 100%;
+  margin-right: 40px;
+}
+
+.editor-button {
+  width: 60px;
+  height: 24px;
+  font-size: 14px;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'Roboto', sans-serif;
+}
+
+.editor-button:first-child {
+  margin-left: 0;
+}
+
+.editor-button:hover {
+  border-color: white;
+}
+
+.editor-button.disabled {
+  background-color: gray;
+  color: rgba(0,0,0,0.5);
+  cursor: default
+}
+
+.editor-button.disabled:hover {
+  border-color: transparent;
+}
+
+.bookmark-editor-create {
+  background-color: green;
+}
+
+.bookmark-editor-cancel {
+  background-color: gray;
+}
+
+.bookmark-editor-field-error {
+  font-size: 10px;
+  color: white;
+  width: 250px;
+  font-family: 'Roboto', sans-serif;
+  visibility: hidden;
+}
+
+.bookmark-editor-field-error.warning,
+.bookmark-editor-field-error.error {
+  visibility: visible;
+}
+
+.bookmark-editor-field-error.warning {
+  color: #fddd46;
+}
+
+.bookmark-editor-field-error.error {
+  color: red;
+}
+
+.new-bookmark-preview .bookmark-image {
+  background-color: white;
+}
+
+.notice-board {
+  margin-top: 60px;
+}
+
+.announcement {
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  border-left: 4px solid red;
+  padding: 10px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.announcement-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.announcement-title {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.announcement-description {
+  font-size: 14px;
+  color: lightgray;
+}
+
+.announcement-close {
+  position: absolute;
+  font-size: 14px;
+  top: 5px;
+  right: 5px;
 }
 
 .unselectable {

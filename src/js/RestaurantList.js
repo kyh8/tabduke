@@ -3,6 +3,9 @@ const Dining = require('../data/dining.json');
 const Restaurant = require('./Restaurant');
 const RestaurantStatus = require('./RestaurantStatus');
 const TimeConstants = require('./TimeConstants');
+const Keys = require('../data/keys.json');
+const FoodTruck = require('./FoodTruck');
+const $ = require('jquery');
 
 const ESTOffset = -4.0;
 const ALMOST_CLOSED = 1;
@@ -13,8 +16,11 @@ export class RestaurantList extends React.Component {
 
     const initialTime = this._getCurrentDukeTime();
     this._refreshTime();
+    this._fetchFoodTrucks();
     this.state = {
       currentTime: initialTime,
+      fetchingFoodTrucks: true,
+      foodTrucks: [],
     };
   }
 
@@ -98,22 +104,119 @@ export class RestaurantList extends React.Component {
           status={status}
           startTime={start}
           endTime={end}
-          menu={venue.menu}/>
+          menu={venue.menu}
+          {...this.props}/>
       );
       restaurantList.push(restaurant);
     });
     return restaurantList;
   }
 
+  _fetchFoodTrucks() {
+    let yesterday = new Date();
+    yesterday = new Date(
+      new Date(
+        yesterday.getTime()
+        - TimeConstants.HRS_PER_DAY
+        * TimeConstants.MINS_PER_HR
+        * TimeConstants.SECS_PER_MIN
+        * TimeConstants.MS_PER_SEC
+      ).toLocaleDateString()
+    );
+    console.log(yesterday);
+    let tomorrow = new Date(
+      yesterday.getTime()
+      + 3
+      * TimeConstants.HRS_PER_DAY
+      * TimeConstants.MINS_PER_HR
+      * TimeConstants.SECS_PER_MIN
+      * TimeConstants.MS_PER_SEC
+      - TimeConstants.MS_PER_SEC);
+    console.log(tomorrow);
+
+    let apiKey = Keys.foodtruckcalendar;
+    let calendarId = Keys.foodtruckcalendarID;
+
+    let https = 'https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events';
+    let request = $.ajax({
+      url: https,
+      dataType: 'json',
+      type: "GET",
+      data: {
+        key: apiKey,
+        timeMin: yesterday.toISOString(),
+        timeMax: tomorrow.toISOString(),
+        singleEvents:true,
+        orderBy:"startTime"
+      }
+    });
+    $.when(request).done((data) => {
+      let trucks = [];
+      data.items.forEach(function(event){
+        let start = new Date(event.start.dateTime);
+        let end = new Date(event.end.dateTime);
+        let truck = event.summary;
+        if(start.toLocaleDateString() == new Date().toLocaleDateString()){
+          let truckObj = {
+            start: start,
+            end: end,
+            name: truck
+          };
+          trucks.push(truckObj);
+        }
+      });
+      this.setState({
+        fetchingFoodTrucks: false,
+        foodTrucks: trucks,
+      });
+    });
+  }
+
+  _renderFoodTrucks() {
+    let foodTruckElements = [];
+    this.state.foodTrucks.forEach((truck, index) => {
+      let foodTruck = (
+        <FoodTruck
+          key={'food-truck-list-' + index}
+          foodTruck={truck}
+          {...this.props}/>
+      );
+      foodTruckElements.push(foodTruck);
+    });
+    if (this.state.fetchingFoodTrucks) {
+      return (
+        <div>
+          <i className='fa fa-refresh fa-2x fa-fw loading'/>
+        </div>
+      );
+    } else {
+      return foodTruckElements;
+    }
+  }
+
   render() {
     return (
       <div className='list-container'>
         <div className='list-header'>
-          <i className="fa fa-cutlery" aria-hidden="true"></i>
-          <div>{'Restaurants'}</div>
+          Food
         </div>
-        <div className='restaurant-list'>
-          {this._renderRestaurantList()}
+        <div className='food-list'>
+          <div className='food-truck-list'>
+            <div className='food-list-header'>
+              <i className="fa fa-truck" aria-hidden="true"></i>
+              &nbsp;
+              Food Trucks
+            </div>
+            {this._renderFoodTrucks()}
+          </div>
+          <div className='restaurant-list'>
+            <div className='food-list-header'>
+              <i className="fa fa-cutlery" aria-hidden="true"></i>
+              &nbsp;
+              Restaurants
+            </div>
+            {this._renderRestaurantList()}
+          </div>
         </div>
       </div>
     );

@@ -24,8 +24,16 @@ export class Restaurant extends React.Component {
       this.props.status === RestaurantStatus.OPEN
       || this.props.status === RestaurantStatus.CLOSING
     ) {
-      let startTime = TimeUtils.getTimeString(new Date(this.props.startTime), false);
-      let endTime = TimeUtils.getTimeString(new Date(this.props.endTime), false);
+      let startTime = TimeUtils.getTimeString(
+        new Date(this.props.startTime),
+        false,
+        this.props.dashboardSettings.options.militaryTime.value == 'true',
+      );
+      let endTime = TimeUtils.getTimeString(
+        new Date(this.props.endTime),
+        false,
+        this.props.dashboardSettings.options.militaryTime.value == 'true',
+      );
       closingTime = startTime + ' - ' + endTime;
       closingTimeDisplay = (
         <div className='restaurant-status-closing-time'>

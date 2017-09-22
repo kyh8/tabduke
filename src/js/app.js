@@ -5,6 +5,8 @@ const RestaurantList = require('./RestaurantList');
 const BusList = require('./BusList');
 const SettingsPanel = require('./SettingsPanel');
 const LoadingScreen = require('./LoadingScreen');
+const SettingsSectionConstants = require('./SettingsSectionConstants');
+const NoticeBoard = require('./NoticeBoard');
 
 const DefaultBookmarks = require('../data/default-bookmarks.json');
 const DefaultOptions = require('../data/default-options.json');
@@ -23,21 +25,23 @@ const BACKGROUNDS = [
   'winter_chapel.jpg',
 ];
 
+const FADE_DURATION = 400;
+
 export class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      loading: true,
+      loadingImage: true,
+      loadingData: true,
       settings: {
         bookmarks:[],
-        options:[],
+        options:{},
       },
     }
   }
 
-  componentDidMount() {
-    this._setBackground();
+  componentWillMount() {
     this._initializeSettings();
   }
 
@@ -50,48 +54,92 @@ export class App extends React.Component {
       document.getElementById('loading-screen').classList.add('fade');
       setTimeout(() => {
         this.setState({
-          loading: false,
+          loadingImage: false,
         });
-      }, 1000);
+      }, FADE_DURATION);
     };
     img.src = path;
   }
 
   _initializeSettings() {
-    console.log(DefaultBookmarks.items);
-    this.setState({
-      settings: {
-        bookmarks: DefaultBookmarks.items,
-        options: DefaultOptions.items,
-      },
+    chrome.storage.sync.get('tabduke-settings', (data) => {
+      let isEmpty = true;
+      Object.keys(data).forEach((key) => {
+        if (data.hasOwnProperty(key)) {
+          isEmpty = false;
+        }
+      });
+
+      if (isEmpty) {
+        this.setState({
+          loadingData: false,
+          settings: {
+            bookmarks: DefaultBookmarks.items,
+            options: DefaultOptions.items,
+          },
+        }, () => {
+          this._setBackground();
+          chrome.storage.sync.set({'tabduke-settings': this.state.settings});
+        });
+      } else {
+        this.setState({
+          loadingData: false,
+          settings: data['tabduke-settings'],
+        }, () => {
+          this._setBackground();
+        });
+      }
     });
   }
 
   updateSettings(settingType, key, newValue) {
-    console.log('update', settingType + '-' + key, 'to', newValue);
+    let newOptions = this.state.settings.options;
+    let newBookmarks = this.state.settings.bookmarks;
+    if (settingType === SettingsSectionConstants.OPTIONS) {
+      newOptions[key].value = String(newValue);
+    } else if (settingType === SettingsSectionConstants.BOOKMARKS) {
+      newBookmarks = newValue;
+    }
+
+    this.setState({
+      settings: {
+        bookmarks: newBookmarks,
+        options: newOptions,
+      }
+    }, () => {
+      chrome.storage.sync.set({'tabduke-settings': this.state.settings});
+    });
   }
 
   render() {
     return (
-      <div className='app-container'>
+      <div className='app'>
         {
-          this.state.loading
+          this.state.loadingImage
           ? <LoadingScreen/>
           : null
         }
-        <SettingsPanel
-          dashboardSettings={this.state.settings}
-          updateSettings={this.updateSettings.bind(this)}/>
-        <TimeDisplay
-          dashboardSettings={this.state.settings}
-          updateSettings={this.updateSettings.bind(this)}/>
-        <BookmarkTray
-          dashboardSettings={this.state.settings}
-          updateSettings={this.updateSettings.bind(this)}/>
-        <div className='info-container'>
-          <RestaurantList/>
-          <BusList/>
-        </div>
+        {
+          this.state.loadingData
+          ? null
+          : (
+            <div className='app-content'>
+              <SettingsPanel
+                dashboardSettings={this.state.settings}
+                updateSettings={this.updateSettings.bind(this)}/>
+              <TimeDisplay
+                dashboardSettings={this.state.settings}
+                updateSettings={this.updateSettings.bind(this)}/>
+              <BookmarkTray
+                dashboardSettings={this.state.settings}
+                updateSettings={this.updateSettings.bind(this)}/>
+              <div className='info-container'>
+                <RestaurantList dashboardSettings={this.state.settings}/>
+                <BusList/>
+              </div>
+            </div>
+          )
+        }
       </div>
     );
   }

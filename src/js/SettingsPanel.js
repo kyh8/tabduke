@@ -1,6 +1,7 @@
 const React = require('react');
 const SettingsSection = require('./SettingsSection');
 const SettingsSectionConstants = require('./SettingsSectionConstants');
+const BookmarkEditor = require('./BookmarkEditor');
 
 const ANIMATE_DURATION = 300;
 
@@ -11,6 +12,7 @@ export class SettingsPanel extends React.Component {
     this.state = {
       panelShown: false,
       animating: false,
+      editorShown: false,
     }
   }
 
@@ -27,6 +29,20 @@ export class SettingsPanel extends React.Component {
     });
   }
 
+  _toggleBookmarksEditor() {
+    this.setState({
+      editorShown: !this.state.editorShown,
+    });
+  }
+
+  _renderBookmarkEditor() {
+    return (
+      <BookmarkEditor
+        hideEditor={this._toggleBookmarksEditor.bind(this)}
+        {...this.props}/>
+    )
+  }
+
   _renderSettingsSections() {
     const sections = Object.keys(SettingsSectionConstants.sections);
     let sectionElements = [];
@@ -38,7 +54,8 @@ export class SettingsPanel extends React.Component {
           icon={sectionInfo.icon}
           iconColor={sectionInfo.iconColor}
           title={sectionInfo.title}
-          dashboardSettings={this.props.dashboardSettings}/>
+          toggleEditor={this._toggleBookmarksEditor.bind(this)}
+          {...this.props}/>
       );
       sectionElements.push(sectionElement);
     });
@@ -77,12 +94,20 @@ export class SettingsPanel extends React.Component {
           : 'settings-panel panel-hide panel-animate'
         }>
           {closePanelLink}
-          <div className='settings-panel-content'>
+          <div className='settings-panel-container'>
             <div className='settings-panel-header'>
-              Settings
+              {
+                this.state.editorShown
+                ? 'Create Bookmark'
+                : 'Settings'
+              }
             </div>
-            <div className='settings-panel-sections'>
-              {this._renderSettingsSections()}
+            <div className='settings-panel-content'>
+              {
+                this.state.editorShown
+                ? this._renderBookmarkEditor()
+                : this._renderSettingsSections()
+              }
             </div>
           </div>
         </div>

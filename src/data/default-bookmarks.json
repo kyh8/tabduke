@@ -4,26 +4,36 @@
       "image": "https://www.facebook.com/images/fb_icon_325x325.png",
       "href": "https://www.facebook.com",
       "label": "Facebook",
+      "isShown": "true",
+      "color": "white",
     },
     {
       "image": "http://cdn.appstorm.net/windows.appstorm.net/files/2012/10/Reddit-logo.jpg",
       "href": "https://www.reddit.com",
       "label": "Reddit",
+      "isShown": "true",
+      "color": "white",
     },
     {
       "image": "https://www.v3.co.uk/w-images/b9574043-ae2e-4b15-ba0a-55fae128da0a/0/microsoftoutlooklogo-320x320.jpg",
       "href": "https://outlook.office.com/owa/?realm=duke.edu",
-      "label": "Outlook Mail"
+      "label": "Outlook Mail",
+      "isShown": "true",
+      "color": "white",
     },
     {
       "image": "https://yt3.ggpht.com/-RqeU1zU7XUs/AAAAAAAAAAI/AAAAAAAAAAA/IsU_tUMM90s/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
       "href": "https://sakai.duke.edu",
       "label": "Sakai",
+      "isShown": "true",
+      "color": "white",
     },
     {
       "image": "http://phandroid.s3.amazonaws.com/wp-content/uploads/2011/07/NetflixSquare.png",
       "href": "https://www.netflix.com",
       "label": "Netflix",
+      "isShown": "true",
+      "color": "white",
     },
   ],
 }

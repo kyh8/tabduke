@@ -19,16 +19,20 @@ export class BookmarkTray extends React.Component {
   _renderBookmarks() {
     let bookmarkElements = [];
     this.props.dashboardSettings.bookmarks.forEach((bookmark, index) => {
-      let bookmarkElement = (
-        <Bookmark
-          key={'bookmark-' + bookmark.label}
-          image={bookmark.image}
-          href={bookmark.href}
-          label={bookmark.label}
-          index={index}
-          hoveredIndex={this.state.hovered}
-          setHovered={this.setHovered.bind(this)}/>
-      );
+      let bookmarkElement;
+      if (bookmark.isShown == 'true') {
+        bookmarkElement = (
+          <Bookmark
+            key={'bookmark-' + bookmark.label}
+            image={bookmark.image}
+            href={bookmark.href}
+            label={bookmark.label}
+            color={bookmark.color}
+            index={index}
+            hoveredIndex={this.state.hovered}
+            setHovered={this.setHovered.bind(this)}/>
+        );
+      }
       bookmarkElements.push(bookmarkElement);
     });
     return bookmarkElements;

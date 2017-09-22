@@ -307,8 +307,7 @@ export class BusList extends React.Component {
     return (
       <div className='list-container'>
         <div className='list-header'>
-          <i className="fa fa-bus" aria-hidden="true"></i>
-          <div>{'Buses'}</div>
+          Buses
         </div>
         <div className='bus-list'>
           {this._renderBusList()}

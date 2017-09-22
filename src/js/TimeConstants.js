@@ -2,6 +2,7 @@ const TimeConstants = {
   MS_PER_SEC: 1000,
   SECS_PER_MIN: 60,
   MINS_PER_HR: 60,
+  HRS_PER_DAY: 24,
   DAYS: [
     'Sunday',
     'Monday',

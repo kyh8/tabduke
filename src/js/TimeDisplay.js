@@ -8,11 +8,15 @@ export class TimeDisplay extends React.Component {
 
     setInterval(() => {
       this._setTime();
-    }, TimeConstants.MS_PER_SEC);
+    }, 0.5 * TimeConstants.MS_PER_SEC);
 
     const initialDate = this._getDate();
 
-    const initialTime = TimeUtils.getTimeString(new Date(), true);
+    const initialTime = TimeUtils.getTimeString(
+      new Date(),
+      this.props.dashboardSettings.options.showSeconds.value == 'true',
+      this.props.dashboardSettings.options.militaryTime.value == 'true',
+    );
     this.state = {
       time: initialTime,
       date: initialDate,
@@ -20,7 +24,11 @@ export class TimeDisplay extends React.Component {
   }
 
   _setTime() {
-    const time = TimeUtils.getTimeString(new Date(), true);
+    const time = TimeUtils.getTimeString(
+      new Date(),
+      this.props.dashboardSettings.options.showSeconds.value == 'true',
+      this.props.dashboardSettings.options.militaryTime.value == 'true',
+    );
     const date = this._getDate();
     this.setState({
       time: time,
@@ -43,7 +51,11 @@ export class TimeDisplay extends React.Component {
   render() {
     return (
       <div className='time-display-container'>
-        <div className='time-display'>
+        <div className={
+          this.props.dashboardSettings.options.boldClock.value == 'true'
+          ? 'time-display bold'
+          : 'time-display'
+        }>
           {this.state.time}
         </div>
         <div className='date-display'>
