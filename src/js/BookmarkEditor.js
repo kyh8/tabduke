@@ -18,7 +18,6 @@ export class BookmarkEditor extends React.Component {
 
     const index = Math.floor(Math.random() * 7);
     const color = COLORS[index];
-    console.log('color', color);
 
     this.state = {
       image: '',
@@ -103,7 +102,6 @@ export class BookmarkEditor extends React.Component {
   _cancelCreate() {
     const index = Math.floor(Math.random() * 7);
     const color = COLORS[index];
-    console.log('color', color);
     this.setState({
       image: '',
       validImage: false,
@@ -153,7 +151,7 @@ export class BookmarkEditor extends React.Component {
             placeholder={'Icon URL'}
             hasError={!this.state.validImage}
             errorType={0}
-            errorText={'Invalid image URL.'}
+            errorText={'Invalid image URL (icon image is optional).'}
             updateValue={this._updateValue.bind(this, 'image')}/>
           <BookmarkEditorField
             label={'Link'}

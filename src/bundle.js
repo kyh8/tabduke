@@ -37285,7 +37285,6 @@ var BookmarkEditor = exports.BookmarkEditor = function (_React$Component) {
 
     var index = Math.floor(Math.random() * 7);
     var color = COLORS[index];
-    console.log('color', color);
 
     _this.state = {
       image: '',
@@ -37374,7 +37373,6 @@ var BookmarkEditor = exports.BookmarkEditor = function (_React$Component) {
 
       var index = Math.floor(Math.random() * 7);
       var color = COLORS[index];
-      console.log('color', color);
       this.setState({
         image: '',
         validImage: false,
@@ -37426,7 +37424,7 @@ var BookmarkEditor = exports.BookmarkEditor = function (_React$Component) {
             placeholder: 'Icon URL',
             hasError: !this.state.validImage,
             errorType: 0,
-            errorText: 'Invalid image URL.',
+            errorText: 'Invalid image URL (icon image is optional).',
             updateValue: this._updateValue.bind(this, 'image') }),
           React.createElement(BookmarkEditorField, {
             label: 'Link',
