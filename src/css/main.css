@@ -117,7 +117,7 @@ body {
 }
 
 .time-display {
-  font-size: 12em;
+  font-size: 11em;
   font-weight: 500;
 }
 
@@ -145,12 +145,12 @@ body {
   position: relative;
   padding: 20px;
   padding-bottom: 0;
-  width: 80px;
+  width: 70px;
 }
 
 .bookmark-image {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 10px;
   border: 1px solid white;
   cursor: pointer;
@@ -199,7 +199,7 @@ body {
 .list-container {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
-  width: 300px;
+  width: 280px;
   margin-left: 30px;
   box-shadow: 0 0 4px black;
   position: relative;
@@ -210,16 +210,17 @@ body {
 }
 
 .list-header {
-  padding: 10px;
+  padding: 5px 0;
   background-color: #001A57;
   color: white;
   text-align: center;
   opacity: 0.8;
   height: 30px;
-  font-size: 32px;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -228,13 +229,14 @@ body {
 
 .food-list,
 .bus-list {
-  height: 180px;
+  height: 150px;
+  width: 100%;
   overflow: auto;
   overflow-x: hidden;
 }
 
 .bus-list {
-  height: 160px;
+  height: 130px;
 }
 
 .food-truck {
@@ -337,7 +339,7 @@ body {
 }
 
 .food-list-header {
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -354,7 +356,7 @@ body {
   flex-direction: column;
   font-size: 10px;
   width: 100%;
-  height: 160px;
+  height: 130px;
 }
 
 .bus-list-loading i {
@@ -383,7 +385,7 @@ body {
 }
 
 .bus-stop-section-header {
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -434,7 +436,7 @@ body {
   color: white;
   opacity: 0.8;
   position: absolute;
-  border-top: 1px solid gray;
+  border-top: 1px solid lightgray;
   bottom: -1px;
   width: 100%;
   height: 20px;
